@@ -48,7 +48,7 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="asset_behavior_latest_snapshot",
         runtime_input_path="data/runtime/asset_behavior/asset_behavior_latest_snapshot.json",
         seed_source_path="artifacts/qc_replay_5y_asset_behavior_decision_export_fred_regime_asset_class_mapped",
-        builder_module="pending_asset_behavior_bootstrap",
+        builder_module="signalforge.runtime.asset_behavior_bootstrap",
         description="Asset behavior runtime bootstrap source.",
     ),
     RuntimeSourceMapping(
@@ -92,3 +92,4 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
 RUNTIME_SOURCE_MAPPINGS_BY_INPUT: dict[str, RuntimeSourceMapping] = {
     mapping.runtime_input_name: mapping for mapping in RUNTIME_SOURCE_MAPPINGS
 }
+
