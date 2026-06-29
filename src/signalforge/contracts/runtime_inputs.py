@@ -84,6 +84,14 @@ RUNTIME_INPUT_CONTRACTS: tuple[RuntimeInputContract, ...] = (
         description="Latest runtime strategy selection snapshot joined to regime, asset behavior, option behavior, and expectancy selection state.",
     ),
 
+    RuntimeInputContract(
+        name="portfolio_construction_latest_snapshot",
+        path="data/runtime/portfolio_construction/portfolio_construction_latest_snapshot.json",
+        required=True,
+        max_age_days=None,
+        description="Latest runtime portfolio construction and position sizing snapshot with allocator policy.",
+    ),
+
 )
 
 

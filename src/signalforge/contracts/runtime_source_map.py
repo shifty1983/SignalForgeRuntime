@@ -94,6 +94,14 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         description="Builds the latest strategy-selection snapshot from historical strategy selection rows joined to historical decision rows.",
     ),
 
+    RuntimeSourceMapping(
+        runtime_input_name="portfolio_construction_latest_snapshot",
+        runtime_input_path="data/runtime/portfolio_construction/portfolio_construction_latest_snapshot.json",
+        seed_source_path="artifacts/portfolio_value_ranked_allocator_v2_20210601_20260531",
+        builder_module="signalforge.runtime.portfolio_construction_bootstrap",
+        description="Builds the latest portfolio construction snapshot from position sizing, layer-enriched sized rows, and allocator policy artifacts.",
+    ),
+
 )
 
 

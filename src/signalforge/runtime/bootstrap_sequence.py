@@ -11,6 +11,7 @@ from signalforge.runtime.closed_outcomes_bootstrap import build_closed_outcomes_
 from signalforge.runtime.market_regime_bootstrap import build_market_regime_bootstrap
 from signalforge.runtime.option_behavior_bootstrap import build_option_behavior_bootstrap
 from signalforge.runtime.option_quote_bootstrap import build_option_quote_bootstrap
+from signalforge.runtime.portfolio_construction_bootstrap import build_portfolio_construction_bootstrap
 from signalforge.runtime.prior_gate_asof_parity import build_prior_gate_asof_parity
 from signalforge.runtime.prior_gate_evaluation_outcomes_bootstrap import (
     build_prior_gate_evaluation_outcomes_bootstrap,
@@ -106,6 +107,10 @@ def build_runtime_bootstrap_sequence(
         (
             "strategy_selection_bootstrap",
             lambda: build_strategy_selection_bootstrap(seed_bundle=seed_bundle),
+        ),
+        (
+            "portfolio_construction_bootstrap",
+            lambda: build_portfolio_construction_bootstrap(seed_bundle=seed_bundle),
         ),
         (
             "closed_outcomes_bootstrap",

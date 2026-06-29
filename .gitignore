@@ -41,3 +41,6 @@ data/cache/
 Thumbs.db
 .vscode/
 .idea/
+
+.t/
+.pytest_runtime/
