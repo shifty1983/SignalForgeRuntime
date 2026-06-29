@@ -252,6 +252,50 @@ def _choose_scope(
     return best_scope_name, best_samples
 
 
+def _stage6_expectancy_min_max_compatibility_patch(rows):
+    """Backfill legacy expectancy_min_return / expectancy_max_return fields.
+
+    The V3.2.2 source artifact includes these fields. They are downstream
+    descriptive statistics only; they do not change sample counts, leakage
+    checks, expectancy state, or selection ranking.
+    """
+    grouped_returns = {}
+
+    def _key(row):
+        return (
+            row.get("training_window_start"),
+            row.get("training_window_end"),
+            row.get("expectancy_scope"),
+            row.get("strategy"),
+            row.get("strategy_instance"),
+            row.get("symbol"),
+            row.get("regime_state"),
+            row.get("asset_behavior_state"),
+            row.get("option_behavior_state") or row.get("options_behavior_state"),
+            row.get("holding_period_days"),
+        )
+
+    for row in rows:
+        adjusted_return = row.get("strategy_adjusted_return")
+        try:
+            value = float(adjusted_return)
+        except (TypeError, ValueError):
+            continue
+
+        grouped_returns.setdefault(_key(row), []).append(value)
+
+    for row in rows:
+        values = grouped_returns.get(_key(row), [])
+        if values:
+            row.setdefault("expectancy_min_return", min(values))
+            row.setdefault("expectancy_max_return", max(values))
+        else:
+            row.setdefault("expectancy_min_return", None)
+            row.setdefault("expectancy_max_return", None)
+
+    return rows
+
+
 def build_walk_forward_expectancy_rows(
     *,
     decision_rows_path: str | Path,
