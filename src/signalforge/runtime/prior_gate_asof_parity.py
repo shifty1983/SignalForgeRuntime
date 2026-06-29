@@ -14,7 +14,7 @@ from signalforge.rulebooks.prior_symbol_regime_state import (
 )
 
 
-DEFAULT_CLOSED_OUTCOMES = "data/runtime/trade_outcomes/closed_trade_outcomes.jsonl"
+DEFAULT_CLOSED_OUTCOMES = "data/runtime/rule_state/v3_2_2_prior_gate_evaluation_outcomes.jsonl"
 
 SKIPPED_ROWS_RELATIVE_PATH = (
     "artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531/"
@@ -364,3 +364,4 @@ def main(argv: Iterable[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

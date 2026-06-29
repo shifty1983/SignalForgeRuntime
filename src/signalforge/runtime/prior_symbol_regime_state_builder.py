@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-DEFAULT_INPUT = "data/runtime/trade_outcomes/closed_trade_outcomes.jsonl"
+DEFAULT_INPUT = "data/runtime/rule_state/v3_2_2_prior_gate_evaluation_outcomes.jsonl"
 DEFAULT_OUTPUT = "data/runtime/rule_state/v3_2_2_prior_symbol_regime_state.json"
 
 V3_2_2_MIN_PRIOR_COUNT = 8
@@ -234,3 +234,4 @@ def main(argv: Iterable[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
