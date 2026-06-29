@@ -1,12 +1,47 @@
 import csv
 import gzip
 import json
+import os
 import re
 from pathlib import Path
 from collections import defaultdict, Counter
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-OUT_DIR = Path("artifacts/v3_2_1_native_quote_join_v1_20230101_20260531")
+OUT_DIR = Path(os.environ.get(
+    "SIGNALFORGE_NATIVE_QUOTE_JOIN_OUT_DIR",
+    "artifacts/v3_2_1_native_quote_join_v1_20230101_20260531",
+))
+
+
+def env_path(name: str, default: str) -> Path:
+    return Path(os.environ.get(name, default))
+
+
+def env_path_list(name: str, defaults: list[str]) -> list[Path]:
+    raw = os.environ.get(name, "")
+    if raw.strip():
+        return [Path(part) for part in raw.split(os.pathsep) if part.strip()]
+    return [Path(part) for part in defaults]
+
+
+LEGACY_SOURCE_PATH_ROOT = os.environ.get(
+    "SIGNALFORGE_NATIVE_QUOTE_JOIN_LEGACY_SOURCE_PATH_ROOT",
+    "",
+).strip()
+
+
+def legacy_source_path(path_value: str) -> str:
+    if not LEGACY_SOURCE_PATH_ROOT:
+        return path_value
+
+    try:
+        path_obj = Path(path_value)
+        root_obj = Path(LEGACY_SOURCE_PATH_ROOT)
+
+        rel = path_obj.resolve().relative_to(root_obj.resolve())
+        return str(rel)
+    except Exception:
+        return path_value
 
 
 def main() -> int:
@@ -19,20 +54,32 @@ def main() -> int:
     SCENARIOS = {
         "30k": {
             "starting_capital": 30000.0,
-            "input_ledger": Path("artifacts/v3_2_1_spread_guardrail_metrics_stress_20230101_20260531/v3_2_1_30k/ledger.jsonl"),
+            "input_ledger": env_path(
+                "SIGNALFORGE_NATIVE_QUOTE_JOIN_30K_LEDGER",
+                "artifacts/v3_2_1_spread_guardrail_metrics_stress_20230101_20260531/v3_2_1_30k/ledger.jsonl",
+            ),
             "output_ledger": OUT_DIR / "v3_2_1_native_quote_join_30k" / "ledger.jsonl",
         },
         "40k": {
             "starting_capital": 40000.0,
-            "input_ledger": Path("artifacts/v3_2_1_spread_guardrail_metrics_stress_20230101_20260531/v3_2_1_40k/ledger.jsonl"),
+            "input_ledger": env_path(
+                "SIGNALFORGE_NATIVE_QUOTE_JOIN_40K_LEDGER",
+                "artifacts/v3_2_1_spread_guardrail_metrics_stress_20230101_20260531/v3_2_1_40k/ledger.jsonl",
+            ),
             "output_ledger": OUT_DIR / "v3_2_1_native_quote_join_40k" / "ledger.jsonl",
         },
     }
 
-    SEARCH_ROOTS = [
-        Path("artifacts"),
-        Path("data"),
-    ]
+    SEARCH_ROOTS = env_path_list(
+        "SIGNALFORGE_NATIVE_QUOTE_JOIN_SEARCH_ROOTS",
+        ["artifacts", "data"],
+    )
+
+    EXCLUDED_SEARCH_PATHS = env_path_list(
+        "SIGNALFORGE_NATIVE_QUOTE_JOIN_EXCLUDED_SEARCH_PATHS",
+        [],
+    )
+    EXCLUDED_SEARCH_PATHS_RESOLVED = [path.resolve() for path in EXCLUDED_SEARCH_PATHS]
 
     # Prefer likely quote artifacts first. Discovery still scans recursively.
     PREFERRED_QUOTE_PATH_PATTERNS = [
@@ -698,7 +745,7 @@ def main() -> int:
                         if should_replace:
                             quote_index[key] = {
                                 **qv,
-                                "source_path": str(path),
+                                "source_path": legacy_source_path(str(path)),
                                 "source_row_index": row_idx,
                                 "key_used": key,
                             }
