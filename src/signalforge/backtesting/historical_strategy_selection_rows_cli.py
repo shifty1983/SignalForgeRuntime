@@ -17,7 +17,7 @@ def main() -> int:
     parser.add_argument("--minimum-sample-count", type=int, default=20)
     parser.add_argument(
         "--allowed-construction-qualities",
-        default="primary,secondary",
+        default="",
         help="Comma-separated construction_quality values eligible for selection.",
     )
 

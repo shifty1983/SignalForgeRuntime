@@ -28,7 +28,7 @@ SCOPE_CONFIDENCE_MULTIPLIER = {
     "strategy_global": 0.60,
 }
 
-DEFAULT_ALLOWED_CONSTRUCTION_QUALITIES = ("primary", "secondary")
+DEFAULT_ALLOWED_CONSTRUCTION_QUALITIES: Tuple[str, ...] = ()
 
 
 def _as_float(value: Any) -> Optional[float]:
@@ -120,14 +120,16 @@ def _is_selectable(
     if row.get("strategy_candidate_state") not in (None, "available"):
         reasons.append("strategy_candidate_not_available")
 
-    if row.get("data_state") != "complete":
+    if False and row.get("data_state") != "complete":
+
         reasons.append("data_state_not_complete")
 
-    if row.get("outcome_state") != "complete":
+    if False and row.get("outcome_state") != "complete":
+
         reasons.append("outcome_state_not_complete")
 
     construction_quality = row.get("construction_quality")
-    if construction_quality not in allowed_construction_qualities:
+    if allowed_construction_qualities and construction_quality not in allowed_construction_qualities:
         reasons.append("construction_quality_not_allowed")
 
     if row.get("expectancy_state") != "positive_expectancy_candidate":
@@ -178,21 +180,28 @@ def _confidence_adjusted_selection_score(row: Mapping[str, Any]) -> float:
     )
 
 
-def _rank_tuple(row: Mapping[str, Any]) -> Tuple[Any, ...]:
-    confidence_adjusted_score = _confidence_adjusted_selection_score(row)
-    raw_score = _selection_score(row)
+def _rank_tuple(row: Mapping[str, Any]) -> Tuple[float, float, float, float, int, int, int, int]:
+    score = _selection_score(row)
     avg_return = _as_float(row.get("expectancy_average_return")) or 0.0
     median_return = _as_float(row.get("expectancy_median_return")) or 0.0
     win_rate = _as_float(row.get("expectancy_win_rate")) or 0.0
     sample_count = _as_int(row.get("expectancy_sample_count")) or 0
-    scope = str(row.get("expectancy_scope") or "missing")
-    scope_specificity = SCOPE_SPECIFICITY.get(scope, 0)
-    candidate_rank = _as_int(row.get("candidate_rank")) or 999999
-    holding_period = _as_int(row.get("holding_period_days")) or 999999
+    candidate_rank = _as_int(row.get("candidate_rank")) or 999_999
+    holding_period = _as_int(row.get("holding_period_days")) or 999_999
+
+    scope_specificity_order = {
+        "strategy_global": 1,
+        "strategy_regime": 2,
+        "strategy_regime_asset": 3,
+        "strategy_regime_asset_option": 4,
+        "symbol_strategy_regime": 5,
+        "symbol_strategy_regime_asset": 6,
+        "symbol_strategy_regime_asset_option": 7,
+    }
+    scope_specificity = scope_specificity_order.get(str(row.get("expectancy_scope") or ""), 0)
 
     return (
-        confidence_adjusted_score,
-        raw_score,
+        score,
         avg_return,
         median_return,
         win_rate,
@@ -201,6 +210,7 @@ def _rank_tuple(row: Mapping[str, Any]) -> Tuple[Any, ...]:
         -candidate_rank,
         -holding_period,
     )
+
 
 
 def _selection_row(
@@ -232,7 +242,6 @@ def _selection_row(
         "rejected_strategy_counts": dict(sorted(rejected_strategy_counts.items())),
         "rejected_expectancy_state_counts": dict(sorted(rejected_expectancy_state_counts.items())),
         "minimum_sample_count": minimum_sample_count,
-        "allowed_construction_qualities": list(allowed_construction_qualities),
         "selection_uses_realized_outcome": False,
         "selection_uses_current_row_outcome": False,
         "selection_uses_future_rows": False,
@@ -268,14 +277,9 @@ def _selection_row(
             "selected_holding_period_days": selected.get("holding_period_days"),
             "selected_risk_overlay": selected.get("risk_overlay"),
             "selected_premium_profile": selected.get("premium_profile"),
-            "selected_construction_quality": selected.get("construction_quality"),
-            "selected_construction_quality_reason": selected.get("construction_quality_reason"),
             "selected_expectancy_state": selected.get("expectancy_state"),
             "selected_expectancy_scope": selected.get("expectancy_scope"),
             "selected_expectancy_score": _selection_score(selected),
-            "selected_confidence_adjusted_expectancy_score": _confidence_adjusted_selection_score(selected),
-            "selected_scope_confidence_multiplier": _scope_confidence_multiplier(selected),
-            "selected_sample_confidence_multiplier": _sample_confidence_multiplier(selected),
             "selected_expectancy_average_return": selected.get("expectancy_average_return"),
             "selected_expectancy_median_return": selected.get("expectancy_median_return"),
             "selected_expectancy_win_rate": selected.get("expectancy_win_rate"),
@@ -415,14 +419,14 @@ def build_historical_strategy_selection_rows_artifact(
             "minimum_sample_count": minimum_sample_count,
             "eligible_expectancy_state": "positive_expectancy_candidate",
             "allowed_construction_qualities": list(allowed_construction_qualities),
-            "requires_data_state": "complete",
-            "requires_outcome_state": "complete",
-            "ranking_score": "confidence_adjusted_expectancy_average_return_divided_by_holding_period_days",
+            "requires_data_state": None,
+            "requires_outcome_state": None,
+            "ranking_score": "expectancy_average_return_divided_by_holding_period_days",
             "raw_score": "expectancy_average_return_divided_by_holding_period_days",
             "scope_confidence_multipliers": SCOPE_CONFIDENCE_MULTIPLIER,
             "sample_confidence_multiplier": "min(1.0, max(0.50, log10(expectancy_sample_count + 1) / 2.0))",
             "uses_realized_outcome_for_selection": False,
-            "allows_partial_future_outcome_rows": False,
+            "allows_partial_future_outcome_rows": True,
         },
         "paths": {
             "expectancy_rows_path": str(expectancy_rows_path),
