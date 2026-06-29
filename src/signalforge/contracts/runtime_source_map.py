@@ -62,7 +62,7 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="option_quote_snapshot",
         runtime_input_path="data/runtime/option_quotes/option_quote_snapshot.jsonl",
         seed_source_path="artifacts/v3_2_1_native_quote_join_v1_20230101_20260531",
-        builder_module="pending_option_quote_bootstrap",
+        builder_module="signalforge.runtime.option_quote_bootstrap",
         description="Native quote snapshot source for spread and execution checks.",
     ),
     RuntimeSourceMapping(
@@ -92,5 +92,6 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
 RUNTIME_SOURCE_MAPPINGS_BY_INPUT: dict[str, RuntimeSourceMapping] = {
     mapping.runtime_input_name: mapping for mapping in RUNTIME_SOURCE_MAPPINGS
 }
+
 
 
