@@ -1,9 +1,17 @@
 import json
+import os
 from pathlib import Path
 from collections import defaultdict, Counter
 from math import sqrt
 
-OUT_DIR = Path("artifacts/v3_2_1_native_quote_attribution_v1_20230101_20260531")
+OUT_DIR = Path(os.environ.get(
+    "SIGNALFORGE_NATIVE_QUOTE_ATTRIBUTION_OUT_DIR",
+    "artifacts/v3_2_1_native_quote_attribution_v1_20230101_20260531",
+))
+
+
+def env_path(name: str, default: str) -> Path:
+    return Path(os.environ.get(name, default))
 
 
 def main() -> int:
@@ -13,16 +21,25 @@ def main() -> int:
     GROUP_ROWS_PATH = OUT_DIR / "signalforge_v3_2_1_native_quote_attribution_groups.jsonl"
     TOP_ROWS_PATH = OUT_DIR / "signalforge_v3_2_1_native_quote_attribution_top_rows.jsonl"
 
-    NATIVE_STRESS_SUMMARY = Path("artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/signalforge_v3_2_1_native_quote_pnl_stress_summary.json")
+    NATIVE_STRESS_SUMMARY = env_path(
+        "SIGNALFORGE_NATIVE_QUOTE_ATTRIBUTION_STRESS_SUMMARY",
+        "artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/signalforge_v3_2_1_native_quote_pnl_stress_summary.json",
+    )
 
     SCENARIOS = {
         "30k": {
             "starting_capital": 30000.0,
-            "ledger": Path("artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_30k/ledger.jsonl"),
+            "ledger": env_path(
+                "SIGNALFORGE_NATIVE_QUOTE_ATTRIBUTION_30K_LEDGER",
+                "artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_30k/ledger.jsonl",
+            ),
         },
         "40k": {
             "starting_capital": 40000.0,
-            "ledger": Path("artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_40k/ledger.jsonl"),
+            "ledger": env_path(
+                "SIGNALFORGE_NATIVE_QUOTE_ATTRIBUTION_40K_LEDGER",
+                "artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_40k/ledger.jsonl",
+            ),
         },
     }
 
