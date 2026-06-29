@@ -5,54 +5,113 @@ from pathlib import Path
 from typing import Any
 
 
-REQUIRED_DRY_RUN_INPUT_PATTERNS = {
-    "market_or_decision_source": [
-        "data/**/*.json",
-        "data/**/*.jsonl",
-        "artifacts/**/*decision*.json",
-        "artifacts/**/*decision*.jsonl",
+EXCLUDED_NAME_FRAGMENTS = (
+    "migration_source_graph",
+    "source_graph",
+    "bootstrap_summary",
+    "cli_contract",
+    "dry_run_input_availability",
+    "debug",
+    "manifest",
+)
+
+
+STRICT_DRY_RUN_ARTIFACT_CONTRACTS = {
+    "historical_decision_rows": [
+        "signalforge_historical_decision_rows.jsonl",
+        "signalforge_historical_decision_rows_summary.json",
     ],
-    "strategy_candidate_or_selection_source": [
-        "artifacts/**/*candidate*.json",
-        "artifacts/**/*candidate*.jsonl",
-        "artifacts/**/*selection*.json",
-        "artifacts/**/*selection*.jsonl",
+    "historical_strategy_candidate_rows": [
+        "signalforge_historical_strategy_candidate_rows.jsonl",
+        "signalforge_historical_strategy_candidate_rows_summary.json",
     ],
-    "expectancy_source": [
-        "artifacts/**/*expectancy*.json",
-        "artifacts/**/*expectancy*.jsonl",
+    "walk_forward_expectancy": [
+        "signalforge_walk_forward_expectancy_rows.jsonl",
+        "signalforge_walk_forward_expectancy_summary.json",
     ],
-    "option_or_leg_source": [
-        "artifacts/**/*option*.json",
-        "artifacts/**/*option*.jsonl",
-        "artifacts/**/*leg*.json",
-        "artifacts/**/*leg*.jsonl",
+    "historical_strategy_selection_rows": [
+        "signalforge_historical_strategy_selection_rows.jsonl",
+        "signalforge_historical_strategy_selection_rows_summary.json",
     ],
-    "portfolio_or_position_source": [
-        "artifacts/**/*portfolio*.json",
-        "artifacts/**/*portfolio*.jsonl",
-        "artifacts/**/*position*.json",
-        "artifacts/**/*position*.jsonl",
+    "historical_strategy_leg_selection_rows": [
+        "signalforge_historical_strategy_leg_selection_rows.jsonl",
+        "signalforge_historical_strategy_leg_selection_rows_summary.json",
+    ],
+    "portfolio_position_sizing_replay": [
+        "signalforge_portfolio_position_sizing_replay_rows.jsonl",
+        "signalforge_portfolio_position_sizing_replay_summary.json",
+    ],
+    "portfolio_selected_trade_sequence": [
+        "signalforge_portfolio_selected_trade_sequence_rows.jsonl",
+        "signalforge_portfolio_selected_trade_sequence_summary.json",
+    ],
+    "quote_join_or_attribution": [
+        "quote",
+        "attribution",
+    ],
+    "stress_validation": [
+        "stress",
     ],
 }
 
 
-def _matches(patterns: list[str]) -> list[str]:
-    found: list[str] = []
-    for pattern in patterns:
-        for path in Path(".").glob(pattern):
-            if path.is_file():
-                found.append(str(path))
-    return sorted(set(found))
+def _is_excluded(path: Path) -> bool:
+    value = str(path).lower()
+    return any(fragment in value for fragment in EXCLUDED_NAME_FRAGMENTS)
+
+
+def _candidate_roots() -> list[Path]:
+    roots = [Path("artifacts"), Path("data")]
+
+    legacy_old_repo = Path(
+        r"C:\Users\02011715\Documents\SignalForge\raw_data_layer\artifacts"
+    )
+    if legacy_old_repo.exists():
+        roots.append(legacy_old_repo)
+
+    return roots
+
+
+def _find_exact_or_keyword_matches(tokens: list[str]) -> list[str]:
+    matches: list[str] = []
+
+    for root in _candidate_roots():
+        if not root.exists():
+            continue
+
+        for path in root.rglob("*"):
+            if not path.is_file():
+                continue
+
+            if path.suffix.lower() not in {".json", ".jsonl"}:
+                continue
+
+            if _is_excluded(path):
+                continue
+
+            name = path.name.lower()
+            full = str(path).lower()
+
+            for token in tokens:
+                token_lower = token.lower()
+
+                if token_lower.endswith((".json", ".jsonl")):
+                    if name == token_lower:
+                        matches.append(str(path))
+                else:
+                    if token_lower in full:
+                        matches.append(str(path))
+
+    return sorted(set(matches))
 
 
 def build_dry_run_input_availability_manifest() -> dict[str, Any]:
     categories: dict[str, Any] = {}
 
-    for category, patterns in REQUIRED_DRY_RUN_INPUT_PATTERNS.items():
-        matches = _matches(patterns)
+    for category, tokens in STRICT_DRY_RUN_ARTIFACT_CONTRACTS.items():
+        matches = _find_exact_or_keyword_matches(tokens)
         categories[category] = {
-            "patterns": patterns,
+            "contract_tokens": tokens,
             "match_count": len(matches),
             "sample_matches": matches[:25],
             "is_available": len(matches) > 0,
@@ -65,12 +124,14 @@ def build_dry_run_input_availability_manifest() -> dict[str, Any]:
     ]
 
     return {
-        "adapter_type": "migrated_workflow_dry_run_input_availability_scanner",
-        "artifact_type": "signalforge_migrated_workflow_dry_run_input_availability",
+        "adapter_type": "migrated_workflow_strict_dry_run_input_availability_scanner",
+        "artifact_type": "signalforge_migrated_workflow_strict_dry_run_input_availability",
         "is_ready": len(blockers) == 0,
         "blocker_count": len(blockers),
         "blockers": blockers,
         "categories": categories,
+        "candidate_roots": [str(root) for root in _candidate_roots()],
+        "excluded_name_fragments": list(EXCLUDED_NAME_FRAGMENTS),
     }
 
 
