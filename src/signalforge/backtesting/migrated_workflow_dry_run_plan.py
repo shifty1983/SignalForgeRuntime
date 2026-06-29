@@ -31,6 +31,7 @@ ORDERED_STAGES = [
     "historical_strategy_leg_selection_rows",
     "portfolio_position_sizing_replay",
     "portfolio_selected_trade_sequence",
+    "layer_field_carry_forward_enrichment_v2",
     "quote_join",
     "quote_attribution",
     "v3_2_2_pruning",

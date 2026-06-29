@@ -42,6 +42,14 @@ ARTIFACT_GROUPS = {
         "folder_patterns": ["portfolio_selected_trade_sequence_20210601_20260531"],
         "required_name_tokens": ["portfolio_selected_trade_sequence"],
     },
+    "layer_field_carry_forward_enrichment_v2": {
+        "folder_patterns": [
+            "layer_field_carry_forward_enrichment_v2",
+            "carry_forward_enrichment",
+            "field_carry_forward",
+        ],
+        "required_name_tokens": ["carry", "enrichment", "layer"],
+    },
     "quote_join": {
         "folder_patterns": [
             "v3_2_1_native_quote_join_v1",
@@ -166,6 +174,7 @@ def build_exact_artifact_path_manifest() -> dict[str, Any]:
             "historical_strategy_leg_selection_rows",
             "portfolio_position_sizing_replay",
             "portfolio_selected_trade_sequence",
+            "layer_field_carry_forward_enrichment_v2",
         }:
             if not group["has_row_file"]:
                 blockers.append(f"{group_name}_row_file_missing")

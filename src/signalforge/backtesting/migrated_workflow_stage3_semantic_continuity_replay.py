@@ -49,6 +49,18 @@ EXPECTED_RELATIONSHIPS = [
         "operator": "==",
     },
     {
+        "name": "trade_sequence_covers_layer_enrichment_rows",
+        "left_stage": "portfolio_selected_trade_sequence",
+        "right_stage": "layer_field_carry_forward_enrichment_v2",
+        "operator": ">=",
+    },
+    {
+        "name": "layer_enrichment_covers_quote_join_rows",
+        "left_stage": "layer_field_carry_forward_enrichment_v2",
+        "right_stage": "quote_join",
+        "operator": ">=",
+    },
+    {
         "name": "pruning_rows_not_larger_than_quote_join_rows",
         "left_stage": "quote_join",
         "right_stage": "v3_2_2_pruning",
