@@ -76,6 +76,14 @@ RUNTIME_INPUT_CONTRACTS: tuple[RuntimeInputContract, ...] = (
         max_age_days=None,
         description="Current V3.2.2 prior symbol/regime state generated from evaluation outcomes.",
     ),
+    RuntimeInputContract(
+        name="strategy_selection_latest_snapshot",
+        path="data/runtime/strategy_selection/strategy_selection_latest_snapshot.json",
+        required=True,
+        max_age_days=None,
+        description="Latest runtime strategy selection snapshot joined to regime, asset behavior, option behavior, and expectancy selection state.",
+    ),
+
 )
 
 

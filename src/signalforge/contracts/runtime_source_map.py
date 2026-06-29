@@ -86,6 +86,14 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         builder_module="signalforge.runtime.prior_symbol_regime_state_builder",
         description="Generated V3.2.2 prior symbol/regime state from prior-gate evaluation outcomes.",
     ),
+    RuntimeSourceMapping(
+        runtime_input_name="strategy_selection_latest_snapshot",
+        runtime_input_path="data/runtime/strategy_selection/strategy_selection_latest_snapshot.json",
+        seed_source_path="artifacts/historical_strategy_selection_rows_20210601_20260531",
+        builder_module="signalforge.runtime.strategy_selection_bootstrap",
+        description="Builds the latest strategy-selection snapshot from historical strategy selection rows joined to historical decision rows.",
+    ),
+
 )
 
 

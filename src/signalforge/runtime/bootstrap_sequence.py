@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -17,6 +17,7 @@ from signalforge.runtime.prior_gate_evaluation_outcomes_bootstrap import (
 )
 from signalforge.runtime.prior_gate_skipped_row_parity import build_prior_gate_skipped_row_parity
 from signalforge.runtime.prior_symbol_regime_state_builder import build_prior_symbol_regime_state
+from signalforge.runtime.strategy_selection_bootstrap import build_strategy_selection_bootstrap
 
 
 @dataclass(frozen=True)
@@ -101,6 +102,10 @@ def build_runtime_bootstrap_sequence(
         (
             "option_quote_bootstrap",
             lambda: build_option_quote_bootstrap(seed_bundle=seed_bundle),
+        ),
+        (
+            "strategy_selection_bootstrap",
+            lambda: build_strategy_selection_bootstrap(seed_bundle=seed_bundle),
         ),
         (
             "closed_outcomes_bootstrap",
