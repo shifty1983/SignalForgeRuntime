@@ -68,10 +68,34 @@ def _score_path(path: str) -> tuple[int, str]:
     return score, value
 
 
+def _jsonl_non_empty_penalty(path: str) -> int:
+    candidate = Path(path)
+
+    if candidate.suffix.lower() != ".jsonl":
+        return 0
+
+    try:
+        with candidate.open("r", encoding="utf-8-sig", errors="ignore") as handle:
+            for line in handle:
+                if line.strip():
+                    return 0
+    except OSError:
+        return 1000
+
+    return 1000
+
+
 def _choose(paths: list[str]) -> str | None:
     if not paths:
         return None
-    return sorted(paths, key=_score_path)[0]
+
+    return sorted(
+        paths,
+        key=lambda path: (
+            _jsonl_non_empty_penalty(path),
+            *_score_path(path),
+        ),
+    )[0]
 
 
 def build_migrated_workflow_dry_run_plan() -> dict[str, Any]:
