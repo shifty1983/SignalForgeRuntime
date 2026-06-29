@@ -19,6 +19,7 @@ from signalforge.runtime.prior_gate_evaluation_outcomes_bootstrap import (
 from signalforge.runtime.prior_gate_skipped_row_parity import build_prior_gate_skipped_row_parity
 from signalforge.runtime.prior_symbol_regime_state_builder import build_prior_symbol_regime_state
 from signalforge.runtime.strategy_selection_bootstrap import build_strategy_selection_bootstrap
+from signalforge.runtime.v3_2_2_pre_trade_decisions_bootstrap import build_v3_2_2_pre_trade_decisions_bootstrap
 
 
 @dataclass(frozen=True)
@@ -123,6 +124,10 @@ def build_runtime_bootstrap_sequence(
         (
             "prior_symbol_regime_state_builder",
             lambda: build_prior_symbol_regime_state(),
+        ),
+        (
+            "v3_2_2_pre_trade_decisions_bootstrap",
+            lambda: build_v3_2_2_pre_trade_decisions_bootstrap(),
         ),
         (
             "prior_gate_skipped_row_parity",

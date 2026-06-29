@@ -102,6 +102,14 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         description="Builds the latest portfolio construction snapshot from position sizing, layer-enriched sized rows, and allocator policy artifacts.",
     ),
 
+    RuntimeSourceMapping(
+        runtime_input_name="v3_2_2_pre_trade_decisions",
+        runtime_input_path="data/runtime/pre_trade_rules/v3_2_2_pre_trade_decisions.jsonl",
+        seed_source_path="artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
+        builder_module="signalforge.runtime.v3_2_2_pre_trade_decisions_bootstrap",
+        description="Builds runtime V3.2.2 pre-trade decisions from portfolio construction candidates, quote spread state, and prior symbol/regime state.",
+    ),
+
 )
 
 

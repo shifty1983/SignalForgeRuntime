@@ -92,6 +92,14 @@ RUNTIME_INPUT_CONTRACTS: tuple[RuntimeInputContract, ...] = (
         description="Latest runtime portfolio construction and position sizing snapshot with allocator policy.",
     ),
 
+    RuntimeInputContract(
+        name="v3_2_2_pre_trade_decisions",
+        path="data/runtime/pre_trade_rules/v3_2_2_pre_trade_decisions.jsonl",
+        required=True,
+        max_age_days=None,
+        description="Runtime V3.2.2 pre-trade decisions after spread guardrail and prior symbol/regime gate evaluation.",
+    ),
+
 )
 
 
