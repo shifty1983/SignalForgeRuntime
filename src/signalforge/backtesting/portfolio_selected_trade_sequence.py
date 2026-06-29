@@ -573,6 +573,37 @@ def build_portfolio_selected_trade_sequence(
         row["sequence_index"] = sequence_index
         row["sequence_id"] = f"portfolio_selected_trade_{sequence_index:08d}"
 
+
+    legacy_v3_2_2_row_excluded_fields = {
+        "contract_count",
+        "contract_count_source",
+        "contract_quantity",
+        "data_state",
+        "fallback_contract_count",
+        "is_portfolio_reconstructable",
+        "is_selected_trade",
+        "option_liquidity_state",
+        "outcome_state",
+        "selection_state",
+    }
+
+    for sequenced_row in sequenced_rows:
+        skip_reasons = sequenced_row.get("portfolio_skip_reasons")
+        if isinstance(skip_reasons, list) and "no_trade" in skip_reasons:
+            legacy_skip_reasons = []
+
+            if sequenced_row.get("selected_strategy") in (None, ""):
+                legacy_skip_reasons.append("missing_selected_strategy")
+
+            if sequenced_row.get("realized_return") in (None, ""):
+                legacy_skip_reasons.append("missing_realized_return")
+
+            if legacy_skip_reasons:
+                sequenced_row["portfolio_skip_reasons"] = legacy_skip_reasons
+
+        for excluded_field in legacy_v3_2_2_row_excluded_fields:
+            sequenced_row.pop(excluded_field, None)
+
     output_rows_path = output_dir / "signalforge_portfolio_selected_trade_sequence.jsonl"
     output_summary_path = (
         output_dir / "signalforge_portfolio_selected_trade_sequence_summary.json"
