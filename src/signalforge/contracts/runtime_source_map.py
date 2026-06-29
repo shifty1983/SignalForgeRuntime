@@ -55,7 +55,7 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="option_behavior_latest_snapshot",
         runtime_input_path="data/runtime/option_behavior/option_behavior_latest_snapshot.json",
         seed_source_path="artifacts/qc_replay_5y_partitioned_option_behavior_classifier",
-        builder_module="pending_option_behavior_bootstrap",
+        builder_module="signalforge.runtime.option_behavior_bootstrap",
         description="Option behavior runtime bootstrap source.",
     ),
     RuntimeSourceMapping(
@@ -92,4 +92,5 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
 RUNTIME_SOURCE_MAPPINGS_BY_INPUT: dict[str, RuntimeSourceMapping] = {
     mapping.runtime_input_name: mapping for mapping in RUNTIME_SOURCE_MAPPINGS
 }
+
 
