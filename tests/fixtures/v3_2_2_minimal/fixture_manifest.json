@@ -1,0 +1,14 @@
+﻿{
+    "seed_bundle":  "C:\\Users\\02011715\\Documents\\SignalForge_v3_2_2_seed_bundle_20260628_180919",
+    "copied_count":  4,
+    "missing_count":  0,
+    "copied":  [
+                   "v3_2_2_stress_summary.json",
+                   "v3_2_2_pre_broker_audit_pack_summary.json",
+                   "v3_2_2_paper_candidate_ruleset_lock.json",
+                   "project_current_candidate_snapshot.json"
+               ],
+    "missing":  [
+
+                ]
+}

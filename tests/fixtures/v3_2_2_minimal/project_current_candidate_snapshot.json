@@ -1,0 +1,103 @@
+﻿{
+    "adapter_type":  "project_current_candidate_snapshot_builder",
+    "artifact_type":  "signalforge_project_current_candidate_snapshot",
+    "contract":  "project_current_candidate_snapshot",
+    "snapshot_timestamp":  "20260628_171901",
+    "is_ready":  true,
+    "readiness_state":  "ready",
+    "project_state":  "v3_2_2_locked_as_current_paper_candidate",
+    "current_paper_candidate":  "signalforge_v3_2_2_symbol_regime_walkforward_prune_20230101_20260531",
+    "current_paper_candidate_state":  "locked_for_paper_candidate_review",
+    "live_candidate_state":  "not_live_candidate",
+    "supersedes_paper_candidate":  "signalforge_v3_2_1_spread_guardrail_12_5pct_20230101_20260531",
+    "validation_state":  {
+                             "native_quote_join":  "quote_native_join_passed_preferred_coverage",
+                             "native_quote_execution":  "native_quote_execution_validation_passed",
+                             "v3_2_2_stress":  "promote_to_v3_2_2_research_candidate_for_review",
+                             "v3_2_2_attribution":  "v3_2_2_native_quote_attribution_passed_with_follow_up_flags",
+                             "iron_butterfly_dependence":  "iron_butterfly_dependency_survival_passed_no_cap_candidate",
+                             "paper_candidate_lock":  "lock_v3_2_2_as_current_paper_candidate_ruleset"
+                         },
+    "locked_rules":  [
+                         {
+                             "rule_id":  "spread_guardrail_skip_gt_12_5pct_v1",
+                             "inherited_from":  "v3_2_1",
+                             "condition":  "spread_pct \u003e 0.125",
+                             "action":  "skip_trade"
+                         },
+                         {
+                             "rule_id":  "prior_symbol_regime_m8_netneg_pf090_v1",
+                             "inherited_from":  "v3_2_2",
+                             "scope":  [
+                                           "symbol",
+                                           "regime"
+                                       ],
+                             "min_prior_closed_trades":  8,
+                             "prior_net_pnl_max":  0,
+                             "prior_profit_factor_max":  0.9,
+                             "prior_data_rule":  "closed outcomes only where close_date \u003c current_entry_date",
+                             "action":  "skip_trade"
+                         }
+                     ],
+    "scenario_snapshot":  [
+                              {
+                                  "capital_label":  "30k",
+                                  "ending_equity":  760756.16413,
+                                  "total_pnl_dollars":  730756.16413,
+                                  "pnl_multiple":  24.358539,
+                                  "max_drawdown_pct":  -0.100569,
+                                  "trade_profit_factor":  2.646401,
+                                  "daily_profit_factor":  3.874536,
+                                  "trade_count":  1050,
+                                  "win_rate":  0.533333,
+                                  "skipped_trade_count":  85,
+                                  "delta_pnl_vs_v3_2_1_native":  15599.690532
+                              },
+                              {
+                                  "capital_label":  "40k",
+                                  "ending_equity":  776568.165749,
+                                  "total_pnl_dollars":  736568.165749,
+                                  "pnl_multiple":  18.414204,
+                                  "max_drawdown_pct":  -0.164075,
+                                  "trade_profit_factor":  2.633118,
+                                  "daily_profit_factor":  3.876499,
+                                  "trade_count":  1059,
+                                  "win_rate":  0.532578,
+                                  "skipped_trade_count":  91,
+                                  "delta_pnl_vs_v3_2_1_native":  17193.237714
+                              }
+                          ],
+    "known_follow_up_flags":  {
+                                  "iron_butterfly_high_contribution":  true,
+                                  "iron_butterfly_cap_promoted":  false,
+                                  "paper_trading_required":  true,
+                                  "broker_execution_rehearsal_required":  true,
+                                  "live_approval":  false
+                              },
+    "git":  {
+                "commit":  "4ce1d74",
+                "working_tree_dirty":  false
+            },
+    "source_artifacts":  {
+                             "v3_2_2_lock":  "artifacts\\v3_2_2_paper_candidate_ruleset_lock_20230101_20260531\\signalforge_v3_2_2_paper_candidate_ruleset_lock.json",
+                             "native_quote_join":  "artifacts\\v3_2_1_native_quote_join_v1_20230101_20260531\\signalforge_v3_2_1_native_quote_join_summary.json",
+                             "native_quote_pnl_stress":  "artifacts\\v3_2_1_native_quote_pnl_stress_v1_20230101_20260531\\signalforge_v3_2_1_native_quote_pnl_stress_summary.json",
+                             "v3_2_2_stress":  "artifacts\\v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531\\signalforge_v3_2_2_symbol_regime_walkforward_prune_stress_summary.json",
+                             "v3_2_2_attribution":  "artifacts\\v3_2_2_native_quote_attribution_v1_20230101_20260531\\signalforge_v3_2_2_native_quote_attribution_summary.json",
+                             "v3_2_2_iron_butterfly_dependence":  "artifacts\\v3_2_2_iron_butterfly_dependence_v1_20230101_20260531\\signalforge_v3_2_2_iron_butterfly_dependence_summary.json"
+                         },
+    "blockers":  [
+
+                 ],
+    "warnings":  [
+                     "Current candidate is paper-review only, not live-approved.",
+                     "Iron butterfly remains a high-contribution strategy.",
+                     "Paper trading and broker execution rehearsal are required before live deployment."
+                 ],
+    "next_steps":  [
+                       "Commit the current-candidate snapshot.",
+                       "Use V3.2.2 as the official paper-trading baseline.",
+                       "Build broker execution rehearsal for order translation, fills, commissions, and rejection handling.",
+                       "Paper trade before live approval."
+                   ]
+}

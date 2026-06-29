@@ -1,0 +1,248 @@
+{
+  "adapter_type": "v3_2_2_pre_broker_audit_pack_builder",
+  "artifact_type": "signalforge_v3_2_2_pre_broker_audit_pack",
+  "audit_scope": [
+    "no_lookahead_data_lineage",
+    "year_quarter_month_stability",
+    "capacity_liquidity_realism"
+  ],
+  "blockers": [],
+  "candidate_id": "signalforge_v3_2_2_symbol_regime_walkforward_prune_20230101_20260531",
+  "capacity_summaries": [
+    {
+      "active_trade_count": 1050,
+      "capital_label": "30k",
+      "contract_count": 2785.0,
+      "execution_cost_as_pct_of_pnl": 0.173388,
+      "flagged_detail_row_count": 1050,
+      "liquidity_state_counts": {
+        "illiquid_or_sparse": 56,
+        "liquid": 840,
+        "moderate_liquidity": 154
+      },
+      "open_interest_coverage": 1.0,
+      "quantity_to_open_interest_max": 0.04,
+      "quantity_to_open_interest_p95": 0.024324,
+      "quantity_to_volume_max": 4.0,
+      "quantity_to_volume_p95": 2.0,
+      "quote_cost_bucket_counts": {
+        "00_25": 555,
+        "100_150": 52,
+        "150_250": 34,
+        "250_plus": 17,
+        "25_50": 246,
+        "50_100": 139,
+        "missing_quote": 7
+      },
+      "quote_cost_method_counts": {
+        "actual_joined_quote_cost": 1043,
+        "missing_quote_p95_penalty": 7
+      },
+      "quote_unit_cost_coverage": 0.993333,
+      "quote_unit_cost_max": 515.0,
+      "quote_unit_cost_p50": 23.0,
+      "quote_unit_cost_p90": 100.0,
+      "quote_unit_cost_p95": 149.05,
+      "quote_unit_cost_p99": 280.0,
+      "spread_gt_12_5pct_count": 0,
+      "spread_pct_coverage": 1.0,
+      "spread_pct_max": 0.125,
+      "spread_pct_p50": 0.057971,
+      "spread_pct_p90": 0.10989,
+      "spread_pct_p95": 0.117647,
+      "spread_pct_p99": 0.125,
+      "spread_source_paths_top": {
+        "bid_ask_spread_pct": 1050
+      },
+      "top_strategy_trade_counts": {
+        "bull_call_debit_spread": 191,
+        "calendar_spread": 123,
+        "call_credit_spread": 93,
+        "iron_butterfly": 127,
+        "long_call": 449,
+        "put_credit_spread": 67
+      },
+      "top_symbol_trade_counts": {
+        "DIA": 48,
+        "GDX": 30,
+        "IWM": 31,
+        "QQQ": 43,
+        "SPY": 52,
+        "VTI": 27,
+        "XLF": 42,
+        "XLI": 37,
+        "XLP": 34,
+        "XLV": 28
+      },
+      "total_commission_cost": 4177.5,
+      "total_native_quote_cost": 122527.0,
+      "total_pnl": 730756.16413,
+      "volume_coverage": 1.0
+    },
+    {
+      "active_trade_count": 1059,
+      "capital_label": "40k",
+      "contract_count": 2813.0,
+      "execution_cost_as_pct_of_pnl": 0.173556,
+      "flagged_detail_row_count": 1059,
+      "liquidity_state_counts": {
+        "illiquid_or_sparse": 57,
+        "liquid": 842,
+        "moderate_liquidity": 160
+      },
+      "open_interest_coverage": 1.0,
+      "quantity_to_open_interest_max": 0.04,
+      "quantity_to_open_interest_p95": 0.024707,
+      "quantity_to_volume_max": 4.0,
+      "quantity_to_volume_p95": 2.0,
+      "quote_cost_bucket_counts": {
+        "00_25": 562,
+        "100_150": 52,
+        "150_250": 35,
+        "250_plus": 17,
+        "25_50": 246,
+        "50_100": 140,
+        "missing_quote": 7
+      },
+      "quote_cost_method_counts": {
+        "actual_joined_quote_cost": 1052,
+        "missing_quote_p95_penalty": 7
+      },
+      "quote_unit_cost_coverage": 0.99339,
+      "quote_unit_cost_max": 515.0,
+      "quote_unit_cost_p50": 22.75,
+      "quote_unit_cost_p90": 100.0,
+      "quote_unit_cost_p95": 149.725,
+      "quote_unit_cost_p99": 280.0,
+      "spread_gt_12_5pct_count": 0,
+      "spread_pct_coverage": 1.0,
+      "spread_pct_max": 0.125,
+      "spread_pct_p50": 0.058252,
+      "spread_pct_p90": 0.10989,
+      "spread_pct_p95": 0.117647,
+      "spread_pct_p99": 0.125,
+      "spread_source_paths_top": {
+        "bid_ask_spread_pct": 1059
+      },
+      "top_strategy_trade_counts": {
+        "bull_call_debit_spread": 191,
+        "calendar_spread": 123,
+        "call_credit_spread": 93,
+        "iron_butterfly": 130,
+        "long_call": 455,
+        "put_credit_spread": 67
+      },
+      "top_symbol_trade_counts": {
+        "DIA": 48,
+        "GDX": 30,
+        "IWM": 31,
+        "QQQ": 43,
+        "SPY": 52,
+        "XLF": 42,
+        "XLI": 34,
+        "XLK": 28,
+        "XLP": 34,
+        "XLV": 28
+      },
+      "total_commission_cost": 4219.5,
+      "total_native_quote_cost": 123616.0,
+      "total_pnl": 736568.165749,
+      "volume_coverage": 1.0
+    }
+  ],
+  "contract": "v3_2_2_pre_broker_audit_pack",
+  "decision": "v3_2_2_pre_broker_audits_passed_with_follow_up_flags",
+  "is_ready": true,
+  "lineage_summaries": [
+    {
+      "actual_v3_2_2_skip_count": 85,
+      "audit_passed": true,
+      "blockers": [],
+      "candidate_active_pnl": 730756.16413,
+      "candidate_active_trade_count": 1050,
+      "candidate_row_count": 1319,
+      "capital_label": "30k",
+      "delta_pnl_candidate_minus_parent": 15599.690532,
+      "expected_delta_from_skips": 15599.690532,
+      "expected_skip_count": 85,
+      "false_negative_skip_count": 0,
+      "false_positive_skip_count": 0,
+      "future_prior_violation_count": 0,
+      "parent_active_pnl": 715156.473598,
+      "parent_active_trade_count": 1135,
+      "parent_row_count": 1319,
+      "skipped_parent_pnl": -15599.690532,
+      "stored_prior_mismatch_count": 0,
+      "warnings": []
+    },
+    {
+      "actual_v3_2_2_skip_count": 91,
+      "audit_passed": true,
+      "blockers": [],
+      "candidate_active_pnl": 736568.165749,
+      "candidate_active_trade_count": 1059,
+      "candidate_row_count": 1337,
+      "capital_label": "40k",
+      "delta_pnl_candidate_minus_parent": 17193.237714,
+      "expected_delta_from_skips": 17193.237714,
+      "expected_skip_count": 91,
+      "false_negative_skip_count": 0,
+      "false_positive_skip_count": 0,
+      "future_prior_violation_count": 0,
+      "parent_active_pnl": 719374.928034,
+      "parent_active_trade_count": 1150,
+      "parent_row_count": 1337,
+      "skipped_parent_pnl": -17193.237714,
+      "stored_prior_mismatch_count": 0,
+      "warnings": []
+    }
+  ],
+  "paths": {
+    "capacity_rows": "artifacts\\v3_2_2_pre_broker_audit_pack_v1_20230101_20260531\\signalforge_v3_2_2_capacity_liquidity_rows.jsonl",
+    "lineage_rows": "artifacts\\v3_2_2_pre_broker_audit_pack_v1_20230101_20260531\\signalforge_v3_2_2_no_lookahead_lineage_rows.jsonl",
+    "stability_rows": "artifacts\\v3_2_2_pre_broker_audit_pack_v1_20230101_20260531\\signalforge_v3_2_2_period_stability_rows.jsonl",
+    "summary": "artifacts\\v3_2_2_pre_broker_audit_pack_v1_20230101_20260531\\signalforge_v3_2_2_pre_broker_audit_pack_summary.json"
+  },
+  "readiness_state": "ready",
+  "stability_rollups": [
+    {
+      "best_quarter": "2024-Q4",
+      "best_quarter_pnl": 189230.446837,
+      "best_year": "2025",
+      "best_year_pnl": 312571.400345,
+      "capital_label": "30k",
+      "largest_quarter_abs_pnl_share": 0.258952,
+      "largest_year_abs_pnl_share": 0.427737,
+      "negative_month_count": 11,
+      "negative_quarter_count": 1,
+      "negative_year_count": 0,
+      "total_year_pnl": 730756.164131,
+      "worst_quarter": "2024-Q1",
+      "worst_quarter_pnl": -2062.262087,
+      "worst_year": "2026",
+      "worst_year_pnl": 32745.597737,
+      "year_count": 4
+    },
+    {
+      "best_quarter": "2024-Q4",
+      "best_quarter_pnl": 187840.334813,
+      "best_year": "2025",
+      "best_year_pnl": 316297.602851,
+      "capital_label": "40k",
+      "largest_quarter_abs_pnl_share": 0.255021,
+      "largest_year_abs_pnl_share": 0.429421,
+      "negative_month_count": 10,
+      "negative_quarter_count": 0,
+      "negative_year_count": 0,
+      "total_year_pnl": 736568.165749,
+      "worst_quarter": "2024-Q1",
+      "worst_quarter_pnl": 481.615159,
+      "worst_year": "2026",
+      "worst_year_pnl": 32744.347737,
+      "year_count": 4
+    }
+  ],
+  "warnings": [
+    "30k: one or more negative quarters found; inspect stability rows."
+  ]
+}
