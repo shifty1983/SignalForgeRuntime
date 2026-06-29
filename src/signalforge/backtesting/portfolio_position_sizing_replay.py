@@ -556,6 +556,22 @@ def build_portfolio_position_sizing_replay(
     if non_positive_equity_rows:
         blockers.append("non_positive_equity_after_sizing")
 
+
+    legacy_v3_2_2_row_excluded_fields = {
+        "contract_count",
+        "contract_count_source",
+        "contract_quantity",
+        "fallback_contract_count",
+        "outcome_availability_date",
+        "portfolio_realization_date",
+        "realization_date_source",
+        "option_liquidity_state",
+    }
+
+    for replay_row in replay_rows:
+        for excluded_field in legacy_v3_2_2_row_excluded_fields:
+            replay_row.pop(excluded_field, None)
+
     output_rows_path = output_dir / "signalforge_portfolio_position_sizing_replay.jsonl"
     output_summary_path = (
         output_dir / "signalforge_portfolio_position_sizing_replay_summary.json"
