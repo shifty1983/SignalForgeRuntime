@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 
@@ -48,49 +48,49 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="asset_behavior_latest_snapshot",
         runtime_input_path="data/runtime/asset_behavior/asset_behavior_latest_snapshot.json",
         seed_source_path="artifacts/qc_replay_5y_asset_behavior_decision_export_fred_regime_asset_class_mapped",
-        builder_module="signalforge.runtime.asset_behavior_bootstrap",
+        builder_module="signalforge.bootstrap.asset_behavior_bootstrap",
         description="Asset behavior runtime bootstrap source.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="option_behavior_latest_snapshot",
         runtime_input_path="data/runtime/option_behavior/option_behavior_latest_snapshot.json",
         seed_source_path="artifacts/qc_replay_5y_partitioned_option_behavior_classifier",
-        builder_module="signalforge.runtime.option_behavior_bootstrap",
+        builder_module="signalforge.bootstrap.option_behavior_bootstrap",
         description="Option behavior runtime bootstrap source.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="option_quote_snapshot",
         runtime_input_path="data/runtime/option_quotes/option_quote_snapshot.jsonl",
         seed_source_path="artifacts/v3_2_1_native_quote_join_v1_20230101_20260531",
-        builder_module="signalforge.runtime.option_quote_bootstrap",
+        builder_module="signalforge.bootstrap.option_quote_bootstrap",
         description="Native quote snapshot source for spread and execution checks.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="closed_trade_outcomes",
         runtime_input_path="data/runtime/trade_outcomes/closed_trade_outcomes.jsonl",
         seed_source_path="artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
-        builder_module="signalforge.runtime.closed_outcomes_bootstrap",
+        builder_module="signalforge.bootstrap.closed_outcomes_bootstrap",
         description="Executed V3.2.2 closed trade outcomes only.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="v3_2_2_prior_gate_evaluation_outcomes",
         runtime_input_path="data/runtime/rule_state/v3_2_2_prior_gate_evaluation_outcomes.jsonl",
         seed_source_path="artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
-        builder_module="signalforge.runtime.prior_gate_evaluation_outcomes_bootstrap",
+        builder_module="signalforge.bootstrap.prior_gate_evaluation_outcomes_bootstrap",
         description="Executed outcomes plus shadow skipped outcomes used for prior-gate as-of evaluation.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="v3_2_2_prior_symbol_regime_state",
         runtime_input_path="data/runtime/rule_state/v3_2_2_prior_symbol_regime_state.json",
         seed_source_path="artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
-        builder_module="signalforge.runtime.prior_symbol_regime_state_builder",
+        builder_module="signalforge.bootstrap.prior_symbol_regime_state_builder",
         description="Generated V3.2.2 prior symbol/regime state from prior-gate evaluation outcomes.",
     ),
     RuntimeSourceMapping(
         runtime_input_name="strategy_selection_latest_snapshot",
         runtime_input_path="data/runtime/strategy_selection/strategy_selection_latest_snapshot.json",
         seed_source_path="artifacts/historical_strategy_selection_rows_20210601_20260531",
-        builder_module="signalforge.runtime.strategy_selection_bootstrap",
+        builder_module="signalforge.bootstrap.strategy_selection_bootstrap",
         description="Builds the latest strategy-selection snapshot from historical strategy selection rows joined to historical decision rows.",
     ),
 
@@ -98,7 +98,7 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="portfolio_construction_latest_snapshot",
         runtime_input_path="data/runtime/portfolio_construction/portfolio_construction_latest_snapshot.json",
         seed_source_path="artifacts/portfolio_value_ranked_allocator_v2_20210601_20260531",
-        builder_module="signalforge.runtime.portfolio_construction_bootstrap",
+        builder_module="signalforge.bootstrap.portfolio_construction_bootstrap",
         description="Builds the latest portfolio construction snapshot from position sizing, layer-enriched sized rows, and allocator policy artifacts.",
     ),
 
@@ -106,7 +106,7 @@ RUNTIME_SOURCE_MAPPINGS: tuple[RuntimeSourceMapping, ...] = (
         runtime_input_name="v3_2_2_pre_trade_decisions",
         runtime_input_path="data/runtime/pre_trade_rules/v3_2_2_pre_trade_decisions.jsonl",
         seed_source_path="artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
-        builder_module="signalforge.runtime.v3_2_2_pre_trade_decisions_bootstrap",
+        builder_module="signalforge.bootstrap.v3_2_2_pre_trade_decisions_bootstrap",
         description="Builds runtime V3.2.2 pre-trade decisions from portfolio construction candidates, quote spread state, and prior symbol/regime state.",
     ),
 

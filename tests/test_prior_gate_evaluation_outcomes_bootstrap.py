@@ -1,12 +1,12 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.prior_gate_evaluation_outcomes_bootstrap import (
+from signalforge.bootstrap.prior_gate_evaluation_outcomes_bootstrap import (
     build_prior_gate_evaluation_outcomes_bootstrap,
 )
-from signalforge.runtime.prior_gate_skipped_row_parity import SKIPPED_ROWS_RELATIVE_PATH
+from signalforge.bootstrap.prior_gate_skipped_row_parity import SKIPPED_ROWS_RELATIVE_PATH
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:

@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.option_behavior_bootstrap import (
+from signalforge.bootstrap.option_behavior_bootstrap import (
     CLASSIFIER_SOURCE_RELATIVE_PATH,
     SOURCE_READINESS_RELATIVE_PATH,
     SYMBOL_READINESS_RELATIVE_PATH,

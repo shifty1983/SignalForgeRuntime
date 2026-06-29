@@ -1,8 +1,8 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
-from signalforge.runtime.bootstrap_sequence import (
+from signalforge.bootstrap.bootstrap_sequence import (
     RuntimeBootstrapSequenceSummary,
     build_runtime_bootstrap_sequence,
     write_summary,

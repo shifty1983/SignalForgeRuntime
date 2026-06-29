@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.strategy_selection_bootstrap import (
+from signalforge.bootstrap.strategy_selection_bootstrap import (
     DECISION_ROWS_SOURCE_RELATIVE_PATH,
     STRATEGY_SELECTION_SOURCE_RELATIVE_PATH,
     STRATEGY_SELECTION_SUMMARY_RELATIVE_PATH,

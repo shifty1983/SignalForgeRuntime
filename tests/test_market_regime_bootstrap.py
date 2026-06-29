@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.market_regime_bootstrap import (
+from signalforge.bootstrap.market_regime_bootstrap import (
     MARKET_SOURCE_RELATIVE_PATH,
     REGIME_SOURCE_RELATIVE_PATH,
     build_market_regime_bootstrap,

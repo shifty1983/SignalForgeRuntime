@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.prior_gate_asof_parity import (
+from signalforge.bootstrap.prior_gate_asof_parity import (
     EXPECTED_SKIP_COUNTS_BY_CAPITAL,
     SKIPPED_ROWS_RELATIVE_PATH,
     build_prior_gate_asof_parity,

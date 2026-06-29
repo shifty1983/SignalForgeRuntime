@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 import shutil
 from pathlib import Path
 
-from signalforge.runtime.portfolio_construction_bootstrap import (
+from signalforge.bootstrap.portfolio_construction_bootstrap import (
     ALLOCATOR_AGGREGATE_ROWS_RELATIVE_PATH,
     ALLOCATOR_SUMMARY_RELATIVE_PATH,
     LAYER_ENRICHED_SOURCE_RELATIVE_PATH,

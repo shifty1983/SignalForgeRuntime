@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from signalforge.data.seed_bundle import resolve_seed_bundle_root
-from signalforge.runtime.prior_gate_skipped_row_parity import SKIPPED_ROWS_RELATIVE_PATH
+from signalforge.bootstrap.prior_gate_skipped_row_parity import SKIPPED_ROWS_RELATIVE_PATH
 
 
 DEFAULT_CLOSED_OUTCOMES = "data/runtime/trade_outcomes/closed_trade_outcomes.jsonl"

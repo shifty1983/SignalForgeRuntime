@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.asset_behavior_bootstrap import (
+from signalforge.bootstrap.asset_behavior_bootstrap import (
     ASSET_BEHAVIOR_SOURCE_RELATIVE_PATH,
     build_asset_behavior_bootstrap,
 )

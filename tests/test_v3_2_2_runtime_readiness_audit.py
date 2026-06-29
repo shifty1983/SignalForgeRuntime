@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.v3_2_2_runtime_readiness_audit import (
+from signalforge.bootstrap.v3_2_2_runtime_readiness_audit import (
     build_v3_2_2_runtime_readiness_audit,
 )
 

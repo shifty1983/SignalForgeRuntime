@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.prior_symbol_regime_state_builder import build_prior_symbol_regime_state
+from signalforge.bootstrap.prior_symbol_regime_state_builder import build_prior_symbol_regime_state
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:

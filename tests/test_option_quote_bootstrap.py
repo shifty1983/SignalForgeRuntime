@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from signalforge.runtime.option_quote_bootstrap import (
+from signalforge.bootstrap.option_quote_bootstrap import (
     QUOTE_AUDIT_SOURCE_RELATIVE_PATH,
     build_option_quote_bootstrap,
 )
