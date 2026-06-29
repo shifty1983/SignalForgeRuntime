@@ -1,0 +1,43 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated outputs
+artifacts/*
+!artifacts/.gitkeep
+reports/
+runs/
+
+# Runtime / market data
+data/runtime/*
+!data/runtime/.gitkeep
+data/raw/
+data/cache/
+
+# Large generated files
+*.jsonl
+*.jsonl.gz
+*.parquet
+*.feather
+*.csv
+*.sqlite
+*.db
+
+# Allow curated small fixtures only
+!data/samples/
+!data/samples/.gitkeep
+!data/samples/**/*.json
+!data/samples/**/*.jsonl
+!tests/fixtures/
+!tests/fixtures/**/*.json
+!tests/fixtures/**/*.jsonl
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
