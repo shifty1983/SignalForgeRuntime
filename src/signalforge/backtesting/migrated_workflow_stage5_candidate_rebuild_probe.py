@@ -21,6 +21,16 @@ def read_json(path: Path) -> dict[str, Any]:
 
 
 def get_stage1_row_path(stage_name: str) -> str:
+    enriched_decision_rows = (
+        OUTPUT_ROOT
+        / "stage1_artifact_mirror"
+        / "01b_historical_decision_rows_enriched_term_structure"
+        / "historical_decision_rows_enriched_term_structure_rows.jsonl"
+    )
+
+    if stage_name == "historical_decision_rows" and enriched_decision_rows.exists():
+        return str(enriched_decision_rows)
+
     stage1 = read_json(STAGE1_MANIFEST_PATH)
 
     for stage in stage1["stage_results"]:
