@@ -328,7 +328,7 @@ def write_markdown_report(graph: dict[str, Any], output_path: str | Path) -> Pat
     nodes = graph["nodes"]
 
     lines = [
-        "# Historical Decision Rows Migration Source Graph",
+        "# Legacy Source Migration Graph",
         "",
         "## Summary",
         "",
