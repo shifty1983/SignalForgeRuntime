@@ -1,17 +1,44 @@
 import json
+import os
 from pathlib import Path
 from collections import defaultdict, Counter
 
-OUT_DIR = Path("artifacts/layer_field_carry_forward_enrichment_v2_20210601_20260531")
+OUT_DIR = Path(os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_OUT_DIR",
+    "artifacts/layer_field_carry_forward_enrichment_v2_20210601_20260531",
+))
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-BASE_PATH = Path("artifacts/strategy_eligibility_native_family_gate_position_sizing_replay_v1_20210601_20260531/signalforge_portfolio_position_sizing_replay_strategy_gate_v1.jsonl")
-SELECTION_PATH = Path("artifacts/historical_strategy_selection_rows_20210601_20260531/signalforge_historical_strategy_selection_rows.jsonl")
-DECISION_PATH = Path("artifacts/historical_decision_rows_20210601_20260531/signalforge_historical_decision_rows.jsonl")
+BASE_PATH = Path(os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_BASE_PATH",
+    "artifacts/strategy_eligibility_native_family_gate_position_sizing_replay_v1_20210601_20260531/signalforge_portfolio_position_sizing_replay_strategy_gate_v1.jsonl",
+))
+SELECTION_PATH = Path(os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_SELECTION_PATH",
+    "artifacts/historical_strategy_selection_rows_20210601_20260531/signalforge_historical_strategy_selection_rows.jsonl",
+))
+DECISION_PATH = Path(os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_DECISION_PATH",
+    "artifacts/historical_decision_rows_20210601_20260531/signalforge_historical_decision_rows.jsonl",
+))
 
-ENRICHED_ROWS_PATH = OUT_DIR / "signalforge_layer_enriched_position_sizing_rows_v2.jsonl"
-SUMMARY_PATH = OUT_DIR / "layer_field_carry_forward_enrichment_v2_summary.json"
-UNMATCHED_SAMPLE_PATH = OUT_DIR / "layer_field_unmatched_sample_v2.jsonl"
+ENRICHED_ROWS_PATH = OUT_DIR / os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_ROWS_NAME",
+    "signalforge_layer_enriched_position_sizing_rows_v2.jsonl",
+)
+SUMMARY_PATH = OUT_DIR / os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_SUMMARY_NAME",
+    "layer_field_carry_forward_enrichment_v2_summary.json",
+)
+UNMATCHED_SAMPLE_PATH = OUT_DIR / os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_UNMATCHED_NAME",
+    "layer_field_unmatched_sample_v2.jsonl",
+)
+
+LEGACY_V1_MODE = os.environ.get(
+    "SIGNALFORGE_LAYER_ENRICHMENT_LEGACY_V1",
+    "",
+).strip().lower() in {"1", "true", "yes", "y"}
 
 LAYER_FIELDS = [
     "regime_state",
@@ -419,11 +446,16 @@ def main() -> int:
 
         if selection_match is not None:
             payload.update(payload_from_selection(selection_match))
-            match_counts[f"selection:{selection_method}"] += 1
+            if LEGACY_V1_MODE:
+                match_counts[selection_method] += 1
+            else:
+                match_counts[f"selection:{selection_method}"] += 1
 
         d = decision_date_from(flat)
         s = symbol_from(flat)
-        decision_match = decision_index.get(f"{d}|{s}") if d and s else None
+        decision_match = None
+        if not LEGACY_V1_MODE:
+            decision_match = decision_index.get(f"{d}|{s}") if d and s else None
 
         # Fill missing fields from historical_decision_rows fallback.
         decision_used = False
@@ -504,7 +536,34 @@ def main() -> int:
     production_ready_layer_coverage = all(v >= 0.95 for v in required_coverage.values())
     research_ready_layer_coverage = all(v >= 0.75 for v in required_coverage.values())
 
-    write_jsonl(ENRICHED_ROWS_PATH, enriched_rows)
+    rows_to_write = enriched_rows
+
+    if LEGACY_V1_MODE:
+        legacy_v2_only_fields = {
+            "asset_behavior_source_state",
+            "layer_field_carry_forward_v2",
+            "option_behavior_source_state",
+            "regime_asof_lag_days",
+            "regime_source_state",
+        }
+
+        rows_to_write = []
+        for enriched_row in enriched_rows:
+            legacy_row = dict(enriched_row)
+            meta = legacy_row.get("layer_field_carry_forward_v2") or {}
+
+            for excluded_field in legacy_v2_only_fields:
+                legacy_row.pop(excluded_field, None)
+
+            legacy_row["layer_field_carry_forward_v1"] = {
+                "match_key": meta.get("selection_match_key"),
+                "match_method": meta.get("selection_match_method"),
+                "matched_selection": bool(meta.get("selection_matched")),
+            }
+
+            rows_to_write.append(legacy_row)
+
+    write_jsonl(ENRICHED_ROWS_PATH, rows_to_write)
     write_jsonl(UNMATCHED_SAMPLE_PATH, unmatched[:500])
 
     summary = {
