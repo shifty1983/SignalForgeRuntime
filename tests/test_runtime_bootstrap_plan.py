@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -47,3 +47,4 @@ def test_write_bootstrap_plan(tmp_path: Path):
 
     assert output_path.exists()
     assert output_path.read_text(encoding="utf-8")
+

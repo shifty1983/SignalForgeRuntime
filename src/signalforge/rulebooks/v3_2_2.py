@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.rulebooks.prior_symbol_regime_state import (
     PriorSymbolRegimeStats,
@@ -19,3 +19,4 @@ def passes_v3_2_2_pre_trade_gates(
         return False
 
     return True
+

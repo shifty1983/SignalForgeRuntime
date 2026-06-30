@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import importlib
 
@@ -17,3 +17,4 @@ def test_historical_strategy_leg_selection_rows_cli_imports():
     )
 
     assert module is not None
+

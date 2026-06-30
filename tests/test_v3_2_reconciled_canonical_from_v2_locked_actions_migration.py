@@ -9,3 +9,4 @@ def test_v3_2_reconciled_canonical_from_v2_locked_actions_imports():
     )
 
     assert module is not None
+

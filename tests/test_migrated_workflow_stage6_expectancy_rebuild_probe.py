@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage6_expectancy_rebuild_probe import (
     build_stage6_expectancy_rebuild_probe,
@@ -18,3 +18,4 @@ def test_stage6_expectancy_rebuild_probe_detects_decision_rows_contract():
 
     assert "--decision-rows" in result["detected_flags"]
     assert "--output-dir" in result["detected_flags"]
+

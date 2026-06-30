@@ -96,3 +96,4 @@ def test_prior_gate_parity_detects_count_mismatch(tmp_path: Path):
     assert "skip_count_by_capital_mismatch" in summary.blockers
     assert summary.expected_count_mismatch_by_capital["30k"]["expected"] == 85
     assert summary.expected_count_mismatch_by_capital["30k"]["actual"] == 84
+

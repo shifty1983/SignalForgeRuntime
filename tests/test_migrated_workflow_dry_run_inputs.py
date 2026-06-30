@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_dry_run_inputs import (
     build_dry_run_input_availability_manifest,
@@ -13,3 +13,4 @@ def test_dry_run_input_scanner_builds_manifest():
     assert "blockers" in manifest
     assert "candidate_roots" in manifest
     assert "excluded_name_fragments" in manifest
+

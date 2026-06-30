@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import shutil
 from pathlib import Path
@@ -73,3 +73,4 @@ def test_local_seed_bundle_is_ready_when_available():
     assert inventory.missing_file_count == 0
     assert inventory.file_count > 0
     assert inventory.total_size_bytes > 0
+

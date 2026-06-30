@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import os
 from datetime import datetime, timedelta, timezone
@@ -99,3 +99,4 @@ def test_closed_trade_outcomes_has_no_freshness_limit(tmp_path: Path):
     assert outcome_status.exists
     assert outcome_status.is_fresh is True
     assert outcome_status.blocker is None
+

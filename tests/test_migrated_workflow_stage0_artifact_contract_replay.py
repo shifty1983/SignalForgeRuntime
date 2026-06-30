@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage0_artifact_contract_replay import (
     build_stage0_artifact_contract_replay,
@@ -32,3 +32,4 @@ def test_stage0_artifact_contract_replay_core_rows_parse():
         assert stages[stage]["row_exists"] is True
         assert stages[stage]["row_count"] > 0
         assert stages[stage]["sample"]["sample_parse_ready"] is True
+

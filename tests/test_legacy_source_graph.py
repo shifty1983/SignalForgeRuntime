@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -64,3 +64,4 @@ def test_migration_source_graph_reports_missing_internal_dependencies(tmp_path: 
     assert not summary["is_ready"]
     assert summary["missing_internal_dependency_count"] == 1
     assert "missing_internal_dependencies" in summary["blockers"]
+

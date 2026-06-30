@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -146,3 +146,4 @@ def test_v3_2_2_locked_baseline_metrics():
     assert approx_equal(by_capital["40k"]["total_pnl_dollars"], 736568.165749, tolerance=1e-4)
     assert approx_equal(by_capital["40k"]["max_drawdown_pct"], -0.164075, tolerance=1e-6)
     assert approx_equal(by_capital["40k"]["trade_profit_factor"], 2.633118, tolerance=1e-6)
+

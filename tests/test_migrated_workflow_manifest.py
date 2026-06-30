@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_manifest import (
     ORDERED_WORKFLOW_STEPS,
@@ -32,3 +32,4 @@ def test_migrated_workflow_manifest_discovers_execution_modules():
 
     assert manifest["runtime_execution_modules"]
     assert "readiness_contract" in manifest["runtime_execution_modules"]
+

@@ -150,3 +150,4 @@ def test_v3_2_2_pre_trade_writes_accept_and_skip_decisions(tmp_path: Path):
     assert "spread_gt_12_5pct" in by_sequence["seq_spread_skip"]["skip_reasons"]
     assert by_sequence["seq_prior_skip"]["paper_candidate_action"] == "skip"
     assert "prior_symbol_regime_weak" in by_sequence["seq_prior_skip"]["skip_reasons"]
+

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import importlib
 from pathlib import Path
@@ -44,3 +44,4 @@ def test_stress_engine_contains_native_quote_cases():
 
     for term in required_terms:
         assert term in source
+

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage2_artifact_parity_replay import (
     build_stage2_artifact_parity_replay,
@@ -44,3 +44,4 @@ def test_stage2_artifact_parity_core_row_counts_match():
         assert row_results[stage]["row_count_matches"] is True
         assert row_results[stage]["sha256_matches"] is True
         assert row_results[stage]["source_row_count"] > 0
+

@@ -1071,3 +1071,4 @@ def build_historical_strategy_leg_selection_rows_artifact(
     write_json(summary_path, summary)
 
     return summary
+

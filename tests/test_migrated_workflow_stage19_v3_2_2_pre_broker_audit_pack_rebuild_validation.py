@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage19_v3_2_2_pre_broker_audit_pack_rebuild_validation import (
     build_stage19_v3_2_2_pre_broker_audit_pack_rebuild_validation,
@@ -23,3 +23,4 @@ def test_stage19_v3_2_2_pre_broker_audit_pack_rebuild_validation_is_ready():
 
     labels = {item["label"] for item in result["row_checks"]}
     assert labels == {"capacity_rows", "lineage_rows", "stability_rows"}
+

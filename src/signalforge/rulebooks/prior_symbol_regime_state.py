@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 
@@ -25,3 +25,4 @@ def passes_prior_symbol_regime_gate(stats: PriorSymbolRegimeStats | None) -> boo
         return False
 
     return True
+

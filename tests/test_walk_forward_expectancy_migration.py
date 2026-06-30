@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import importlib
 
@@ -33,3 +33,4 @@ def test_walk_forward_expectancy_availability_safe_cli_imports():
     )
 
     assert module is not None
+

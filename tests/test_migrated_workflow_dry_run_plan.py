@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_dry_run_plan import (
     ORDERED_STAGES,
@@ -32,3 +32,4 @@ def test_migrated_workflow_dry_run_plan_resolves_core_rows():
 
     for stage in core_stages:
         assert stages[stage]["selected_row_path"]
+

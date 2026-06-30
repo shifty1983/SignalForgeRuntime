@@ -1,4 +1,4 @@
-﻿from signalforge.rulebooks.spread_guardrail import passes_spread_guardrail
+from signalforge.rulebooks.spread_guardrail import passes_spread_guardrail
 
 
 def test_spread_guardrail_passes_at_threshold():
@@ -11,3 +11,4 @@ def test_spread_guardrail_blocks_above_threshold():
 
 def test_spread_guardrail_blocks_missing():
     assert not passes_spread_guardrail(None)
+

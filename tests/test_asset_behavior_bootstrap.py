@@ -119,3 +119,4 @@ def test_asset_behavior_bootstrap_blocks_when_source_not_ready(tmp_path: Path):
     assert not summary.is_ready
     assert "source_not_ready" in summary.blockers
     assert "source_status_not_ready" in summary.blockers
+

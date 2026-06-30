@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from copy import deepcopy
 from importlib import import_module
@@ -103,3 +103,4 @@ if __name__ == "__main__":
     result = validate_runtime_execution_readiness_contract()
     print(json.dumps(result, indent=2, sort_keys=True))
     raise SystemExit(0 if result["is_ready_for_paper"] else 1)
+

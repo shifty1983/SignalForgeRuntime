@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage5_candidate_rebuild_validation import (
     build_stage5_candidate_rebuild_validation,
@@ -19,3 +19,4 @@ def test_stage5_candidate_rebuild_validation_is_ready():
     assert result["blocker_count"] == 0
     assert result["row_count_matches"] is True
     assert result["sample_schema_matches"] is True
+

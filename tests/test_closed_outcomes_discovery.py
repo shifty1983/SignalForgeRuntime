@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -77,3 +77,4 @@ def test_write_closed_outcomes_discovery(tmp_path: Path):
 
     assert output.exists()
     assert output.read_text(encoding="utf-8")
+

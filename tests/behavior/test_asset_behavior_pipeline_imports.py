@@ -1,0 +1,25 @@
+def test_market_price_behavior_imports() -> None:
+    import src.signalforge.engines.behavior.market_price_behavior  # noqa: F401
+
+
+def test_asset_multi_horizon_behavior_imports() -> None:
+    import src.signalforge.engines.behavior.asset_multi_horizon_behavior  # noqa: F401
+
+
+def test_asset_behavior_selection_imports() -> None:
+    import src.signalforge.engines.behavior.asset_behavior_selection  # noqa: F401
+
+
+def test_asset_behavior_selection_to_decision_inputs_imports() -> None:
+    import src.signalforge.engines.behavior.asset_behavior_selection_to_decision_inputs  # noqa: F401
+
+
+def test_asset_behavior_decision_export_imports() -> None:
+    import src.signalforge.engines.behavior.asset_behavior_decision_export  # noqa: F401
+
+
+def test_asset_behavior_to_alignment_to_eligibility_import_chain() -> None:
+    import src.signalforge.engines.behavior.asset_behavior_decision_export  # noqa: F401
+    import src.signalforge.engines.alignment.regime_asset_options_alignment  # noqa: F401
+    import src.signalforge.engines.strategy_selection.strategy_family_eligibility  # noqa: F401
+

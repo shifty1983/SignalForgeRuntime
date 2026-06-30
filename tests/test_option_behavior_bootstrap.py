@@ -149,3 +149,4 @@ def test_option_behavior_bootstrap_blocks_when_source_not_ready(tmp_path: Path):
     assert not summary.is_ready
     assert "classifier_not_ready" in summary.blockers
     assert "classifier_status_not_ready" in summary.blockers
+

@@ -4,8 +4,8 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
     MATRIX_CELL_KEY_KEY,
     MATRIX_METADATA_KEY,
     MATRIX_METADATA_MISSING_FIELDS_KEY,
@@ -901,3 +901,5 @@ def _blocked_result(blocked_reasons: Sequence[str], *, source_artifacts: Mapping
         "automatic_pause_action": None,
         "explicit_exclusions": list(EXPLICIT_EXCLUSIONS),
     }
+
+

@@ -87,3 +87,4 @@ def test_prior_gate_evaluation_bootstrap_combines_executed_and_shadow_rows(tmp_p
         "executed_closed_trade",
         "v3_2_2_prior_gate_shadow_skipped",
     }
+

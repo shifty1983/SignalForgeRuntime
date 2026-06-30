@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.runtime.execution.readiness_contract import (
     build_runtime_execution_readiness_contract,
@@ -30,3 +30,4 @@ def test_runtime_execution_contract_validates_ready_for_paper_only():
     assert validation["is_ready_for_live"] is False
     assert validation["blocker_count"] == 0
     assert validation["live_blockers"]
+

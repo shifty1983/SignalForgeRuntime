@@ -121,3 +121,4 @@ def test_prior_gate_asof_parity_detects_prior_stat_mismatch(tmp_path: Path):
     assert summary.mismatch_count == 1
     assert "asof_prior_stats_mismatch" in summary.blockers
     assert summary.mismatch_samples[0].mismatch_reasons == ("prior_count_mismatch",)
+

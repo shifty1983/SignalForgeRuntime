@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage18_v3_2_2_native_quote_attribution_rebuild_validation import (
     build_stage18_v3_2_2_native_quote_attribution_rebuild_validation,
@@ -23,3 +23,4 @@ def test_stage18_v3_2_2_native_quote_attribution_rebuild_validation_is_ready():
 
     labels = {item["label"] for item in result["row_checks"]}
     assert labels == {"group_rows", "top_rows"}
+

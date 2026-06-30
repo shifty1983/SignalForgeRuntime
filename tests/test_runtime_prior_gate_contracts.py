@@ -26,3 +26,4 @@ def test_runtime_contracts_have_source_mappings():
     mapping_names = set(RUNTIME_SOURCE_MAPPINGS_BY_INPUT)
 
     assert contract_names == mapping_names
+

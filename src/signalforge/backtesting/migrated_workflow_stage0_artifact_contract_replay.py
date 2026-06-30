@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -183,3 +183,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

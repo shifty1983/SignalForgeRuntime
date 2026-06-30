@@ -1,4 +1,4 @@
-﻿from signalforge.rulebooks.prior_symbol_regime_state import (
+from signalforge.rulebooks.prior_symbol_regime_state import (
     PriorSymbolRegimeStats,
     passes_prior_symbol_regime_gate,
 )
@@ -33,3 +33,4 @@ def test_prior_gate_passes_profitable_prior():
         prior_profit_factor=0.50,
     )
     assert passes_prior_symbol_regime_gate(stats)
+

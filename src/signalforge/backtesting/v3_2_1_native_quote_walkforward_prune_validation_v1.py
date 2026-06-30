@@ -1,4 +1,4 @@
-﻿import json
+import json
 import os
 from pathlib import Path
 from collections import defaultdict, deque
@@ -580,3 +580,4 @@ summary = {
 
 SUMMARY_PATH.write_text(json.dumps(summary, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
 print(json.dumps(summary, indent=2, sort_keys=True, default=str))
+

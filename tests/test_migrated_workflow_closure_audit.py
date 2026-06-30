@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_closure_audit import (
     build_migrated_workflow_closure_audit,
@@ -45,3 +45,4 @@ def test_migrated_workflow_closure_audit_records_expected_warnings_only():
         "Legacy post-lock/runtime candidate artifacts still exist" in warning
         for warning in result["warnings"]
     )
+

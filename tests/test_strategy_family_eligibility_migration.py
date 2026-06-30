@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import importlib
 
@@ -33,3 +33,4 @@ def test_historical_replay_matrix_metadata_stamp_imports():
     )
 
     assert module is not None
+

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage13_quote_pnl_stress_rebuild_validation import (
     build_stage13_quote_pnl_stress_rebuild_validation,
@@ -23,3 +23,4 @@ def test_stage13_quote_pnl_stress_rebuild_validation_is_ready():
 
     labels = {item["label"] for item in result["row_checks"]}
     assert labels == {"stress_results", "breakeven_rows", "30k_ledger", "40k_ledger"}
+

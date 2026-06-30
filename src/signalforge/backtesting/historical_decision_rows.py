@@ -716,3 +716,4 @@ def write_historical_decision_rows(artifact: dict[str, Any], output_dir: str | P
         "rows_path": str(rows_path),
         "summary_path": str(summary_path),
     }
+

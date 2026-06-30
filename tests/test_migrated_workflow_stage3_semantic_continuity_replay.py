@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from signalforge.backtesting.migrated_workflow_stage3_semantic_continuity_replay import (
     build_stage3_semantic_continuity_replay,
@@ -35,3 +35,4 @@ def test_stage3_core_relationships_pass():
     assert relationships["leg_rows_cover_selection_rows"]["passed"] is True
     assert relationships["position_sizing_preserves_selection_rows"]["passed"] is True
     assert relationships["trade_sequence_preserves_position_sizing_rows"]["passed"] is True
+

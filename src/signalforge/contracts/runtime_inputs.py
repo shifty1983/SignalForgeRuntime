@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 
@@ -106,3 +106,4 @@ RUNTIME_INPUT_CONTRACTS: tuple[RuntimeInputContract, ...] = (
 RUNTIME_INPUT_CONTRACTS_BY_NAME: dict[str, RuntimeInputContract] = {
     contract.name: contract for contract in RUNTIME_INPUT_CONTRACTS
 }
+
