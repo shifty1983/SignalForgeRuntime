@@ -5,11 +5,7 @@ from signalforge.backtesting.migrated_workflow_stage20_v3_2_2_paper_candidate_ru
 )
 
 
-def test_stage20
-@'
-from __future__ import annotations
-
-from signalforge.backtesting.migrated_workflow_stage20_v3_2_2_paper_v3_2_2_paper_candidate_ruleset_lock_rebuild_validation_builds():
+def test_stage20_v3_2_2_paper_candidate_ruleset_lock_rebuild_validation_builds():
     result = build_stage20_v3_2_2_paper_candidate_ruleset_lock_rebuild_validation()
 
     assert result["adapter_type"] == "migrated_workflow_stage20_v3_2_2_paper_candidate_ruleset_lock_rebuild_validation_builder"
