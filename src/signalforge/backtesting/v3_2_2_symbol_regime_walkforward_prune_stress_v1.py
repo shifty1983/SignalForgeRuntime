@@ -1,9 +1,17 @@
 import json
+import os
 from pathlib import Path
 from collections import defaultdict
 from math import sqrt
 
-OUT_DIR = Path("artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531")
+OUT_DIR = Path(os.environ.get(
+    "SIGNALFORGE_V3_2_2_SYMBOL_REGIME_PRUNE_STRESS_OUT_DIR",
+    "artifacts/v3_2_2_symbol_regime_walkforward_prune_stress_v1_20230101_20260531",
+))
+
+
+def env_path(name: str, default: str) -> Path:
+    return Path(os.environ.get(name, default))
 
 
 def main() -> int:
@@ -16,12 +24,18 @@ def main() -> int:
     SCENARIOS = {
         "30k": {
             "starting_capital": 30000.0,
-            "ledger": Path("artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_30k/ledger.jsonl"),
+            "ledger": env_path(
+            "SIGNALFORGE_V3_2_2_SYMBOL_REGIME_PRUNE_STRESS_30K_LEDGER",
+            "artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_30k/ledger.jsonl",
+        ),
             "output_ledger": OUT_DIR / "v3_2_2_30k" / "ledger.jsonl",
         },
         "40k": {
             "starting_capital": 40000.0,
-            "ledger": Path("artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_40k/ledger.jsonl"),
+            "ledger": env_path(
+            "SIGNALFORGE_V3_2_2_SYMBOL_REGIME_PRUNE_STRESS_40K_LEDGER",
+            "artifacts/v3_2_1_native_quote_pnl_stress_v1_20230101_20260531/v3_2_1_native_quote_40k/ledger.jsonl",
+        ),
             "output_ledger": OUT_DIR / "v3_2_2_40k" / "ledger.jsonl",
         },
     }
