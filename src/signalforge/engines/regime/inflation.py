@@ -58,3 +58,4 @@ def classify_inflation(
         .alias(output_column)
     )
 
+

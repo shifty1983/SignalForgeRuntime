@@ -12,3 +12,4 @@ def test_exact_artifact_path_manifest_builds():
     assert "groups" in manifest
     assert "blockers" in manifest
 
+

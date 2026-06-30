@@ -100,3 +100,4 @@ def test_closed_trade_outcomes_has_no_freshness_limit(tmp_path: Path):
     assert outcome_status.is_fresh is True
     assert outcome_status.blocker is None
 
+

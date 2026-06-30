@@ -98,3 +98,4 @@ def build_asset_behavior_from_market_price_history_summary(
 
     return summary
 
+

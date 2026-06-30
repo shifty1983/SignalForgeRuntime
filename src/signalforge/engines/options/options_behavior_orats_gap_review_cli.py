@@ -71,3 +71,4 @@ def _read_optional_json(path_text: str | None) -> Any:
 if __name__ == "__main__":
     raise SystemExit(main())
 
+

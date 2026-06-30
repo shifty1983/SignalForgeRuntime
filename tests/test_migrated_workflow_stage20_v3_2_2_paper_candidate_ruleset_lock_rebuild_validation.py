@@ -28,3 +28,4 @@ def test_stage20_v3_2_2_paper_candidate_ruleset_lock_rebuild_validation_is_ready
     assert core["paper_candidate_state"] == "locked_for_paper_candidate_review"
     assert core["live_candidate_state"] == "not_live_candidate"
 
+

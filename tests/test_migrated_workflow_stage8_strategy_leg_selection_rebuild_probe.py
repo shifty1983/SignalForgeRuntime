@@ -13,3 +13,4 @@ def test_stage8_strategy_leg_selection_rebuild_probe_builds():
     assert "source_leg_selection_rows" in result
     assert "planned_output_dir" in result
 
+

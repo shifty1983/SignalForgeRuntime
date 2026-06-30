@@ -13,3 +13,4 @@ def test_stage9_position_sizing_rebuild_probe_builds():
     assert "source_position_sizing_rows" in result
     assert "planned_output_dir" in result
 
+

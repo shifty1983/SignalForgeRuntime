@@ -186,3 +186,4 @@ def test_portfolio_construction_bootstrap_blocks_when_summaries_not_ready(tmp_pa
     assert "layer_enriched_summary_not_ready" in summary.blockers
     assert "allocator_summary_not_ready" in summary.blockers
 
+

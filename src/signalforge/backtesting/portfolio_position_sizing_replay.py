@@ -736,3 +736,4 @@ def build_from_paths(
         min_realized_return=min_realized_return,
         max_realized_return=max_realized_return,
     )
+

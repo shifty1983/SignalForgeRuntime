@@ -14,3 +14,4 @@ def test_historical_decision_rows_cli_module_imports():
 
     assert module is not None
 
+

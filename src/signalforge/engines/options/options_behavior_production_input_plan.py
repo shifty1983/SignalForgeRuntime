@@ -480,3 +480,4 @@ def _row_symbol(row: Mapping[str, Any]) -> str | None:
             return str(value).strip().upper()
     return None
 
+

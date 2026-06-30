@@ -133,3 +133,4 @@ def test_strategy_selection_bootstrap_blocks_on_missing_decision_join(tmp_path: 
     assert not summary.is_ready
     assert "one_or_more_strategy_rows_missing_decision_join" in summary.blockers
 
+

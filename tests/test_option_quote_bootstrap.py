@@ -134,3 +134,4 @@ def test_option_quote_bootstrap_dedupes_same_quote_observation(tmp_path: Path):
     assert summary.written_quote_count == 1
     assert summary.duplicate_quote_count == 1
 
+

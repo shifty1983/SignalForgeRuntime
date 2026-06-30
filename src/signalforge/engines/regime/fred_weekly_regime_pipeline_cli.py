@@ -118,3 +118,4 @@ def _summary(result: dict[str, Any]) -> dict[str, Any]:
 if __name__ == "__main__":
     raise SystemExit(main())
 
+

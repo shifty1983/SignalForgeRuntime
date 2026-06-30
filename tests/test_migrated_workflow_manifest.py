@@ -33,3 +33,4 @@ def test_migrated_workflow_manifest_discovers_execution_modules():
     assert manifest["runtime_execution_modules"]
     assert "readiness_contract" in manifest["runtime_execution_modules"]
 
+

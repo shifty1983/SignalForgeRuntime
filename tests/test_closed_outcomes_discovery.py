@@ -78,3 +78,4 @@ def test_write_closed_outcomes_discovery(tmp_path: Path):
     assert output.exists()
     assert output.read_text(encoding="utf-8")
 
+

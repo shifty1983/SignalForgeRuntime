@@ -24,3 +24,4 @@ def test_stage15_walkforward_prune_validation_rebuild_validation_is_ready():
     labels = {item["label"] for item in result["row_checks"]}
     assert labels == {"results", "skipped_rows"}
 
+

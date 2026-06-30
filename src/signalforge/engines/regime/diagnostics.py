@@ -52,3 +52,4 @@ def missing_regime_rows(
         pl.col(column).is_null()
     )
 
+

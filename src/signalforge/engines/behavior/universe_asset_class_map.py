@@ -115,3 +115,4 @@ def _clean_symbol(value: Any) -> str | None:
     text = str(value).strip().upper()
     return text or None
 
+

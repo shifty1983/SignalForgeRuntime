@@ -65,3 +65,4 @@ def test_migration_source_graph_reports_missing_internal_dependencies(tmp_path: 
     assert summary["missing_internal_dependency_count"] == 1
     assert "missing_internal_dependencies" in summary["blockers"]
 
+

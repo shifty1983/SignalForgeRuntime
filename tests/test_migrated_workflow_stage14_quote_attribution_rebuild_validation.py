@@ -24,3 +24,4 @@ def test_stage14_quote_attribution_rebuild_validation_is_ready():
     labels = {item["label"] for item in result["row_checks"]}
     assert labels == {"group_rows", "top_rows"}
 
+

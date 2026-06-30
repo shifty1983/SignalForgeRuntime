@@ -74,3 +74,4 @@ def test_local_seed_bundle_is_ready_when_available():
     assert inventory.file_count > 0
     assert inventory.total_size_bytes > 0
 
+

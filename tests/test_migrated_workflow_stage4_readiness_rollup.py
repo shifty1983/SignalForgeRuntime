@@ -20,3 +20,4 @@ def test_stage4_readiness_rollup_is_ready():
     assert result["blocker_count"] == 0
     assert result["failed_semantic_relationships"] == []
 
+

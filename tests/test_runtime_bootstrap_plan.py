@@ -48,3 +48,4 @@ def test_write_bootstrap_plan(tmp_path: Path):
     assert output_path.exists()
     assert output_path.read_text(encoding="utf-8")
 
+

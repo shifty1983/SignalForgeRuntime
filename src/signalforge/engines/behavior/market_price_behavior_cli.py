@@ -120,3 +120,4 @@ def _merge_symbols(repeated_symbols: Sequence[str], comma_symbols: str | None) -
 if __name__ == "__main__":
     raise SystemExit(main())
 
+

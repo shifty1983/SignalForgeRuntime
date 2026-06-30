@@ -131,3 +131,4 @@ def _empty_profile(reason: str) -> dict[str, Any]:
         "relative_strength_warning": reason,
     }
 
+

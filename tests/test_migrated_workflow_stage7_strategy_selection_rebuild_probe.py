@@ -19,3 +19,4 @@ def test_stage7_strategy_selection_rebuild_probe_detects_expectancy_contract():
     assert "--expectancy-rows" in result["detected_flags"]
     assert "--output-dir" in result["detected_flags"]
 
+

@@ -650,3 +650,4 @@ def build_walk_forward_expectancy_artifact(
     write_json(summary_path, summary)
 
     return summary
+

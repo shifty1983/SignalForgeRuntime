@@ -33,3 +33,4 @@ def test_stage0_artifact_contract_replay_core_rows_parse():
         assert stages[stage]["row_count"] > 0
         assert stages[stage]["sample"]["sample_parse_ready"] is True
 
+

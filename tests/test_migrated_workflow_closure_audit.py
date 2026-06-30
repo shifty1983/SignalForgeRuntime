@@ -46,3 +46,4 @@ def test_migrated_workflow_closure_audit_records_expected_warnings_only():
         for warning in result["warnings"]
     )
 
+

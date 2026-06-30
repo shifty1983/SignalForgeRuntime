@@ -107,3 +107,4 @@ RUNTIME_INPUT_CONTRACTS_BY_NAME: dict[str, RuntimeInputContract] = {
     contract.name: contract for contract in RUNTIME_INPUT_CONTRACTS
 }
 
+

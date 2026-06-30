@@ -973,3 +973,4 @@ def build_historical_strategy_candidate_rows_artifact(
 
     return summary
 
+

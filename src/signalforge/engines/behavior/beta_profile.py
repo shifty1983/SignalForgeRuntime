@@ -205,3 +205,4 @@ def _clean(value: Any) -> str | None:
     text = str(value).strip().lower()
     return text or None
 
+

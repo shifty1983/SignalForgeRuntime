@@ -114,3 +114,4 @@ def test_prior_state_marks_v3_2_2_blocking_group(tmp_path: Path):
     assert state_row["prior_profit_factor"] == 0.0
     assert state_row["v3_2_2_gate_blocks"] is True
 
+

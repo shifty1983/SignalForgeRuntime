@@ -162,3 +162,4 @@ def test_market_regime_bootstrap_counts_price_conflicts(tmp_path: Path):
     assert summary.is_ready
     assert summary.price_conflict_group_count == 1
 
+

@@ -31,3 +31,4 @@ def test_runtime_execution_contract_validates_ready_for_paper_only():
     assert validation["blocker_count"] == 0
     assert validation["live_blockers"]
 
+

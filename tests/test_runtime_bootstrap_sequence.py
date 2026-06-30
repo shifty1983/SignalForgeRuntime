@@ -35,3 +35,4 @@ def test_write_bootstrap_sequence_summary(tmp_path: Path):
     assert output.exists()
     assert output.read_text(encoding="utf-8")
 
+

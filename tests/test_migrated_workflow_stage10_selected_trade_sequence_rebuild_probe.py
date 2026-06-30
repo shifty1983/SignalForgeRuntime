@@ -13,3 +13,4 @@ def test_stage10_selected_trade_sequence_rebuild_probe_builds():
     assert "source_selected_trade_sequence_rows" in result
     assert "planned_output_dir" in result
 
+

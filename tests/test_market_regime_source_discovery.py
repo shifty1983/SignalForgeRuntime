@@ -87,3 +87,4 @@ def test_write_market_regime_discovery(tmp_path: Path):
     assert output.exists()
     assert output.read_text(encoding="utf-8")
 
+

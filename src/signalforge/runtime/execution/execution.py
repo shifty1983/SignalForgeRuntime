@@ -67,3 +67,4 @@ class ExecutionModel:
         trades = self.compute_trades(positions)
         return self.apply_costs(trades)
 
+

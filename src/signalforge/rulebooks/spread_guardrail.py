@@ -8,3 +8,4 @@ def passes_spread_guardrail(spread_pct: float | None) -> bool:
         return False
     return float(spread_pct) <= SPREAD_GUARDRAIL_MAX
 
+

@@ -36,3 +36,4 @@ def test_stage3_core_relationships_pass():
     assert relationships["position_sizing_preserves_selection_rows"]["passed"] is True
     assert relationships["trade_sequence_preserves_position_sizing_rows"]["passed"] is True
 
+

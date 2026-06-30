@@ -18,3 +18,4 @@ def test_historical_strategy_candidate_rows_cli_imports():
 
     assert module is not None
 
+

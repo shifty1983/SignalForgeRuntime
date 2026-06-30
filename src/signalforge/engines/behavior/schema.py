@@ -168,3 +168,4 @@ def validate_behavior_output(
             f"Behavior output missing keys: {sorted(missing)}"
         )
 
+

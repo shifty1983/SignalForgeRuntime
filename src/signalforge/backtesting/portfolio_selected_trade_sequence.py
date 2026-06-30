@@ -726,3 +726,4 @@ def build_from_paths(
         strategy_selection_summary=strategy_selection_summary,
         output_dir=output_dir,
     )
+

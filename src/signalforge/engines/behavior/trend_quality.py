@@ -217,3 +217,4 @@ def _trend_strength_score(
     score = same_direction_bonus + direction_strength - volatility_penalty
     return round(max(0.0, min(1.0, score)), 4)
 
+

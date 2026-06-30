@@ -35,3 +35,4 @@ def test_stage1_artifact_mirror_replay_core_sources_are_non_empty():
         assert row_artifact["row_count"] > 0
         assert row_artifact["source_sha256"]
 
+

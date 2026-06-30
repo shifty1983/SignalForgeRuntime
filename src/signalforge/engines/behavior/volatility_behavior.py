@@ -163,3 +163,4 @@ def _safe_ratio_change(numerator: float, denominator: float) -> float:
         return 1.0
     return (numerator / denominator) - 1.0
 
+
