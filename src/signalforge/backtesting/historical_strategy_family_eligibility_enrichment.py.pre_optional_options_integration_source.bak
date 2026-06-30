@@ -93,7 +93,7 @@ def _with_common_aliases(
     return out
 
 
-def _single_row_sources(row: Mapping[str, Any], *, options_behavior_lookup: Mapping[tuple[str, str], Mapping[str, Any]] | None = None) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+def _single_row_sources(row: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     symbol = _symbol(row)
 
     regime = _with_common_aliases(
@@ -110,21 +110,13 @@ def _single_row_sources(row: Mapping[str, Any], *, options_behavior_lookup: Mapp
         state_aliases=("asset_behavior_state", "behavior_state"),
     )
 
-    base_option_behavior = _with_common_aliases(
-        _as_mapping(row.get("option_behavior")),
-        row=row,
-        symbol=symbol,
-        state_aliases=("option_behavior_state", "options_behavior_state", "behavior_state"),
-    )
-
-    option_behavior_override = _lookup_options_behavior_override(
-        options_behavior_lookup,
-        row=row,
-        symbol=symbol,
-    )
-
     option_behavior = _enriched_options_item(
-        _merge_options_behavior_items(base_option_behavior, option_behavior_override),
+        _with_common_aliases(
+            _as_mapping(row.get("option_behavior")),
+            row=row,
+            symbol=symbol,
+            state_aliases=("option_behavior_state", "options_behavior_state", "behavior_state"),
+        ),
         row=row,
         symbol=symbol,
     )
@@ -200,124 +192,6 @@ def _as_string_list(value: Any) -> list[str]:
     if isinstance(value, set):
         return sorted(_clean_text(item) for item in value if _clean_text(item))
     return []
-
-
-def _load_json_or_jsonl_records(path: Path) -> list[dict[str, Any]]:
-    if not path:
-        return []
-
-    if path.suffix.lower() == ".jsonl":
-        return read_jsonl(path)
-
-    with path.open("r", encoding="utf-8") as handle:
-        payload = json.load(handle)
-
-    if isinstance(payload, list):
-        return [dict(item) for item in payload if isinstance(item, Mapping)]
-
-    if isinstance(payload, Mapping):
-        for key in (
-            "options_behavior_integration_items",
-            "option_behavior_integration_items",
-            "options_behavior_rows",
-            "option_behavior_rows",
-            "historical_option_behavior_rows",
-            "decision_rows",
-            "rows",
-            "items",
-        ):
-            value = payload.get(key)
-            if isinstance(value, list):
-                return [dict(item) for item in value if isinstance(item, Mapping)]
-
-    return []
-
-
-def _record_dates(record: Mapping[str, Any]) -> list[str]:
-    dates: list[str] = []
-    for key in (
-        "decision_date",
-        "date",
-        "source_date",
-        "as_of_date",
-        "asof_date",
-        "snapshot_date",
-    ):
-        value = _clean_text(record.get(key))
-        if value and value not in dates:
-            dates.append(value)
-    return dates
-
-
-def _record_symbol(record: Mapping[str, Any]) -> str:
-    return _clean_text(record.get("symbol") or record.get("underlying") or record.get("ticker")).upper()
-
-
-def _build_options_behavior_lookup(records: Sequence[Mapping[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
-    lookup: dict[tuple[str, str], dict[str, Any]] = {}
-
-    for record in records:
-        symbol = _record_symbol(record)
-        if not symbol:
-            continue
-
-        for date_value in _record_dates(record):
-            lookup[(symbol, date_value)] = dict(record)
-
-    return lookup
-
-
-def _lookup_options_behavior_override(
-    lookup: Mapping[tuple[str, str], Mapping[str, Any]] | None,
-    *,
-    row: Mapping[str, Any],
-    symbol: str,
-) -> dict[str, Any]:
-    if not lookup:
-        return {}
-
-    option_behavior = _as_mapping(row.get("option_behavior"))
-
-    candidate_dates: list[str] = []
-    for value in (
-        row.get("decision_date"),
-        row.get("date"),
-        option_behavior.get("source_date"),
-        option_behavior.get("date"),
-        option_behavior.get("as_of_date"),
-        row.get("source_date"),
-    ):
-        date_text = _clean_text(value)
-        if date_text and date_text not in candidate_dates:
-            candidate_dates.append(date_text)
-
-    symbol_key = _clean_text(symbol).upper()
-
-    for date_value in candidate_dates:
-        found = lookup.get((symbol_key, date_value))
-        if isinstance(found, Mapping):
-            return dict(found)
-
-    return {}
-
-
-def _merge_options_behavior_items(
-    base: Mapping[str, Any],
-    override: Mapping[str, Any],
-) -> dict[str, Any]:
-    merged = dict(base)
-
-    # Preserve the original coarse state unless the richer source explicitly gives a policy-native state.
-    for key, value in override.items():
-        if value in (None, ""):
-            continue
-
-        if key == "state" and merged.get("state"):
-            continue
-
-        merged[key] = value
-
-    return merged
 
 
 def _parse_coarse_option_state(option_behavior_state: str) -> dict[str, str]:
@@ -471,12 +345,11 @@ def enrich_decision_row_with_strategy_family_eligibility(
     row: Mapping[str, Any],
     *,
     include_engine_artifacts: bool = False,
-    options_behavior_lookup: Mapping[tuple[str, str], Mapping[str, Any]] | None = None,
 ) -> dict[str, Any]:
     enriched = dict(row)
 
     try:
-        regime_source, asset_behavior_source, options_behavior_source = _single_row_sources(row, options_behavior_lookup=options_behavior_lookup)
+        regime_source, asset_behavior_source, options_behavior_source = _single_row_sources(row)
 
         alignment_artifact = build_signalforge_regime_asset_options_alignment(
             regime_source=regime_source,
@@ -562,128 +435,92 @@ def enrich_decision_row_with_strategy_family_eligibility(
 
 
 def build_historical_strategy_family_eligibility_enrichment(
+    decision_rows: Iterable[Mapping[str, Any]],
     *,
-    decision_rows: Sequence[Mapping[str, Any]],
     include_engine_artifacts: bool = False,
-    options_behavior_records: Sequence[Mapping[str, Any]] | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    from collections import Counter
-
-    options_behavior_lookup = _build_options_behavior_lookup(options_behavior_records or [])
-
-    output_rows: list[dict[str, Any]] = []
-    enrichment_state_counts: Counter[str] = Counter()
-    strategy_family_status_counts: Counter[str] = Counter()
-
-    rows_with_strategy_family_statuses = 0
-
-    for row in decision_rows:
-        enriched = enrich_decision_row_with_strategy_family_eligibility(
+    rows = [
+        enrich_decision_row_with_strategy_family_eligibility(
             row,
             include_engine_artifacts=include_engine_artifacts,
-            options_behavior_lookup=options_behavior_lookup,
         )
+        for row in decision_rows
+    ]
 
-        output_rows.append(enriched)
-
-        enrichment = enriched.get("strategy_family_eligibility_enrichment")
-        if isinstance(enrichment, Mapping):
-            enrichment_state = _clean_text(enrichment.get("enrichment_state")) or "unknown"
-        else:
-            enrichment_state = "unknown"
-
-        enrichment_state_counts[enrichment_state] += 1
-
-        statuses = enriched.get("strategy_family_statuses")
-        if isinstance(statuses, Mapping) and statuses:
-            rows_with_strategy_family_statuses += 1
-            for status in statuses.values():
-                status_text = _clean_text(status) or "unknown"
-                strategy_family_status_counts[status_text] += 1
-
-    input_count = len(decision_rows)
-    output_count = len(output_rows)
-
-    blockers: list[str] = []
-    if input_count > 0 and output_count == 0:
-        blockers.append("no_enriched_decision_rows_created")
-
-    if input_count > 0 and rows_with_strategy_family_statuses == 0:
-        blockers.append("no_rows_with_strategy_family_statuses")
-
-    strategy_family_status_coverage = (
-        rows_with_strategy_family_statuses / input_count
-        if input_count
-        else 0.0
+    enrichment_counts = Counter(
+        _clean_text(
+            ((row.get("strategy_family_eligibility_enrichment") or {}).get("enrichment_state"))
+        )
+        or "missing"
+        for row in rows
     )
 
-    summary: dict[str, Any] = {
+    family_status_counts: Counter[str] = Counter()
+    rows_with_family_statuses = 0
+
+    for row in rows:
+        statuses = row.get("strategy_family_statuses")
+        if isinstance(statuses, Mapping) and statuses:
+            rows_with_family_statuses += 1
+            for status in statuses.values():
+                family_status_counts[str(status)] += 1
+
+    blockers: list[str] = []
+
+    if not rows:
+        blockers.append("no_decision_rows")
+
+    if enrichment_counts.get("error", 0):
+        blockers.append("strategy_family_eligibility_enrichment_errors")
+
+    if rows and rows_with_family_statuses == 0:
+        blockers.append("no_rows_with_strategy_family_statuses")
+
+    summary = {
         "adapter_type": "historical_strategy_family_eligibility_enrichment_builder",
         "artifact_type": "signalforge_historical_strategy_family_eligibility_enrichment",
         "contract": "historical_strategy_family_eligibility_enrichment",
-        "is_ready": not blockers,
+        "is_ready": len(blockers) == 0,
         "blocker_count": len(blockers),
         "blockers": blockers,
-        "input_decision_row_count": input_count,
-        "output_decision_row_count": output_count,
-        "rows_with_strategy_family_statuses": rows_with_strategy_family_statuses,
-        "strategy_family_status_coverage": strategy_family_status_coverage,
-        "enrichment_state_counts": dict(sorted(enrichment_state_counts.items())),
-        "strategy_family_status_counts": dict(sorted(strategy_family_status_counts.items())),
-        "options_behavior_integration_record_count": len(options_behavior_records or []),
-        "options_behavior_integration_lookup_key_count": len(options_behavior_lookup),
-        "include_engine_artifacts": include_engine_artifacts,
+        "input_decision_row_count": len(rows),
+        "output_decision_row_count": len(rows),
+        "rows_with_strategy_family_statuses": rows_with_family_statuses,
+        "strategy_family_status_coverage": (
+            rows_with_family_statuses / len(rows) if rows else 0.0
+        ),
+        "enrichment_state_counts": dict(sorted(enrichment_counts.items())),
+        "strategy_family_status_counts": dict(sorted(family_status_counts.items())),
+        "paths": {},
     }
 
-    return output_rows, summary
+    return rows, summary
+
 
 def build_historical_strategy_family_eligibility_enrichment_artifact(
     *,
-    decision_rows_path: Path,
-    output_dir: Path,
+    decision_rows_path: str | Path,
+    output_dir: str | Path,
     include_engine_artifacts: bool = False,
-    options_behavior_integration_source_path: Path | None = None,
 ) -> dict[str, Any]:
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    rows_path = (
-        output_dir
-        / "signalforge_historical_strategy_family_eligibility_enriched_decision_rows.jsonl"
-    )
-    summary_path = (
-        output_dir
-        / "signalforge_historical_strategy_family_eligibility_enrichment_summary.json"
-    )
+    output_path = Path(output_dir)
+    rows_path = output_path / "signalforge_historical_strategy_family_eligibility_enriched_decision_rows.jsonl"
+    summary_path = output_path / "signalforge_historical_strategy_family_eligibility_enrichment_summary.json"
 
     decision_rows = read_jsonl(decision_rows_path)
-    options_behavior_records = (
-        _load_json_or_jsonl_records(options_behavior_integration_source_path)
-        if options_behavior_integration_source_path
-        else []
-    )
 
-    output_rows, summary = build_historical_strategy_family_eligibility_enrichment(
-        decision_rows=decision_rows,
+    rows, summary = build_historical_strategy_family_eligibility_enrichment(
+        decision_rows,
         include_engine_artifacts=include_engine_artifacts,
-        options_behavior_records=options_behavior_records,
     )
 
     summary["paths"] = {
         "decision_rows_path": str(decision_rows_path),
-        "options_behavior_integration_source_path": (
-            str(options_behavior_integration_source_path)
-            if options_behavior_integration_source_path
-            else None
-        ),
         "rows_path": str(rows_path),
         "summary_path": str(summary_path),
     }
 
-    with rows_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for row in output_rows:
-            handle.write(json.dumps(row, sort_keys=True) + "\n")
-
-    with summary_path.open("w", encoding="utf-8") as handle:
-        json.dump(summary, handle, indent=2, sort_keys=True)
+    write_jsonl(rows_path, rows)
+    write_json(summary_path, summary)
 
     return summary

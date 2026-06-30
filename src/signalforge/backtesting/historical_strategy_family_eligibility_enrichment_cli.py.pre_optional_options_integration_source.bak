@@ -15,7 +15,6 @@ def main() -> None:
     )
     parser.add_argument("--decision-rows", required=True)
     parser.add_argument("--output-dir", required=True)
-    parser.add_argument("--options-behavior-integration-source", default=None)
     parser.add_argument(
         "--include-engine-artifacts",
         action="store_true",
@@ -28,7 +27,6 @@ def main() -> None:
         decision_rows_path=Path(args.decision_rows),
         output_dir=Path(args.output_dir),
         include_engine_artifacts=bool(args.include_engine_artifacts),
-        options_behavior_integration_source_path=Path(args.options_behavior_integration_source) if args.options_behavior_integration_source else None,
     )
 
     print(json.dumps(summary, indent=2, sort_keys=True, default=str))

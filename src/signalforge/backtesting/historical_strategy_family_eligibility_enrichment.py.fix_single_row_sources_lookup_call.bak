@@ -93,7 +93,7 @@ def _with_common_aliases(
     return out
 
 
-def _single_row_sources(row: Mapping[str, Any], *, options_behavior_lookup: Mapping[tuple[str, str], Mapping[str, Any]] | None = None) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+def _single_row_sources(row: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     symbol = _symbol(row)
 
     regime = _with_common_aliases(
@@ -476,7 +476,7 @@ def enrich_decision_row_with_strategy_family_eligibility(
     enriched = dict(row)
 
     try:
-        regime_source, asset_behavior_source, options_behavior_source = _single_row_sources(row, options_behavior_lookup=options_behavior_lookup)
+        regime_source, asset_behavior_source, options_behavior_source = _single_row_sources(row)
 
         alignment_artifact = build_signalforge_regime_asset_options_alignment(
             regime_source=regime_source,
