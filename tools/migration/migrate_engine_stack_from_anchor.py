@@ -211,7 +211,7 @@ def main() -> None:
         "--anchor",
         action="append",
         required=True,
-        help="Python module path, for example src.signalforge.engines.strategy_selection.strategy_family_eligibility",
+        help="Python module path, for example signalforge.engines.strategy_selection.strategy_family_eligibility",
     )
     parser.add_argument(
         "--inventory-out",
@@ -263,4 +263,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 

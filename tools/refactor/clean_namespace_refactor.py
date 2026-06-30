@@ -17,29 +17,29 @@ MOVE_MAP = {
 }
 
 IMPORT_REPLACEMENTS = [
-    (r"\bfrom src\.alignment\b", "from src.signalforge.engines.alignment"),
-    (r"\bimport src\.alignment\b", "import src.signalforge.engines.alignment"),
-    (r"\bsrc\.alignment\.", "src.signalforge.engines.alignment."),
+    (r"\bfrom src\.alignment\b", "from signalforge.engines.alignment"),
+    (r"\bimport src\.alignment\b", "import signalforge.engines.alignment"),
+    (r"\bsrc\.alignment\.", "signalforge.engines.alignment."),
 
-    (r"\bfrom src\.behavior\b", "from src.signalforge.engines.behavior"),
-    (r"\bimport src\.behavior\b", "import src.signalforge.engines.behavior"),
-    (r"\bsrc\.behavior\.", "src.signalforge.engines.behavior."),
+    (r"\bfrom src\.behavior\b", "from signalforge.engines.behavior"),
+    (r"\bimport src\.behavior\b", "import signalforge.engines.behavior"),
+    (r"\bsrc\.behavior\.", "signalforge.engines.behavior."),
 
-    (r"\bfrom src\.options\b", "from src.signalforge.engines.options"),
-    (r"\bimport src\.options\b", "import src.signalforge.engines.options"),
-    (r"\bsrc\.options\.", "src.signalforge.engines.options."),
+    (r"\bfrom src\.options\b", "from signalforge.engines.options"),
+    (r"\bimport src\.options\b", "import signalforge.engines.options"),
+    (r"\bsrc\.options\.", "signalforge.engines.options."),
 
-    (r"\bfrom src\.regime\b", "from src.signalforge.engines.regime"),
-    (r"\bimport src\.regime\b", "import src.signalforge.engines.regime"),
-    (r"\bsrc\.regime\.", "src.signalforge.engines.regime."),
+    (r"\bfrom src\.regime\b", "from signalforge.engines.regime"),
+    (r"\bimport src\.regime\b", "import signalforge.engines.regime"),
+    (r"\bsrc\.regime\.", "signalforge.engines.regime."),
 
-    (r"\bfrom src\.strategy_selection\b", "from src.signalforge.engines.strategy_selection"),
-    (r"\bimport src\.strategy_selection\b", "import src.signalforge.engines.strategy_selection"),
-    (r"\bsrc\.strategy_selection\.", "src.signalforge.engines.strategy_selection."),
+    (r"\bfrom src\.strategy_selection\b", "from signalforge.engines.strategy_selection"),
+    (r"\bimport src\.strategy_selection\b", "import signalforge.engines.strategy_selection"),
+    (r"\bsrc\.strategy_selection\.", "signalforge.engines.strategy_selection."),
 
-    (r"\bfrom src\.data_sources\b", "from src.signalforge.data_sources"),
-    (r"\bimport src\.data_sources\b", "import src.signalforge.data_sources"),
-    (r"\bsrc\.data_sources\.", "src.signalforge.data_sources."),
+    (r"\bfrom src\.data_sources\b", "from signalforge.data_sources"),
+    (r"\bimport src\.data_sources\b", "import signalforge.data_sources"),
+    (r"\bsrc\.data_sources\.", "signalforge.data_sources."),
 ]
 
 
@@ -208,7 +208,7 @@ def main() -> None:
         "move_records": move_records,
         "import_rewrite_records": import_records,
         "pycache_records": pycache_records,
-        "recommended_namespace": "src.signalforge",
+        "recommended_namespace": "signalforge",
     }
 
     out = root / args.out
@@ -228,5 +228,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
