@@ -20,3 +20,5 @@ def test_stage6_expectancy_rebuild_probe_detects_decision_rows_contract():
     assert "--output-dir" in result["detected_flags"]
 
 
+
+

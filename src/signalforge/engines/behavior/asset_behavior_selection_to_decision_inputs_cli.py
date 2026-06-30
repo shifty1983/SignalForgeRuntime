@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.signalforge.engines.behavior.asset_behavior_selection_to_decision_inputs import (
+from signalforge.engines.behavior.asset_behavior_selection_to_decision_inputs import (
     build_signalforge_asset_behavior_selection_to_decision_inputs,
 )
 
@@ -45,5 +45,7 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
 

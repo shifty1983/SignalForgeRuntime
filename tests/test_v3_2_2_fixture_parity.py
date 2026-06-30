@@ -148,3 +148,5 @@ def test_v3_2_2_locked_baseline_metrics():
     assert approx_equal(by_capital["40k"]["trade_profit_factor"], 2.633118, tolerance=1e-6)
 
 
+
+

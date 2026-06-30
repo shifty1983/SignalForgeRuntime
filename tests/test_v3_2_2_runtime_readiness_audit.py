@@ -144,3 +144,5 @@ def test_runtime_readiness_passes_with_consistent_decisions(tmp_path: Path):
     assert summary.prior_rule_mismatch_count == 0
 
 
+
+

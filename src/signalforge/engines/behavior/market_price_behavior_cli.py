@@ -5,12 +5,12 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.signalforge.engines.behavior.market_price_behavior import (
+from signalforge.engines.behavior.market_price_behavior import (
     DEFAULT_LONG_WINDOW,
     DEFAULT_SHORT_WINDOW,
     build_signalforge_asset_behavior_from_market_price_history,
 )
-from src.signalforge.engines.behavior.market_price_behavior_file_writer import (
+from signalforge.engines.behavior.market_price_behavior_file_writer import (
     build_asset_behavior_from_market_price_history_summary,
     write_asset_behavior_from_market_price_history_result,
 )
@@ -119,5 +119,7 @@ def _merge_symbols(repeated_symbols: Sequence[str], comma_symbols: str | None) -
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
 

@@ -17,6 +17,19 @@ DEFAULT_STRATEGY_POLICY: Dict[str, Any] = {
         "eligible_for_strategy_selection",
         "eligible_for_option_strategy_selection",
     ],
+    "enforce_strategy_family_eligibility": True,
+    "allowed_strategy_family_statuses": [
+        "favored",
+        "favored_constrained",
+        "allowed",
+        "allowed_constrained",
+    ],
+    "strategy_family_eligibility_aliases": {
+        "long_premium": ["directional_long_premium"],
+        "neutral_income": ["defined_risk_neutral"],
+        "term_structure": ["wait_for_clearer_options_edge"],
+        "stock_overlay": ["protective_put_spread"],
+    },
     "blocked_option_liquidity_states": ["illiquid_or_sparse"],
     "excluded_strategies": [
         "protective_put",
@@ -376,6 +389,133 @@ def _has_term_structure_behavior(row: Mapping[str, Any]) -> bool:
     return False
 
 
+
+
+def _strategy_family_statuses(row: Mapping[str, Any]) -> Mapping[str, str]:
+    statuses = row.get("strategy_family_statuses")
+
+    if not isinstance(statuses, Mapping):
+        eligibility = row.get("strategy_family_eligibility")
+        if isinstance(eligibility, Mapping):
+            statuses = eligibility.get("strategy_family_statuses")
+
+    if not isinstance(statuses, Mapping):
+        return {}
+
+    out: Dict[str, str] = {}
+    for key, value in statuses.items():
+        family = _normalise_text(key)
+        status = _normalise_text(value)
+        if family != MISSING_VALUE and status != MISSING_VALUE:
+            out[family] = status
+
+    return out
+
+
+def _strategy_family_status_aliases(
+    *,
+    policy: Mapping[str, Any],
+    strategy_family: str,
+) -> List[str]:
+    family = _normalise_text(strategy_family)
+    candidates: List[str] = []
+
+    if family != MISSING_VALUE:
+        candidates.append(family)
+
+    aliases = policy.get("strategy_family_eligibility_aliases")
+    if not isinstance(aliases, Mapping):
+        return candidates
+
+    alias_value = aliases.get(family)
+    if alias_value is None:
+        alias_value = aliases.get(family.lower())
+
+    if isinstance(alias_value, str):
+        alias_items = [alias_value]
+    elif isinstance(alias_value, Sequence) and not isinstance(alias_value, (str, bytes)):
+        alias_items = list(alias_value)
+    else:
+        alias_items = []
+
+    for item in alias_items:
+        alias = _normalise_text(item)
+        if alias != MISSING_VALUE and alias not in candidates:
+            candidates.append(alias)
+
+    return candidates
+
+
+def _strategy_family_status(
+    row: Mapping[str, Any],
+    strategy_family: str,
+    *,
+    policy: Mapping[str, Any] | None = None,
+) -> str:
+    family = _normalise_text(strategy_family)
+    if family == MISSING_VALUE:
+        return MISSING_VALUE
+
+    statuses = _strategy_family_statuses(row)
+
+    lookup = {
+        _normalise_text(key).lower(): value
+        for key, value in statuses.items()
+    }
+
+    candidates = (
+        _strategy_family_status_aliases(policy=policy, strategy_family=family)
+        if policy is not None
+        else [family]
+    )
+
+    for candidate in candidates:
+        direct = _normalise_text(candidate)
+
+        if direct in statuses:
+            return statuses[direct]
+
+        lowered = direct.lower()
+        if lowered in lookup:
+            return lookup[lowered]
+
+    return MISSING_VALUE
+
+def _strategy_family_gate_block_reasons(
+    *,
+    row: Mapping[str, Any],
+    strategy_family: str,
+    policy: Mapping[str, Any],
+) -> List[str]:
+    if not bool(policy.get("enforce_strategy_family_eligibility", True)):
+        return []
+
+    family = _normalise_text(strategy_family)
+    if family == MISSING_VALUE:
+        return ["missing_strategy_family"]
+
+    statuses = _strategy_family_statuses(row)
+    if not statuses:
+        return ["missing_strategy_family_statuses"]
+
+    status = _strategy_family_status(row, family, policy=policy)
+
+    if status == MISSING_VALUE:
+        return [f"missing_strategy_family_status:{family}"]
+
+    allowed_statuses = set(
+        _normalise_text(item)
+        for item in (
+            policy.get("allowed_strategy_family_statuses")
+            or ["favored", "favored_constrained", "allowed", "allowed_constrained"]
+        )
+    )
+
+    if status not in allowed_statuses:
+        return [f"strategy_family_status_not_allowed:{family}:{status}"]
+
+    return []
+
 def _parse_option_behavior(option_behavior_state: str) -> Dict[str, str]:
     lowered = option_behavior_state.lower()
 
@@ -485,6 +625,15 @@ def _strategy_context_block_reasons(
     reasons: List[str] = []
 
     strategy_name = strategy.get("strategy")
+    strategy_family = _normalise_text(strategy.get("strategy_family"))
+
+    reasons.extend(
+        _strategy_family_gate_block_reasons(
+            row=row,
+            strategy_family=strategy_family,
+            policy=policy,
+        )
+    )
 
     blocked_liquidity_states = set(policy.get("blocked_option_liquidity_states") or [])
     if option_liquidity_state in blocked_liquidity_states:
@@ -579,6 +728,7 @@ def build_historical_strategy_candidate_rows(
     strategy_instance_counts: Counter[str] = Counter()
     available_strategy_instance_counts: Counter[str] = Counter()
     strategy_family_counts: Counter[str] = Counter()
+    strategy_family_status_counts: Counter[str] = Counter()
     holding_period_counts: Counter[str] = Counter()
     risk_overlay_counts: Counter[str] = Counter()
 
@@ -703,7 +853,10 @@ def build_historical_strategy_candidate_rows(
                     strategy_candidate_state_counts[state] += 1
                     strategy_counts[strategy_name] += 1
                     strategy_instance_counts[strategy_instance] += 1
+                    strategy_family_status = _strategy_family_status(row, strategy_family, policy=policy)
+
                     strategy_family_counts[strategy_family] += 1
+                    strategy_family_status_counts[strategy_family_status] += 1
                     holding_period_counts[str(horizon)] += 1
                     risk_overlay_counts[risk_overlay_name] += 1
 
@@ -729,6 +882,7 @@ def build_historical_strategy_candidate_rows(
                             "strategy": strategy_name,
                             "strategy_instance": strategy_instance,
                             "strategy_family": strategy_family,
+                            "strategy_family_status": strategy_family_status,
                             "strategy_structure": strategy_structure,
                             "strategy_direction": strategy_direction,
                             "premium_profile": premium_profile,
@@ -895,6 +1049,7 @@ def build_historical_strategy_candidate_rows(
         "strategy_instance_counts": dict(sorted(strategy_instance_counts.items())),
         "available_strategy_instance_counts": dict(sorted(available_strategy_instance_counts.items())),
         "strategy_family_counts": dict(sorted(strategy_family_counts.items())),
+        "strategy_family_status_counts": dict(sorted(strategy_family_status_counts.items())),
         "holding_period_counts": dict(sorted(holding_period_counts.items())),
         "risk_overlay_counts": dict(sorted(risk_overlay_counts.items())),
         "validation": {
@@ -914,6 +1069,8 @@ def build_historical_strategy_candidate_rows(
             "policy_version": policy.get("policy_version"),
             "eligible_data_states": policy.get("eligible_data_states"),
             "required_eligibility_flags": policy.get("required_eligibility_flags"),
+            "enforce_strategy_family_eligibility": policy.get("enforce_strategy_family_eligibility", True),
+            "allowed_strategy_family_statuses": policy.get("allowed_strategy_family_statuses"),
             "blocked_option_liquidity_states": policy.get("blocked_option_liquidity_states"),
             "holding_period_days": policy.get("holding_period_days"),
             "risk_overlays": policy.get("risk_overlays"),
@@ -972,5 +1129,7 @@ def build_historical_strategy_candidate_rows_artifact(
     write_json(summary_path, summary)
 
     return summary
+
+
 
 

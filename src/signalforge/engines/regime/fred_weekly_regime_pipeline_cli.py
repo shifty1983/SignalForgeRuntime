@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.signalforge.engines.regime.fred_weekly_pipeline import build_signalforge_fred_weekly_regime_pipeline
+from signalforge.engines.regime.fred_weekly_pipeline import build_signalforge_fred_weekly_regime_pipeline
 
 
 DEFAULT_SOURCE = "artifacts/fred_regime_pipeline/signalforge_fred_regime_pipeline.json"
@@ -117,5 +117,7 @@ def _summary(result: dict[str, Any]) -> dict[str, Any]:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
 

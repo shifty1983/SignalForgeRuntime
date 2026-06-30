@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from numbers import Real
 
-from src.signalforge.engines.behavior.schema import validate_behavior_output
+from signalforge.engines.behavior.schema import validate_behavior_output
 
 
 SCORED_BEHAVIOR_KEYS = {
@@ -138,5 +138,7 @@ def behavior_output_is_valid(
         return False
 
     return True
+
+
 
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Mapping
 
-from src.signalforge.engines.behavior.schema import validate_behavior_output
+from signalforge.engines.behavior.schema import validate_behavior_output
 
 
 RETURN_SCORES = {
@@ -166,5 +166,7 @@ def build_behavior_score(
         "behavior_score": score,
         "behavior_state": state,
     }
+
+
 
 

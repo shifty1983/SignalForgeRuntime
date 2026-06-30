@@ -46,3 +46,5 @@ def test_stage2_artifact_parity_core_row_counts_match():
         assert row_results[stage]["source_row_count"] > 0
 
 
+
+
