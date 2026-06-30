@@ -307,28 +307,15 @@ def _merge_options_behavior_items(
 ) -> dict[str, Any]:
     merged = dict(base)
 
-    override_items: list[Mapping[str, Any]] = []
+    # Preserve the original coarse state unless the richer source explicitly gives a policy-native state.
+    for key, value in override.items():
+        if value in (None, ""):
+            continue
 
-    nested_option_behavior = override.get("option_behavior")
-    if isinstance(nested_option_behavior, Mapping):
-        override_items.append(nested_option_behavior)
+        if key == "state" and merged.get("state"):
+            continue
 
-    override_items.append(override)
-
-    for item in override_items:
-        for key, value in item.items():
-            if key == "option_behavior":
-                continue
-
-            if value in (None, ""):
-                continue
-
-            # Preserve the original decision-row IV/liquidity state. The richer source
-            # may be a compatibility artifact and should not erase the coarse behavior state.
-            if key == "state" and merged.get("state"):
-                continue
-
-            merged[key] = value
+        merged[key] = value
 
     return merged
 
@@ -490,27 +477,6 @@ def enrich_decision_row_with_strategy_family_eligibility(
 
     try:
         regime_source, asset_behavior_source, options_behavior_source = _single_row_sources(row, options_behavior_lookup=options_behavior_lookup)
-
-        merged_option_behavior = _first_mapping(
-            options_behavior_source,
-            (
-                "option_behavior",
-                "options_behavior",
-                "option_behavior_items",
-                "options_behavior_items",
-                "items",
-                "rows",
-            ),
-        )
-        if merged_option_behavior:
-            output_option_behavior = dict(_as_mapping(enriched.get("option_behavior")))
-            for key, value in merged_option_behavior.items():
-                if value in (None, ""):
-                    continue
-                if key == "state" and output_option_behavior.get("state"):
-                    continue
-                output_option_behavior[key] = value
-            enriched["option_behavior"] = output_option_behavior
 
         alignment_artifact = build_signalforge_regime_asset_options_alignment(
             regime_source=regime_source,
