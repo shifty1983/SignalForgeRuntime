@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.expected_value_scoring import build_signalforge_expected_value_scoring
-from src.strategy_selection.expected_value_scoring_file_writer import write_expected_value_scoring_result
+from src.signalforge.engines.strategy_selection.expected_value_scoring import build_signalforge_expected_value_scoring
+from src.signalforge.engines.strategy_selection.expected_value_scoring_file_writer import write_expected_value_scoring_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

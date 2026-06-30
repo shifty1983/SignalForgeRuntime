@@ -7,10 +7,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.strategy_selection.matrix_metadata_patch_coverage_audit import (
+from src.signalforge.engines.strategy_selection.matrix_metadata_patch_coverage_audit import (
     build_signalforge_matrix_metadata_patch_coverage_audit,
 )
-from src.strategy_selection.matrix_metadata_patch_coverage_audit_file_writer import (
+from src.signalforge.engines.strategy_selection.matrix_metadata_patch_coverage_audit_file_writer import (
     write_signalforge_matrix_metadata_patch_coverage_audit,
 )
 

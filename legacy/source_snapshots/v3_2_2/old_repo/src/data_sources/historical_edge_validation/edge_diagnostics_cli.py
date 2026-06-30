@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 
-from src.data_sources.historical_edge_validation.edge_diagnostics import (
+from src.signalforge.data_sources.historical_edge_validation.edge_diagnostics import (
     build_historical_edge_validation_diagnostics,
     discover_decoded_window_roots,
     discover_window_summary_sources,

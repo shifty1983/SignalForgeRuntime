@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 
-from src.data_sources.portfolio_equity_reconstruction.stress_diagnostics import (
+from src.signalforge.data_sources.portfolio_equity_reconstruction.stress_diagnostics import (
     build_portfolio_equity_stress_diagnostics,
     discover_decoded_window_roots,
     write_json,

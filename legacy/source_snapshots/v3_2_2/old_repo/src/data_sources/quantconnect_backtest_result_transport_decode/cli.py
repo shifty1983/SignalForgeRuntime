@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.quantconnect_backtest_result_transport_decode.decoder import (
+from src.signalforge.data_sources.quantconnect_backtest_result_transport_decode.decoder import (
     decode_signalforge_backtest_result_transport,
 )
 

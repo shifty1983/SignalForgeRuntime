@@ -16,7 +16,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.strategy_selection.historical_replay_matrix_metadata_stamp import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
     MATRIX_CELL_KEY_KEY,
     MATRIX_METADATA_KEY,
     MATRIX_METADATA_MISSING_FIELDS_KEY,

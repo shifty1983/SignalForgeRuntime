@@ -8,14 +8,14 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from src.behavior.market_price_behavior import (
+from src.signalforge.engines.behavior.market_price_behavior import (
     DEFAULT_LONG_WINDOW,
     DEFAULT_SHORT_WINDOW,
     _build_symbol_behavior,
     _extract_rows,
     _normalize_price_row,
 )
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 HISTORICAL_ASSET_BEHAVIOR_SCHEMA_VERSION = (

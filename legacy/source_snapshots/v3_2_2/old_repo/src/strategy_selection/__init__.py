@@ -1,4 +1,4 @@
-﻿from src.strategy_selection.allocation import (
+from src.signalforge.engines.strategy_selection.allocation import (
     CandidateAllocationConfig,
     add_dollar_allocation,
     add_risk_budget,
@@ -18,7 +18,7 @@
     allocation_with_greek_exposures,
     greek_exposure_summary,
 )
-from src.strategy_selection.candidates import (
+from src.signalforge.engines.strategy_selection.candidates import (
     CandidatePreparationConfig,
     CandidateSchema,
     add_candidate_flags,
@@ -29,7 +29,7 @@ from src.strategy_selection.candidates import (
     validate_candidate_data,
     validate_candidate_quality,
 )
-from src.strategy_selection.filters import (
+from src.signalforge.engines.strategy_selection.filters import (
     CandidateFilterConfig,
     apply_candidate_filters,
     filter_by_allowed_asset_classes,
@@ -52,7 +52,7 @@ from src.strategy_selection.filters import (
     filter_by_score_range,
     filter_by_selection_eligible,
 )
-from src.strategy_selection.ranking import (
+from src.signalforge.engines.strategy_selection.ranking import (
     CandidateRankingConfig,
     add_group_rank,
     add_percentile_rank,
@@ -64,7 +64,7 @@ from src.strategy_selection.ranking import (
     rank_selection_pipeline,
     top_n_candidates,
 )
-from src.strategy_selection.rules import (
+from src.signalforge.engines.strategy_selection.rules import (
     CandidateRuleConfig,
     apply_selection_rules,
     enforce_max_candidates,
@@ -80,7 +80,7 @@ from src.strategy_selection.rules import (
     exclude_strategies,
     exclude_symbols,
 )
-from src.strategy_selection.selector import (
+from src.signalforge.engines.strategy_selection.selector import (
     StrategySelectionConfig,
     has_valid_selection,
     select_candidates,
@@ -89,7 +89,7 @@ from src.strategy_selection.selector import (
     selection_diagnostics,
     selection_summary,
 )
-from src.strategy_selection.option_behavior_adapter import (
+from src.signalforge.engines.strategy_selection.option_behavior_adapter import (
     attach_option_behavior_to_strategy_handoff,
 )
 

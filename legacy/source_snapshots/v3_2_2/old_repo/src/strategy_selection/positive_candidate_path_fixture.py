@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 POSITIVE_CANDIDATE_PATH_FIXTURE_SCHEMA_VERSION = (

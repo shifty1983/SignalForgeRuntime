@@ -1,26 +1,26 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
 import polars as pl
 
-from src.strategy_selection.candidates import (
+from src.signalforge.engines.strategy_selection.candidates import (
     CandidatePreparationConfig,
     prepare_candidates,
     validate_candidate_data,
 )
-from src.strategy_selection.filters import (
+from src.signalforge.engines.strategy_selection.filters import (
     CandidateFilterConfig,
     apply_candidate_filters,
 )
-from src.strategy_selection.ranking import (
+from src.signalforge.engines.strategy_selection.ranking import (
     CandidateRankingConfig,
     add_group_rank,
     add_score_bucket,
     rank_selection_pipeline,
 )
-from src.strategy_selection.rules import (
+from src.signalforge.engines.strategy_selection.rules import (
     CandidateRuleConfig,
     apply_selection_rules,
 )

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 import subprocess
@@ -281,7 +281,7 @@ def _default_script_generator(
     command = [
         sys.executable,
         "-m",
-        "src.data_sources.quantconnect_compact_replay_script.cli",
+        "src.signalforge.data_sources.quantconnect_compact_replay_script.cli",
         "--handoff-source",
         str(batch_handoff_path),
         "--output-dir",

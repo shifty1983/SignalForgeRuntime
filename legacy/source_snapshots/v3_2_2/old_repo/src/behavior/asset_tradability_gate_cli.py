@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_tradability_gate import (
+from src.signalforge.engines.behavior.asset_tradability_gate import (
     build_signalforge_asset_tradability_gate,
 )
-from src.behavior.asset_tradability_gate_file_writer import (
+from src.signalforge.engines.behavior.asset_tradability_gate_file_writer import (
     write_asset_tradability_gate_result,
 )
 

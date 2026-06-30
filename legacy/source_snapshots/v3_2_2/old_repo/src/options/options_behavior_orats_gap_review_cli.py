@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.options_behavior_orats_gap_review import (
+from src.signalforge.engines.options.options_behavior_orats_gap_review import (
     build_signalforge_options_behavior_orats_gap_review,
 )
-from src.options.options_behavior_orats_gap_review_file_writer import (
+from src.signalforge.engines.options.options_behavior_orats_gap_review_file_writer import (
     write_options_behavior_orats_gap_review_result,
 )
 

@@ -4,7 +4,7 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 HISTORICAL_EDGE_MATRIX_COVERAGE_AUDIT_SCHEMA_VERSION = (

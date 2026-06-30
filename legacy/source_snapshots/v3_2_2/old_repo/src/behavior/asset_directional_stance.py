@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 ASSET_DIRECTIONAL_STANCE_SCHEMA_VERSION = "signalforge_asset_directional_stance.v1"

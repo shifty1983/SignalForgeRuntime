@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.option_volatility_risk_premium import (
+from src.signalforge.engines.options.option_volatility_risk_premium import (
     DEFAULT_ANNUALIZATION_FACTOR,
     DEFAULT_CHEAP_RATIO_THRESHOLD,
     DEFAULT_MIN_RETURN_OBSERVATIONS,
@@ -13,7 +13,7 @@ from src.options.option_volatility_risk_premium import (
     DEFAULT_WIDE_SPREAD_THRESHOLD,
     build_signalforge_option_volatility_risk_premium,
 )
-from src.options.option_volatility_risk_premium_file_writer import (
+from src.signalforge.engines.options.option_volatility_risk_premium_file_writer import (
     write_option_volatility_risk_premium_result,
 )
 

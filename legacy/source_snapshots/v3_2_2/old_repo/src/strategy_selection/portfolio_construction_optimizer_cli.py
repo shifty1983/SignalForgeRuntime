@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.portfolio_construction_optimizer import build_signalforge_portfolio_construction_optimizer
-from src.strategy_selection.portfolio_construction_optimizer_file_writer import write_portfolio_construction_optimizer_result
+from src.signalforge.engines.strategy_selection.portfolio_construction_optimizer import build_signalforge_portfolio_construction_optimizer
+from src.signalforge.engines.strategy_selection.portfolio_construction_optimizer_file_writer import write_portfolio_construction_optimizer_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

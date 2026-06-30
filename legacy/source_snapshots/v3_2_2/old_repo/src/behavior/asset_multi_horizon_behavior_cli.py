@@ -5,11 +5,11 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_multi_horizon_behavior import (
+from src.signalforge.engines.behavior.asset_multi_horizon_behavior import (
     DEFAULT_HORIZONS,
     build_signalforge_asset_multi_horizon_behavior,
 )
-from src.behavior.asset_multi_horizon_behavior_file_writer import (
+from src.signalforge.engines.behavior.asset_multi_horizon_behavior_file_writer import (
     write_asset_multi_horizon_behavior_result,
 )
 

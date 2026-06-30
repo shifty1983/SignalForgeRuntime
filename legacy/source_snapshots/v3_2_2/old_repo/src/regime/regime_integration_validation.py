@@ -6,10 +6,10 @@ from typing import Any
 
 import polars as pl
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from src.regime.breadth import breadth_trend, classify_breadth, moving_average_breadth
-from src.regime.composite_macro import build_composite_macro_regime
-from src.regime.risk_environment import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.regime.breadth import breadth_trend, classify_breadth, moving_average_breadth
+from src.signalforge.engines.regime.composite_macro import build_composite_macro_regime
+from src.signalforge.engines.regime.risk_environment import (
     add_enhanced_risk_score,
     add_enhanced_risk_trend,
     add_risk_confidence,

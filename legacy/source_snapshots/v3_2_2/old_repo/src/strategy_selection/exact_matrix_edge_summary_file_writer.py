@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-from src.strategy_selection.exact_matrix_edge_summary import (
+from src.signalforge.engines.strategy_selection.exact_matrix_edge_summary import (
     summarize_signalforge_exact_matrix_edge_summary,
 )
 

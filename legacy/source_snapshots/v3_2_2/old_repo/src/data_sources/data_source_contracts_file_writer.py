@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from collections.abc import Mapping
@@ -6,7 +6,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.data_source_contracts import build_signalforge_data_source_contracts
+from src.signalforge.data_sources.data_source_contracts import build_signalforge_data_source_contracts
 
 
 FILE_WRITER_SCHEMA_VERSION = "signalforge_data_source_contracts_files.v1"

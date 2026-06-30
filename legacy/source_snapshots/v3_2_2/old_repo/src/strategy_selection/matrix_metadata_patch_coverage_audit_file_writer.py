@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-from src.strategy_selection.matrix_metadata_patch_coverage_audit import (
+from src.signalforge.engines.strategy_selection.matrix_metadata_patch_coverage_audit import (
     summarize_signalforge_matrix_metadata_patch_coverage_audit,
 )
 

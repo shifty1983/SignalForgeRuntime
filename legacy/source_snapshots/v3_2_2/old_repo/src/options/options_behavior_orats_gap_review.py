@@ -4,7 +4,7 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 OPTIONS_BEHAVIOR_ORATS_GAP_REVIEW_SCHEMA_VERSION = (
@@ -56,8 +56,8 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["implied_volatility", "strike", "right", "moneyness"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.skew.compute_skew",
-            "src.options.skew.compute_put_call_skew",
+            "src.signalforge.engines.options.skew.compute_skew",
+            "src.signalforge.engines.options.skew.compute_put_call_skew",
             "src.option_behavior.behavior_classifier.classify_skew_behavior",
         ],
     },
@@ -69,9 +69,9 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["implied_volatility", "expiration", "days_to_expiration"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.term_structure.compute_term_structure",
-            "src.options.term_structure.compare_front_back_iv",
-            "src.options.term_structure.classify_term_structure",
+            "src.signalforge.engines.options.term_structure.compute_term_structure",
+            "src.signalforge.engines.options.term_structure.compare_front_back_iv",
+            "src.signalforge.engines.options.term_structure.classify_term_structure",
             "src.option_behavior.behavior_classifier.classify_term_structure_behavior",
         ],
     },
@@ -83,8 +83,8 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["bid", "ask", "volume", "open_interest"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.liquidity.add_liquidity_metrics",
-            "src.options.liquidity.classify_liquidity",
+            "src.signalforge.engines.options.liquidity.add_liquidity_metrics",
+            "src.signalforge.engines.options.liquidity.classify_liquidity",
             "src.option_behavior.behavior_classifier.classify_liquidity_behavior",
         ],
     },
@@ -96,7 +96,7 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["bid", "ask"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.liquidity.add_liquidity_metrics",
+            "src.signalforge.engines.options.liquidity.add_liquidity_metrics",
             "spread_pct",
             "execution_quote_gate",
         ],
@@ -109,7 +109,7 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["open_interest"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.liquidity.add_liquidity_metrics",
+            "src.signalforge.engines.options.liquidity.add_liquidity_metrics",
             "total_open_interest",
         ],
     },
@@ -121,7 +121,7 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["volume"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.liquidity.add_liquidity_metrics",
+            "src.signalforge.engines.options.liquidity.add_liquidity_metrics",
             "total_volume",
         ],
     },
@@ -145,7 +145,7 @@ ORATS_ALIGNED_CAPABILITY_CONTRACT: tuple[dict[str, Any], ...] = (
         "minimum_signalforge_fields": ["delta"],
         "signalforge_status": "covered",
         "signalforge_evidence": [
-            "src.options.option_behavior_source_readiness has_delta",
+            "src.signalforge.engines.options.option_behavior_source_readiness has_delta",
             "contract-level delta fields are accepted",
         ],
     },

@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.strategy_selection.historical_replay_matrix_metadata_stamp_file_writer import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp_file_writer import (
     write_signalforge_historical_replay_matrix_metadata_stamping_helpers,
 )
 

@@ -10,12 +10,12 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from src.alignment.regime_asset_options_alignment import (
+from src.signalforge.engines.alignment.regime_asset_options_alignment import (
     _build_alignment_item,
     _matrix_dimension_summary,
     _summary,
 )
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 SCHEMA_VERSION = "signalforge_historical_regime_asset_options_alignment.v2"

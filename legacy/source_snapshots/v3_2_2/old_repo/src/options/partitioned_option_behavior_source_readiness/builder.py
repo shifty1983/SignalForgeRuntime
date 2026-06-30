@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from collections import Counter
@@ -6,8 +6,8 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from src.options.option_behavior_source_readiness import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.options.option_behavior_source_readiness import (
     build_signalforge_option_behavior_source_readiness,
 )
 

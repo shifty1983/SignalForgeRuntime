@@ -1,8 +1,8 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import polars as pl
 
-from src.options.schema import validate_columns
+from src.signalforge.engines.options.schema import validate_columns
 
 
 def compute_term_structure(

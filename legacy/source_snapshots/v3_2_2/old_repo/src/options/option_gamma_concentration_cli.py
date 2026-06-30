@@ -5,13 +5,13 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.option_gamma_concentration import (
+from src.signalforge.engines.options.option_gamma_concentration import (
     DEFAULT_EXPIRATION_CLUSTER_SHARE_THRESHOLD,
     DEFAULT_LOW_TOTAL_GAMMA_THRESHOLD,
     DEFAULT_STRIKE_CLUSTER_SHARE_THRESHOLD,
     build_signalforge_option_gamma_concentration,
 )
-from src.options.option_gamma_concentration_file_writer import (
+from src.signalforge.engines.options.option_gamma_concentration_file_writer import (
     write_option_gamma_concentration_result,
 )
 

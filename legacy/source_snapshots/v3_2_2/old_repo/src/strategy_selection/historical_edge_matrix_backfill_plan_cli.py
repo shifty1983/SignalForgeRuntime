@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.historical_edge_matrix_backfill_plan import (
+from src.signalforge.engines.strategy_selection.historical_edge_matrix_backfill_plan import (
     build_signalforge_historical_edge_matrix_backfill_plan,
 )
-from src.strategy_selection.historical_edge_matrix_backfill_plan_file_writer import (
+from src.signalforge.engines.strategy_selection.historical_edge_matrix_backfill_plan_file_writer import (
     write_historical_edge_matrix_backfill_plan_result,
 )
 

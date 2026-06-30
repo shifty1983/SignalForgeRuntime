@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from src.strategy_selection.selection_report import StrategySelectionReport
+from src.signalforge.engines.strategy_selection.selection_report import StrategySelectionReport
 
 
 STRATEGY_SELECTION_OPERATION_TYPE = "strategy_selection"

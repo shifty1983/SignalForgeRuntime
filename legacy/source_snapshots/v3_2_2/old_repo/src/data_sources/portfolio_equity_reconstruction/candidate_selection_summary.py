@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 import json
 
-from src.strategy_selection.historical_replay_matrix_metadata_stamp import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
     MATRIX_METADATA_KEY,
     REQUIRED_MATRIX_METADATA_FIELDS,
     matrix_metadata_coverage,

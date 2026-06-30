@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence, TextIO
 
 try:
-    from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+    from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 except Exception:  # pragma: no cover - allows standalone smoke tests
     EXPLICIT_EXCLUSIONS = [
         "broker_api_calls",

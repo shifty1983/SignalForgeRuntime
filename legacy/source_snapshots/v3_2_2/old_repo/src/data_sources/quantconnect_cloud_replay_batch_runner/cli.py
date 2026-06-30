@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -6,10 +6,10 @@ import os
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.quantconnect_cloud_replay_batch_runner.file_writer import (
+from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.file_writer import (
     write_signalforge_quantconnect_cloud_replay_batch_runner_plan,
 )
-from src.data_sources.quantconnect_cloud_replay_batch_runner.runner import (
+from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.runner import (
     build_signalforge_quantconnect_cloud_replay_batch_runner_plan,
 )
 
@@ -51,14 +51,14 @@ def main() -> int:
 
         backtest_execution = _read_json(Path(args.backtest_execution_source))
 
-        from src.data_sources.quantconnect_cloud_api.client import (
+        from src.signalforge.data_sources.quantconnect_cloud_api.client import (
             QuantConnectCloudClient,
             QuantConnectCloudCredentials,
         )
-        from src.data_sources.quantconnect_cloud_replay_batch_runner.object_store_downloader import (
+        from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.object_store_downloader import (
             execute_signalforge_quantconnect_cloud_object_store_download_only,
         )
-        from src.data_sources.quantconnect_cloud_replay_batch_runner.object_store_download_file_writer import (
+        from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.object_store_download_file_writer import (
             write_signalforge_quantconnect_cloud_object_store_download,
         )
 
@@ -105,7 +105,7 @@ def main() -> int:
         print(json.dumps(summary, indent=2, sort_keys=True))
         return 0 if result.get("is_ready") else 1
 
-    from src.data_sources.quantconnect_cloud_api.client import (
+    from src.signalforge.data_sources.quantconnect_cloud_api.client import (
         QuantConnectCloudClient,
         QuantConnectCloudCredentials,
     )
@@ -114,10 +114,10 @@ def main() -> int:
     client = QuantConnectCloudClient(credentials)
 
     if args.mode == "execute_compile_only":
-        from src.data_sources.quantconnect_cloud_replay_batch_runner.compile_executor import (
+        from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.compile_executor import (
             execute_signalforge_quantconnect_cloud_replay_compile_only,
         )
-        from src.data_sources.quantconnect_cloud_replay_batch_runner.compile_file_writer import (
+        from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.compile_file_writer import (
             write_signalforge_quantconnect_cloud_replay_compile_execution,
         )
 
@@ -139,10 +139,10 @@ def main() -> int:
         print(json.dumps(summary, indent=2, sort_keys=True))
         return 0 if result.get("is_ready") else 1
 
-    from src.data_sources.quantconnect_cloud_replay_batch_runner.backtest_executor import (
+    from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.backtest_executor import (
         execute_signalforge_quantconnect_cloud_replay_backtest_only,
     )
-    from src.data_sources.quantconnect_cloud_replay_batch_runner.backtest_file_writer import (
+    from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.backtest_file_writer import (
         write_signalforge_quantconnect_cloud_replay_backtest_execution,
     )
 

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 from collections.abc import Mapping
@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
-from src.data_sources.market_price_history_import_file_writer import (
+from src.signalforge.data_sources.market_price_history_import_file_writer import (
     write_signalforge_market_price_history_import_files,
 )
 from src.universe.universe import UniverseManager

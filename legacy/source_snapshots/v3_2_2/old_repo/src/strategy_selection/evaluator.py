@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any
 
-from src.strategy_selection.research_adapter import (
+from src.signalforge.engines.strategy_selection.research_adapter import (
     validate_strategy_candidate_input_rows,
 )
 

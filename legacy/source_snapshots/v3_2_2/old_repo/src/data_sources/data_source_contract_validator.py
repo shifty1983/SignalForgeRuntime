@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_contracts import DATA_SOURCE_CONTRACTS
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_contracts import DATA_SOURCE_CONTRACTS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 VALIDATION_SCHEMA_VERSION = "signalforge_data_source_contract_validation.v1"

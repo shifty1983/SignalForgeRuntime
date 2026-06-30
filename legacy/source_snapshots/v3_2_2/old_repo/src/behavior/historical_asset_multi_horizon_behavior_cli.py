@@ -8,14 +8,14 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from src.behavior.asset_multi_horizon_behavior import (
+from src.signalforge.engines.behavior.asset_multi_horizon_behavior import (
     DEFAULT_HORIZONS,
     _build_symbol_behavior,
     _clean_horizons,
     _extract_price_rows,
     _normalize_price_row,
 )
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 HISTORICAL_MULTI_HORIZON_SCHEMA_VERSION = "signalforge_historical_asset_multi_horizon_behavior.v1"

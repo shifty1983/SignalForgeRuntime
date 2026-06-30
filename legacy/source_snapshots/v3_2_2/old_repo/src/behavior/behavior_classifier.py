@@ -2,21 +2,21 @@ from __future__ import annotations
 
 import polars as pl
 
-from src.behavior.behavior_score import build_behavior_score
-from src.behavior.drawdown_profile import (
+from src.signalforge.engines.behavior.behavior_score import build_behavior_score
+from src.signalforge.engines.behavior.drawdown_profile import (
     classify_drawdown,
     compute_drawdown,
     max_drawdown,
 )
-from src.behavior.returns_profile import classify_return_behavior
-from src.behavior.schema import validate_behavior_inputs
-from src.behavior.trend_profile import (
+from src.signalforge.engines.behavior.returns_profile import classify_return_behavior
+from src.signalforge.engines.behavior.schema import validate_behavior_inputs
+from src.signalforge.engines.behavior.trend_profile import (
     classify_trend,
     moving_average_trend,
 )
-from src.behavior.trend_quality import build_trend_quality_profile
-from src.behavior.volatility_behavior import build_volatility_behavior_profile
-from src.behavior.volatility_profile import (
+from src.signalforge.engines.behavior.trend_quality import build_trend_quality_profile
+from src.signalforge.engines.behavior.volatility_behavior import build_volatility_behavior_profile
+from src.signalforge.engines.behavior.volatility_profile import (
     classify_volatility_regime,
     realized_volatility,
 )

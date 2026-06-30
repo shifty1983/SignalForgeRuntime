@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.position_sizing_recommendation import build_signalforge_position_sizing_recommendation
-from src.strategy_selection.position_sizing_recommendation_file_writer import write_position_sizing_recommendation_result
+from src.signalforge.engines.strategy_selection.position_sizing_recommendation import build_signalforge_position_sizing_recommendation
+from src.signalforge.engines.strategy_selection.position_sizing_recommendation_file_writer import write_position_sizing_recommendation_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

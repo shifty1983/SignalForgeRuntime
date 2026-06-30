@@ -6,22 +6,22 @@ from typing import Any
 
 import polars as pl
 
-from src.behavior.behavior_classifier import classify_asset_behavior
-from src.behavior.benchmark_symbol import (
+from src.signalforge.engines.behavior.behavior_classifier import classify_asset_behavior
+from src.signalforge.engines.behavior.benchmark_symbol import (
     infer_asset_class_from_symbol,
     resolve_benchmark_symbol,
 )
-from src.behavior.beta_profile import build_beta_profile
-from src.behavior.breadth_participation import build_breadth_participation_profile
-from src.behavior.leadership_profile import build_leadership_profile
-from src.behavior.relative_strength_profile import build_relative_strength_profile
-from src.behavior.sector_relative_strength import (
+from src.signalforge.engines.behavior.beta_profile import build_beta_profile
+from src.signalforge.engines.behavior.breadth_participation import build_breadth_participation_profile
+from src.signalforge.engines.behavior.leadership_profile import build_leadership_profile
+from src.signalforge.engines.behavior.relative_strength_profile import build_relative_strength_profile
+from src.signalforge.engines.behavior.sector_relative_strength import (
     build_sector_relative_strength_profile,
     infer_sector_benchmark_symbol,
 )
-from src.behavior.volume_behavior import classify_volume_behavior
-from src.behavior.diagnostics import diagnose_behavior_output
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.behavior.volume_behavior import classify_volume_behavior
+from src.signalforge.engines.behavior.diagnostics import diagnose_behavior_output
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 ASSET_BEHAVIOR_SCHEMA_VERSION = "signalforge_asset_behavior_from_market_price_history.v1"

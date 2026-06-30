@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_relative_rank import build_signalforge_asset_relative_rank
-from src.behavior.asset_relative_rank_file_writer import (
+from src.signalforge.engines.behavior.asset_relative_rank import build_signalforge_asset_relative_rank
+from src.signalforge.engines.behavior.asset_relative_rank_file_writer import (
     write_asset_relative_rank_result,
 )
 

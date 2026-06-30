@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Mapping, Sequence
 
-from src.strategy_selection.historical_replay_matrix_metadata_stamp import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
     matrix_metadata_coverage,
     stamp_matrix_metadata,
 )

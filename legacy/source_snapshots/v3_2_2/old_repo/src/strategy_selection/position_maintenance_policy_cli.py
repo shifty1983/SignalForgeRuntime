@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.position_maintenance_policy import build_signalforge_position_maintenance_policy
-from src.strategy_selection.position_maintenance_policy_file_writer import write_position_maintenance_policy_result
+from src.signalforge.engines.strategy_selection.position_maintenance_policy import build_signalforge_position_maintenance_policy
+from src.signalforge.engines.strategy_selection.position_maintenance_policy_file_writer import write_position_maintenance_policy_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

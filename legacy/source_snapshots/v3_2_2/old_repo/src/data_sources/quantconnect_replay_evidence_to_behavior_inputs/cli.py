@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.data_sources.quantconnect_replay_evidence_to_behavior_inputs.builder import (
+from src.signalforge.data_sources.quantconnect_replay_evidence_to_behavior_inputs.builder import (
     build_signalforge_quantconnect_replay_evidence_to_behavior_inputs,
 )
 

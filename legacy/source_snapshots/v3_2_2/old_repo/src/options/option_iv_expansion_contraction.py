@@ -5,7 +5,7 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 OPTION_IV_EXPANSION_CONTRACTION_SCHEMA_VERSION = (

@@ -4,23 +4,23 @@ import polars as pl
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from src.regime.classifier import combine_regimes, simplified_regime_label
-from src.regime.credit import classify_credit, classify_credit_level
-from src.regime.diagnostics import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.regime.classifier import combine_regimes, simplified_regime_label
+from src.signalforge.engines.regime.credit import classify_credit, classify_credit_level
+from src.signalforge.engines.regime.diagnostics import (
     missing_regime_rows,
     regime_distribution,
     validate_regime_labels,
 )
-from src.regime.fred_source_builder import build_signalforge_fred_regime_source
-from src.regime.growth import classify_growth
-from src.regime.inflation import classify_inflation
-from src.regime.liquidity import classify_liquidity
-from src.regime.options_policy import build_regime_options_policy_from_row
-from src.regime.rates import classify_rates
-from src.regime.yield_curve import classify_yield_curve, yield_curve_direction
-from src.regime.risk_environment import classify_risk_environment
-from src.regime.scoring import regime_risk_bias, score_regime
+from src.signalforge.engines.regime.fred_source_builder import build_signalforge_fred_regime_source
+from src.signalforge.engines.regime.growth import classify_growth
+from src.signalforge.engines.regime.inflation import classify_inflation
+from src.signalforge.engines.regime.liquidity import classify_liquidity
+from src.signalforge.engines.regime.options_policy import build_regime_options_policy_from_row
+from src.signalforge.engines.regime.rates import classify_rates
+from src.signalforge.engines.regime.yield_curve import classify_yield_curve, yield_curve_direction
+from src.signalforge.engines.regime.risk_environment import classify_risk_environment
+from src.signalforge.engines.regime.scoring import regime_risk_bias, score_regime
 
 
 FRED_REGIME_PIPELINE_SCHEMA_VERSION = "signalforge_fred_regime_pipeline.v1"

@@ -5,10 +5,10 @@ from copy import deepcopy
 from datetime import date, datetime
 from typing import Any
 
-from src.regime.options_policy import build_regime_options_policy_from_row
+from src.signalforge.engines.regime.options_policy import build_regime_options_policy_from_row
 
 try:
-    from src.regime.asset_class_policy import build_regime_asset_class_policy_from_row
+    from src.signalforge.engines.regime.asset_class_policy import build_regime_asset_class_policy_from_row
 except Exception:  # pragma: no cover - optional module during staged builds
     build_regime_asset_class_policy_from_row = None  # type: ignore[assignment]
 

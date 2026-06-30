@@ -4,7 +4,7 @@ from collections.abc import Mapping, Sequence
 from typing import Any
 
 from src.options_strategy.catalog import UNDEFINED_RISK_STRATEGIES
-from src.regime.asset_class_policy import EXCLUDED_ACTIONS, normalize_asset_class
+from src.signalforge.engines.regime.asset_class_policy import EXCLUDED_ACTIONS, normalize_asset_class
 
 
 VALID_FIT_STATUSES = {

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
-from src.data_sources.data_source_inventory_file_writer import (
+from src.signalforge.data_sources.data_source_inventory_file_writer import (
     write_signalforge_data_source_inventory_files,
 )
 

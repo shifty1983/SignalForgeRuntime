@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 FRED_REGIME_SOURCE_SCHEMA_VERSION = "signalforge_fred_regime_source.v1"

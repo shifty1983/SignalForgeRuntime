@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 
-from src.data_sources.portfolio_equity_reconstruction.candidate_selection_summary import (
+from src.signalforge.data_sources.portfolio_equity_reconstruction.candidate_selection_summary import (
     build_portfolio_candidate_selection_summary,
     read_json,
     write_json,

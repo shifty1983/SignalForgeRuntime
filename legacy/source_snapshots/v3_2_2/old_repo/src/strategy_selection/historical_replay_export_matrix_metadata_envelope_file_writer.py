@@ -7,7 +7,7 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any, Mapping
 
-from src.strategy_selection.historical_replay_export_matrix_metadata_envelope import (
+from src.signalforge.engines.strategy_selection.historical_replay_export_matrix_metadata_envelope import (
     build_historical_replay_export_matrix_metadata_envelope_summary,
 )
 

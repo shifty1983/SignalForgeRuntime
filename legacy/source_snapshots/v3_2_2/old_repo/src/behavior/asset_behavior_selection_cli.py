@@ -5,13 +5,13 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_behavior_selection import (
+from src.signalforge.engines.behavior.asset_behavior_selection import (
     build_signalforge_asset_behavior_selection,
 )
-from src.behavior.asset_behavior_selection_file_writer import (
+from src.signalforge.engines.behavior.asset_behavior_selection_file_writer import (
     write_asset_behavior_selection_result,
 )
-from src.behavior.universe_asset_class_map import (
+from src.signalforge.engines.behavior.universe_asset_class_map import (
     load_asset_class_map_from_universe_config,
 )
 

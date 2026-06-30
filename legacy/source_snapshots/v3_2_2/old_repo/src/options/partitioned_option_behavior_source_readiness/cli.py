@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.partitioned_option_behavior_source_readiness.builder import (
+from src.signalforge.engines.options.partitioned_option_behavior_source_readiness.builder import (
     build_signalforge_partitioned_option_behavior_source_readiness,
 )
 

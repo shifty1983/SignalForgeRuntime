@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -8,7 +8,7 @@ from typing import Any, Sequence
 import polars as pl
 
 from src.common.paths import raw_macro_dir
-from src.regime.fred_pipeline import build_signalforge_fred_regime_pipeline
+from src.signalforge.engines.regime.fred_pipeline import build_signalforge_fred_regime_pipeline
 
 
 CLI_SUMMARY_SCHEMA_VERSION = "signalforge_fred_regime_pipeline_cli.v1"

@@ -1,38 +1,38 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import asdict, dataclass, is_dataclass
 from os import PathLike
 from typing import Any
 
-from src.strategy_selection.evaluator import (
+from src.signalforge.engines.strategy_selection.evaluator import (
     StrategySelectionEvaluationReport,
     evaluate_strategy_candidates,
 )
-from src.strategy_selection.operation_audit import (
+from src.signalforge.engines.strategy_selection.operation_audit import (
     StrategySelectionOperationAuditReport,
     audit_strategy_selection_operation_record,
 )
-from src.strategy_selection.operation_health import (
+from src.signalforge.engines.strategy_selection.operation_health import (
     StrategySelectionOperationHealth,
     enforce_strategy_selection_operation_health,
     evaluate_strategy_selection_operation_health,
 )
-from src.strategy_selection.operation_log import (
+from src.signalforge.engines.strategy_selection.operation_log import (
     append_strategy_selection_operation_record,
 )
-from src.strategy_selection.operation_record import (
+from src.signalforge.engines.strategy_selection.operation_record import (
     StrategySelectionOperationRecord,
     build_strategy_selection_operation_record,
 )
-from src.strategy_selection.research_adapter import (
+from src.signalforge.engines.strategy_selection.research_adapter import (
     adapt_research_backtest_to_strategy_candidates,
 )
-from src.strategy_selection.selection_report import (
+from src.signalforge.engines.strategy_selection.selection_report import (
     StrategySelectionReport,
     build_strategy_selection_report,
 )
-from src.strategy_selection.option_behavior_adapter import (
+from src.signalforge.engines.strategy_selection.option_behavior_adapter import (
     attach_option_behavior_to_strategy_handoff,
 )
 

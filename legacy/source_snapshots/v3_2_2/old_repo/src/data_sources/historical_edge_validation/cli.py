@@ -5,9 +5,9 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.data_sources.historical_edge_validation.edge_validator import build_signalforge_historical_edge_validation
-from src.data_sources.historical_edge_validation.file_writer import write_historical_edge_validation_result
-from src.data_sources.quantconnect_replay_result_import_validator.validator import DEFAULT_RESULT_FILES
+from src.signalforge.data_sources.historical_edge_validation.edge_validator import build_signalforge_historical_edge_validation
+from src.signalforge.data_sources.historical_edge_validation.file_writer import write_historical_edge_validation_result
+from src.signalforge.data_sources.quantconnect_replay_result_import_validator.validator import DEFAULT_RESULT_FILES
 
 
 def main(argv: Sequence[str] | None = None) -> int:

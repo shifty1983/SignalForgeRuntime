@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from collections.abc import Mapping
@@ -6,7 +6,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Any
 
-from src.strategy_selection.operation_record import (
+from src.signalforge.engines.strategy_selection.operation_record import (
     STRATEGY_SELECTION_OPERATION_RECORD_SCHEMA_VERSION,
     STRATEGY_SELECTION_OPERATION_TYPE,
     StrategySelectionOperationRecord,

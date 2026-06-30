@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.data_sources.quantconnect_historical_replay_handoff.file_writer import (
+from src.signalforge.data_sources.quantconnect_historical_replay_handoff.file_writer import (
     write_quantconnect_historical_replay_handoff_result,
 )
-from src.data_sources.quantconnect_historical_replay_handoff.handoff import (
+from src.signalforge.data_sources.quantconnect_historical_replay_handoff.handoff import (
     DEFAULT_OUTCOME_HORIZONS,
     build_signalforge_quantconnect_historical_replay_handoff,
 )

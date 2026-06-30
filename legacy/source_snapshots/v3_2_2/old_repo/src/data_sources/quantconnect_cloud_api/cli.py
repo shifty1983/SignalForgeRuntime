@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 
-from src.data_sources.quantconnect_cloud_api.client import (
+from src.signalforge.data_sources.quantconnect_cloud_api.client import (
     QuantConnectCloudClient,
     QuantConnectCloudCredentials,
     QuantConnectCloudApiError,

@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Sequence
 
 import polars as pl
 
-from src.strategy_selection.candidates import REQUIRED_CANDIDATE_COLUMNS
+from src.signalforge.engines.strategy_selection.candidates import REQUIRED_CANDIDATE_COLUMNS
 
 
 @dataclass(frozen=True)

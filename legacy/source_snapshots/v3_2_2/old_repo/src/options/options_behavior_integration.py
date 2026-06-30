@@ -4,7 +4,7 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 OPTIONS_BEHAVIOR_INTEGRATION_SCHEMA_VERSION = "signalforge_options_behavior_integration.v1"

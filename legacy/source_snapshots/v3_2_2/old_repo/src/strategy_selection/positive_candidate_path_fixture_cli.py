@@ -4,10 +4,10 @@ import argparse
 import json
 from typing import Sequence
 
-from src.strategy_selection.positive_candidate_path_fixture import (
+from src.signalforge.engines.strategy_selection.positive_candidate_path_fixture import (
     build_signalforge_positive_candidate_path_fixture,
 )
-from src.strategy_selection.positive_candidate_path_fixture_file_writer import (
+from src.signalforge.engines.strategy_selection.positive_candidate_path_fixture_file_writer import (
     write_positive_candidate_path_fixture_result,
 )
 

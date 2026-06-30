@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from collections.abc import Mapping
@@ -6,7 +6,7 @@ from os import PathLike
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.data_source_contract_validator import (
+from src.signalforge.data_sources.data_source_contract_validator import (
     validate_signalforge_data_source_contract_payload,
 )
 

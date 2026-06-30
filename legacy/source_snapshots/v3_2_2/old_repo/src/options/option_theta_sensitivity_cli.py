@@ -5,14 +5,14 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.option_theta_sensitivity import (
+from src.signalforge.engines.options.option_theta_sensitivity import (
     DEFAULT_ELEVATED_AVG_ABS_THETA_THRESHOLD,
     DEFAULT_HIGH_AVG_ABS_THETA_THRESHOLD,
     DEFAULT_HIGH_MAX_ABS_THETA_THRESHOLD,
     DEFAULT_LOW_AVG_ABS_THETA_THRESHOLD,
     build_signalforge_option_theta_sensitivity,
 )
-from src.options.option_theta_sensitivity_file_writer import (
+from src.signalforge.engines.options.option_theta_sensitivity_file_writer import (
     write_option_theta_sensitivity_result,
 )
 

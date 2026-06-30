@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
 import polars as pl
 
-from src.strategy_selection.candidates import validate_candidate_data
+from src.signalforge.engines.strategy_selection.candidates import validate_candidate_data
 
 
 @dataclass(frozen=True)

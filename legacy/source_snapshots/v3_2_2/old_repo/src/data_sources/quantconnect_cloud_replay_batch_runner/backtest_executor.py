@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.quantconnect_cloud_replay_batch_runner.compile_executor import (
+from src.signalforge.data_sources.quantconnect_cloud_replay_batch_runner.compile_executor import (
     EXPLICIT_EXCLUSIONS,
     ScriptGenerator,
     _default_script_generator,

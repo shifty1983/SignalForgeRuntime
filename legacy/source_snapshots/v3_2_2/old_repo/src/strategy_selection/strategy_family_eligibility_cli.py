@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.strategy_family_eligibility import (
+from src.signalforge.engines.strategy_selection.strategy_family_eligibility import (
     build_signalforge_strategy_family_eligibility,
 )
-from src.strategy_selection.strategy_family_eligibility_file_writer import (
+from src.signalforge.engines.strategy_selection.strategy_family_eligibility_file_writer import (
     write_strategy_family_eligibility_result,
 )
 

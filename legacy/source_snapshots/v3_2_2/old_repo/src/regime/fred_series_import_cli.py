@@ -22,7 +22,7 @@ except Exception:  # pragma: no cover - local fallback for standalone execution
         return Path("data/raw/macro")
 
 try:
-    from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+    from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 except Exception:  # pragma: no cover - local fallback for standalone execution
     EXPLICIT_EXCLUSIONS: list[str] = [
         "broker_api_calls",

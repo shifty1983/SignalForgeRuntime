@@ -1,8 +1,8 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import polars as pl
 
-from src.options.schema import (
+from src.signalforge.engines.options.schema import (
     add_core_option_fields,
     validate_columns,
     validate_option_chain,

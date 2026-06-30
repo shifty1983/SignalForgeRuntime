@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.strategy_matrix_edge_inventory import (
+from src.signalforge.engines.strategy_selection.strategy_matrix_edge_inventory import (
     build_signalforge_strategy_matrix_edge_inventory,
 )
-from src.strategy_selection.strategy_matrix_edge_inventory_file_writer import (
+from src.signalforge.engines.strategy_selection.strategy_matrix_edge_inventory_file_writer import (
     write_strategy_matrix_edge_inventory_result,
 )
 

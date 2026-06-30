@@ -1,8 +1,8 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from numbers import Real
 
-from src.behavior.schema import validate_behavior_output
+from src.signalforge.engines.behavior.schema import validate_behavior_output
 
 
 SCORED_BEHAVIOR_KEYS = {

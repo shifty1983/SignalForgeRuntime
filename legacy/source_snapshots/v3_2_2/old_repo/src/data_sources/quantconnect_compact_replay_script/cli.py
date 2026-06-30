@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.data_sources.quantconnect_compact_replay_script.file_writer import (
+from src.signalforge.data_sources.quantconnect_compact_replay_script.file_writer import (
     write_quantconnect_compact_replay_script_result,
 )
-from src.data_sources.quantconnect_compact_replay_script.script_builder import (
+from src.signalforge.data_sources.quantconnect_compact_replay_script.script_builder import (
     DEFAULT_CLASS_NAME,
     DEFAULT_MANIFEST_OBJECT_STORE_KEY,
     DEFAULT_MANIFEST_MODULE_FILENAME,

@@ -5,8 +5,8 @@ from collections.abc import Mapping, Sequence
 from datetime import date
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from src.strategy_selection.historical_replay_matrix_metadata_stamp import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import (
     MATRIX_CELL_KEY_KEY,
     MATRIX_METADATA_KEY,
     MATRIX_METADATA_MISSING_FIELDS_KEY,

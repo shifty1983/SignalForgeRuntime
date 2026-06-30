@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 
-from src.data_sources.quantconnect_backtest_result_transport_feasibility.feasibility import (
+from src.signalforge.data_sources.quantconnect_backtest_result_transport_feasibility.feasibility import (
     evaluate_signalforge_backtest_result_transport_feasibility,
 )
 

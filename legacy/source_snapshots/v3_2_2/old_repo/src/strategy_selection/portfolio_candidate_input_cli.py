@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.portfolio_candidate_input import build_signalforge_portfolio_candidate_input
-from src.strategy_selection.portfolio_candidate_input_file_writer import write_portfolio_candidate_input_result
+from src.signalforge.engines.strategy_selection.portfolio_candidate_input import build_signalforge_portfolio_candidate_input
+from src.signalforge.engines.strategy_selection.portfolio_candidate_input_file_writer import write_portfolio_candidate_input_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

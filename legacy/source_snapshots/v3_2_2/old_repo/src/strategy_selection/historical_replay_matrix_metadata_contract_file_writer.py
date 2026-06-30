@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-from src.strategy_selection.historical_replay_matrix_metadata_contract import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_contract import (
     build_historical_replay_matrix_metadata_contract_summary,
 )
 

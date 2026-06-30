@@ -1,14 +1,14 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.quantconnect_historical_replay_scaleout_plan.file_writer import (
+from src.signalforge.data_sources.quantconnect_historical_replay_scaleout_plan.file_writer import (
     write_signalforge_quantconnect_historical_replay_scaleout_plan,
 )
-from src.data_sources.quantconnect_historical_replay_scaleout_plan.planner import (
+from src.signalforge.data_sources.quantconnect_historical_replay_scaleout_plan.planner import (
     build_signalforge_quantconnect_historical_replay_scaleout_plan,
 )
 

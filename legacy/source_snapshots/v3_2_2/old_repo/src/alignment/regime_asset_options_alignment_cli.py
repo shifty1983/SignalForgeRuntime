@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.alignment.regime_asset_options_alignment import (
+from src.signalforge.engines.alignment.regime_asset_options_alignment import (
     build_signalforge_regime_asset_options_alignment,
 )
-from src.alignment.regime_asset_options_alignment_file_writer import (
+from src.signalforge.engines.alignment.regime_asset_options_alignment_file_writer import (
     write_regime_asset_options_alignment_result,
 )
 

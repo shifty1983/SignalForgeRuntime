@@ -1,14 +1,14 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.regime.regime_directional_policy import (
+from src.signalforge.engines.regime.regime_directional_policy import (
     build_signalforge_regime_directional_policy,
 )
-from src.regime.regime_directional_policy_file_writer import (
+from src.signalforge.engines.regime.regime_directional_policy_file_writer import (
     write_regime_directional_policy_result,
 )
 

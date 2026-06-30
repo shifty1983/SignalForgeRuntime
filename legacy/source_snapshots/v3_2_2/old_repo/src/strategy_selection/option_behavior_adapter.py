@@ -1,10 +1,10 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, is_dataclass
 from typing import Any
 
-from src.strategy_selection.research_adapter import StrategySelectionInputContractError
+from src.signalforge.engines.strategy_selection.research_adapter import StrategySelectionInputContractError
 
 
 OPTION_BEHAVIOR_HANDOFF_ARTIFACT_TYPE = "option_behavior_strategy_handoff"

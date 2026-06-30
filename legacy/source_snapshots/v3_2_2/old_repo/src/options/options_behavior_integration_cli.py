@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.options.options_behavior_integration import (
+from src.signalforge.engines.options.options_behavior_integration import (
     build_signalforge_options_behavior_integration,
 )
-from src.options.options_behavior_integration_file_writer import (
+from src.signalforge.engines.options.options_behavior_integration_file_writer import (
     write_options_behavior_integration_result,
 )
 

@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.contract_final_decision_record import build_signalforge_contract_final_decision_record
-from src.strategy_selection.contract_final_decision_record_file_writer import write_contract_final_decision_record_result
+from src.signalforge.engines.strategy_selection.contract_final_decision_record import build_signalforge_contract_final_decision_record
+from src.signalforge.engines.strategy_selection.contract_final_decision_record_file_writer import write_contract_final_decision_record_result
 
 
 def main(argv: Sequence[str] | None = None) -> int:

@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.data_sources.quantconnect_replay_result_import_validator.file_writer import (
+from src.signalforge.data_sources.quantconnect_replay_result_import_validator.file_writer import (
     write_quantconnect_replay_result_import_validation_result,
 )
-from src.data_sources.quantconnect_replay_result_import_validator.validator import (
+from src.signalforge.data_sources.quantconnect_replay_result_import_validator.validator import (
     DEFAULT_RESULT_FILES,
     build_signalforge_quantconnect_replay_result_import_validation,
 )

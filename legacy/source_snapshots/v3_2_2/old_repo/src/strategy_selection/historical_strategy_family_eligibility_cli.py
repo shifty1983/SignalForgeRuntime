@@ -8,8 +8,8 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
-from src.strategy_selection.strategy_family_eligibility import (
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.engines.strategy_selection.strategy_family_eligibility import (
     _build_eligibility_item,
 )
 

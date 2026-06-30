@@ -129,7 +129,7 @@ RERUN_STEPS = [
         "stage": "matrix_metadata_reconciliation",
         "description": "Re-run the backfill adapter against the refreshed artifacts to confirm record-level matrix metadata readiness.",
         "expected_matrix_metadata_action": "measure_exact_matrix_cell_ready_record_count_after_rerun",
-        "command_template": "rerun src.strategy_selection.historical_replay_matrix_metadata_backfill_adapter_cli against refreshed artifacts",
+        "command_template": "rerun src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_backfill_adapter_cli against refreshed artifacts",
         "required": True,
     },
     {
@@ -137,7 +137,7 @@ RERUN_STEPS = [
         "stage": "exact_matrix_edge_summary",
         "description": "Build exact matrix edge summaries only from records with complete matrix metadata.",
         "expected_matrix_metadata_action": "aggregate_exact_matrix_cell_edge_evidence_without_inference",
-        "command_template": "run src.strategy_selection.exact_matrix_edge_summary_cli against refreshed metadata-stamped records",
+        "command_template": "run src.signalforge.engines.strategy_selection.exact_matrix_edge_summary_cli against refreshed metadata-stamped records",
         "required": True,
     },
     {
@@ -145,7 +145,7 @@ RERUN_STEPS = [
         "stage": "post_rerun_audit",
         "description": "Re-run patch coverage and readiness audit after regenerated artifacts exist.",
         "expected_matrix_metadata_action": "confirm_patch_coverage_and_exact_summary_readiness",
-        "command_template": "rerun src.strategy_selection.matrix_metadata_patch_coverage_audit_cli with the refreshed exact matrix edge summary",
+        "command_template": "rerun src.signalforge.engines.strategy_selection.matrix_metadata_patch_coverage_audit_cli with the refreshed exact matrix edge summary",
         "required": True,
     },
 ]

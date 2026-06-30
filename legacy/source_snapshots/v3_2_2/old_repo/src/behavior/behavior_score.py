@@ -1,8 +1,8 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Mapping
 
-from src.behavior.schema import validate_behavior_output
+from src.signalforge.engines.behavior.schema import validate_behavior_output
 
 
 RETURN_SCORES = {

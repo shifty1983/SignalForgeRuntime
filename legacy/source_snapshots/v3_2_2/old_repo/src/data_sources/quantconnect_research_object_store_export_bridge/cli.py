@@ -1,14 +1,14 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any
 
-from src.data_sources.quantconnect_research_object_store_export_bridge.bridge_script_builder import (
+from src.signalforge.data_sources.quantconnect_research_object_store_export_bridge.bridge_script_builder import (
     build_signalforge_quantconnect_research_object_store_export_bridge,
 )
-from src.data_sources.quantconnect_research_object_store_export_bridge.decoder import (
+from src.signalforge.data_sources.quantconnect_research_object_store_export_bridge.decoder import (
     decode_signalforge_research_object_store_export_payload,
 )
 

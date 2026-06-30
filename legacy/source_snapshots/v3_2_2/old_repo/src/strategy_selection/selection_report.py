@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any
 
-from src.strategy_selection.evaluator import (
+from src.signalforge.engines.strategy_selection.evaluator import (
     StrategyCandidateEvaluation,
     StrategySelectionEvaluationReport,
 )

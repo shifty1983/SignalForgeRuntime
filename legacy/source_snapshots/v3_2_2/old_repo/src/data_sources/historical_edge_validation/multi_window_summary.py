@@ -5,10 +5,10 @@ from typing import Any, Iterable
 from collections import Counter
 import json
 
-from src.data_sources.historical_edge_validation.combined_summary import (
+from src.signalforge.data_sources.historical_edge_validation.combined_summary import (
     EXPLICIT_EXCLUSIONS,
 )
-from src.strategy_selection.historical_replay_matrix_metadata_stamp import matrix_metadata_coverage
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_stamp import matrix_metadata_coverage
 
 
 def read_json(path: str | Path) -> dict[str, Any]:

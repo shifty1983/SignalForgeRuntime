@@ -7,7 +7,7 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
-from src.strategy_selection.historical_replay_matrix_metadata_rerun_plan import (
+from src.signalforge.engines.strategy_selection.historical_replay_matrix_metadata_rerun_plan import (
     build_signalforge_historical_replay_matrix_metadata_rerun_plan,
     summarize_signalforge_historical_replay_matrix_metadata_rerun_plan,
 )

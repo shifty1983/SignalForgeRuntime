@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_directional_stance_review import (
+from src.signalforge.engines.behavior.asset_directional_stance_review import (
     build_signalforge_asset_directional_stance_review,
 )
-from src.behavior.asset_directional_stance_review_file_writer import (
+from src.signalforge.engines.behavior.asset_directional_stance_review_file_writer import (
     write_asset_directional_stance_review_result,
 )
 

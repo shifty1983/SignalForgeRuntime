@@ -7,10 +7,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.strategy_selection.historical_replay_source_metadata_backfill import (
+from src.signalforge.engines.strategy_selection.historical_replay_source_metadata_backfill import (
     build_signalforge_historical_replay_source_metadata_backfill,
 )
-from src.strategy_selection.historical_replay_source_metadata_backfill_file_writer import (
+from src.signalforge.engines.strategy_selection.historical_replay_source_metadata_backfill_file_writer import (
     write_historical_replay_source_metadata_backfill_result,
 )
 

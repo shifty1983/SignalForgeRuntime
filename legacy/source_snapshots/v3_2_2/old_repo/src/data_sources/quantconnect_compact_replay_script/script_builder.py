@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 import base64
@@ -8,7 +8,7 @@ import textwrap
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from src.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
+from src.signalforge.data_sources.data_source_inventory import EXPLICIT_EXCLUSIONS
 
 
 QUANTCONNECT_COMPACT_REPLAY_SCRIPT_SCHEMA_VERSION = "signalforge_quantconnect_compact_replay_script.v1"

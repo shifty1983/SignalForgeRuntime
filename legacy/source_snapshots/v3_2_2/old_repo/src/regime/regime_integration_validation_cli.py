@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from src.regime.regime_integration_validation import (
+from src.signalforge.engines.regime.regime_integration_validation import (
     build_signalforge_regime_integration_validation,
 )
 

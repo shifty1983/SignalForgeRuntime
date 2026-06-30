@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.strategy_selection.exact_matrix_edge_summary import (
+from src.signalforge.engines.strategy_selection.exact_matrix_edge_summary import (
     build_signalforge_exact_matrix_edge_summary,
 )
-from src.strategy_selection.exact_matrix_edge_summary_file_writer import (
+from src.signalforge.engines.strategy_selection.exact_matrix_edge_summary_file_writer import (
     write_exact_matrix_edge_summary_result,
 )
 

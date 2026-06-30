@@ -1,11 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 from typing import Any, Sequence
 
-from src.behavior.asset_behavior_selection_to_decision_inputs import (
+from src.signalforge.engines.behavior.asset_behavior_selection_to_decision_inputs import (
     build_signalforge_asset_behavior_selection_to_decision_inputs,
 )
 

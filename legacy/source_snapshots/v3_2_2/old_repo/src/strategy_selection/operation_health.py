@@ -1,13 +1,13 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from src.strategy_selection.operation_audit import (
+from src.signalforge.engines.strategy_selection.operation_audit import (
     audit_strategy_selection_operation_record,
 )
-from src.strategy_selection.operation_record import StrategySelectionOperationRecord
+from src.signalforge.engines.strategy_selection.operation_record import StrategySelectionOperationRecord
 
 
 class StrategySelectionHealthGateError(RuntimeError):
