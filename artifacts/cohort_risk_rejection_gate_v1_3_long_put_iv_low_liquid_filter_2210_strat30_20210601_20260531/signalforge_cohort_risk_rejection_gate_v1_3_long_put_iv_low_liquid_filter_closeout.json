@@ -1,0 +1,86 @@
+﻿{
+    "adapter_type":  "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_closeout_builder",
+    "artifact_type":  "signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_closeout",
+    "contract":  "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_closeout",
+    "is_ready":  true,
+    "readiness_state":  "paper_forward_candidate",
+    "decision":  "promote_v1_3_to_paper_forward_portfolio_construction_candidate",
+    "candidate":  {
+                      "candidate_id":  "allocator_v2_1_2210_strat30_plus_cohort_gate_v1_2_plus_long_put_iv_low_liquid_filter_v1_3",
+                      "parent_candidate":  "allocator_v2_1_2210_strat30_plus_cohort_gate_v1_2_allocator_calibrated",
+                      "rule_id":  "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter"
+                  },
+    "rule":  {
+                 "action":  "skip",
+                 "selected_strategy":  "long_put",
+                 "option_behavior_state":  "iv_low_liquid",
+                 "classification":  "behavior_based_loss_pocket_filter",
+                 "discovery_basis":  "full_period_loss_attribution_plus_chronological_split_validation",
+                 "production_status":  "paper_forward_only_until_live_or_asof_validation"
+             },
+    "initial_effect":  {
+                           "skipped_row_count":  215,
+                           "skipped_original_pnl_dollars":  -34049.47673118406,
+                           "expected_delta_pnl_dollars":  34049.47673118406
+                       },
+    "baseline_robustness_effect":  {
+                                       "parent_total_return":  17.20110568073145,
+                                       "candidate_total_return":  17.88209521535514,
+                                       "delta_pnl_dollars":  34049.47673118429,
+                                       "parent_profit_factor":  2.9325439907153927,
+                                       "candidate_profit_factor":  3.5831784190984886,
+                                       "delta_profit_factor":  0.6506344283830958,
+                                       "parent_max_drawdown_pct":  -0.05646936205986477,
+                                       "candidate_max_drawdown_pct":  -0.05646936205986477,
+                                       "delta_max_drawdown_pct":  0.0
+                                   },
+    "robustness_validation":  {
+                                  "is_ready":  true,
+                                  "readiness_state":  "pass",
+                                  "blocker_count":  0,
+                                  "scenario_count":  8,
+                                  "passing_scenario_count":  8,
+                                  "warning_count":  1,
+                                  "warnings":  [
+                                                   "stress_model_is_pnl_approximation_not_quote_native_repricing"
+                                               ],
+                                  "worst_delta_pnl_dollars":  34049.476731184288,
+                                  "worst_delta_profit_factor":  0.43375628558873047,
+                                  "worst_delta_max_drawdown_pct":  0
+                              },
+    "acceptance_checks":  {
+                              "robustness_all_scenarios_passed":  true,
+                              "robustness_blocker_free":  true,
+                              "baseline_return_non_degradation":  true,
+                              "baseline_profit_factor_non_degradation":  true,
+                              "baseline_drawdown_non_degradation":  true,
+                              "final_paper_forward_pass":  true
+                          },
+    "policy":  {
+                   "does_not_change_entry":  true,
+                   "does_not_change_exit":  true,
+                   "does_not_change_expectancy":  true,
+                   "does_not_replace_skipped_trades":  true,
+                   "does_not_rerank_strategy_selection":  true,
+                   "uses_decision_time_option_behavior_state":  true,
+                   "discovered_from_full_period_loss_attribution":  true,
+                   "requires_paper_forward_validation_before_live_baseline":  true
+               },
+    "paths":  {
+                  "summary":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_summary.json",
+                  "ledger":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_ledger.jsonl",
+                  "skipped_rows":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_skipped_rows.jsonl",
+                  "robustness_summary":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_robustness_validation_2210_strat30_20210601_20260531\\signalforge_cohort_gate_v1_2_robustness_summary.json",
+                  "robustness_rows":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_robustness_validation_2210_strat30_20210601_20260531\\signalforge_cohort_gate_v1_2_robustness_scenario_rows.jsonl",
+                  "split_validation_root":  "artifacts\\portfolio_loss_pocket_multi_split_validation_v1_2_candidate",
+                  "closeout":  "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_closeout.json"
+              },
+    "blockers":  [
+
+                 ],
+    "warnings":  [
+                     "static_loss_pocket_rule_discovered_from_full_period_attribution",
+                     "paper_forward_validation_required_before_live_baseline",
+                     "stress_model_is_pnl_approximation_not_quote_native_repricing"
+                 ]
+}

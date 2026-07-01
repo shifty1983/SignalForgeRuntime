@@ -1,0 +1,32 @@
+{
+  "active_trade_count_before_filter": 1546,
+  "adapter_type": "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_builder",
+  "artifact_type": "signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter",
+  "blockers": [],
+  "contract": "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter",
+  "expected_delta_pnl_dollars": 34049.47673118406,
+  "input_ledger": "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_ledger.jsonl",
+  "input_row_count": 5036,
+  "is_ready": true,
+  "parent_candidate": "allocator_v2_1_2210_strat30_plus_cohort_gate_v1_2_allocator_calibrated",
+  "paths": {
+    "ledger": "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_ledger.jsonl",
+    "skipped_rows": "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_skipped_rows.jsonl",
+    "summary": "artifacts\\cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter_summary.json"
+  },
+  "readiness_state": "materialized_candidate",
+  "rule": {
+    "action": "skip",
+    "classification": "behavior_based_loss_pocket_filter",
+    "diagnostic_basis": "long_put_iv_low_liquid_loss_attribution_and_split_validation",
+    "option_behavior_state": "iv_low_liquid",
+    "selected_strategy": "long_put"
+  },
+  "rule_id": "cohort_risk_rejection_gate_v1_3_long_put_iv_low_liquid_filter",
+  "skipped_original_pnl_dollars": -34049.47673118406,
+  "skipped_row_count": 215,
+  "warnings": [
+    "static_full_period_loss_pocket_filter_requires_robustness_validation_before_promotion",
+    "not_live_safe_until_converted_to_asof_or_paper_validated_rule"
+  ]
+}
