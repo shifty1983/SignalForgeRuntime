@@ -1,0 +1,539 @@
+universes:
+  etf_core:
+    description: Core broad-market equity ETFs
+    symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - DIA
+    - VTI
+    - VT
+    - RSP
+    - SCHB
+    - ITOT
+  us_equity_size_style:
+    description: US equity size and style exposures
+    symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - MDY
+    - IJH
+    - IJR
+    - VUG
+    - VTV
+    - IWF
+    - IWD
+    - IWO
+    - IWN
+    - VBK
+    - VBR
+    - VO
+    - VB
+    - SCHG
+    - SCHV
+  sectors:
+    description: S&P 500 sector ETF universe
+    symbols:
+    - XLK
+    - XLF
+    - XLV
+    - XLY
+    - XLP
+    - XLE
+    - XLI
+    - XLB
+    - XLU
+    - XLRE
+    - XLC
+  industry_etfs:
+    description: Industry and thematic industry ETFs for cross-sector analysis
+    symbols:
+    - SMH
+    - SOXX
+    - XSD
+    - XBI
+    - IBB
+    - KRE
+    - KBE
+    - XRT
+    - ITB
+    - XHB
+    - IYT
+    - IYR
+    - VNQ
+    - XOP
+    - OIH
+    - XME
+    - XAR
+    - PPA
+    - IHI
+    - IHF
+    - KIE
+    - TAN
+    - ICLN
+  factor_etfs:
+    description: Factor ETFs for momentum, value, quality, size, and low-volatility
+      research
+    symbols:
+    - MTUM
+    - VLUE
+    - QUAL
+    - USMV
+    - SIZE
+    - SPLV
+    - SPHQ
+    - VUG
+    - VTV
+    - IWF
+    - IWD
+    - FVAL
+    - FQAL
+    - FDMO
+    - FDLO
+    - DYNF
+  dividend_income:
+    description: Dividend and income-oriented equity ETFs
+    symbols:
+    - SCHD
+    - VIG
+    - VYM
+    - DVY
+    - SDY
+    - NOBL
+    - HDV
+    - DGRO
+    - SPYD
+    - DHS
+  bonds_rates:
+    description: Treasury and aggregate bond ETFs for rate regime analysis
+    symbols:
+    - BIL
+    - SGOV
+    - SHY
+    - IEI
+    - IEF
+    - TLH
+    - TLT
+    - GOVT
+    - AGG
+    - BND
+    - SCHZ
+    - VGIT
+    - VGSH
+    - VGLT
+  credit_income:
+    description: Credit, corporate bonds, high yield, municipals, and emerging-market
+      debt
+    symbols:
+    - LQD
+    - VCIT
+    - VCSH
+    - HYG
+    - JNK
+    - SHYG
+    - SRLN
+    - BKLN
+    - MUB
+    - HYD
+    - EMB
+    - VWOB
+  inflation_real_assets:
+    description: Inflation-linked bonds and real-asset proxies
+    symbols:
+    - TIP
+    - STIP
+    - SCHP
+    - VTIP
+    - GLD
+    - IAU
+    - SLV
+    - DBC
+    - PDBC
+    - USO
+    - DBA
+    - XLE
+    - XLB
+    - VNQ
+  commodities_broad:
+    description: Broad commodity basket ETFs
+    symbols:
+    - DBC
+    - PDBC
+    - GSG
+    - COMT
+    - USCI
+    - BCI
+    - FTGC
+  commodities_metals:
+    description: Precious metals, industrial metals, and mining-related ETFs
+    symbols:
+    - GLD
+    - IAU
+    - GLDM
+    - SLV
+    - SIVR
+    - PPLT
+    - PALL
+    - CPER
+    - COPX
+    - PICK
+    - XME
+    - GDX
+    - GDXJ
+    - SIL
+    - SILJ
+  commodities_energy:
+    description: Oil, natural gas, energy commodities, and energy equity proxies
+    symbols:
+    - USO
+    - USL
+    - BNO
+    - UNG
+    - UNL
+    - UGA
+    - XLE
+    - XOP
+    - OIH
+    - AMLP
+  commodities_agriculture:
+    description: Agriculture commodity ETFs and agriculture-related exposures
+    symbols:
+    - DBA
+    - CORN
+    - WEAT
+    - SOYB
+    - CANE
+    - MOO
+  currencies:
+    description: Currency ETFs for dollar, euro, yen, pound, commodity FX, and emerging
+      FX proxies
+    symbols:
+    - UUP
+    - UDN
+    - FXE
+    - FXY
+    - FXB
+    - FXC
+    - FXA
+    - CEW
+  international_core:
+    description: Broad international developed, emerging, and ex-US equity ETFs
+    symbols:
+    - EFA
+    - EEM
+    - ACWX
+    - VXUS
+    - VEA
+    - VWO
+    - IEFA
+    - IEMG
+    - IXUS
+    - SCHF
+    - SCHE
+  international_regions:
+    description: Regional international ETFs
+    symbols:
+    - VGK
+    - FEZ
+    - EZU
+    - AAXJ
+    - ILF
+    - EPP
+    - VPL
+    - SPEM
+  international_countries:
+    description: Single-country ETFs for macro and relative-strength research
+    symbols:
+    - EWJ
+    - EWZ
+    - FXI
+    - MCHI
+    - INDA
+    - EWU
+    - EWG
+    - EWC
+    - EWA
+    - EWW
+    - EWT
+    - EWY
+    - EZA
+    - EWL
+    - EWS
+    - THD
+    - TUR
+    - EPI
+  volatility:
+    description: Volatility-linked ETFs and ETNs for risk-environment analysis
+    symbols:
+    - VIXY
+    - VIXM
+    - UVXY
+    - SVXY
+    - VXX
+  defensive_hedges:
+    description: Defensive assets, hedges, and risk-off proxies
+    symbols:
+    - TLT
+    - IEF
+    - SHY
+    - SGOV
+    - BIL
+    - GLD
+    - IAU
+    - UUP
+    - VIXY
+    - XLP
+    - XLU
+    - XLV
+    - USMV
+    - SPLV
+  macro_regime:
+    description: Core cross-asset universe for macro regime classification
+    symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - RSP
+    - EFA
+    - EEM
+    - TLT
+    - IEF
+    - SHY
+    - SGOV
+    - LQD
+    - HYG
+    - TIP
+    - GLD
+    - SLV
+    - USO
+    - DBC
+    - UUP
+    - VIXY
+    - XLK
+    - XLF
+    - XLV
+    - XLY
+    - XLP
+    - XLE
+    - XLI
+    - XLB
+    - XLU
+    - XLRE
+    - XLC
+  market_proxy_overlay:
+    description: Required market price proxies used to confirm or contradict the FRED
+      weekly regime.
+    symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - RSP
+    - HYG
+    - JNK
+    - LQD
+    - TLT
+    - IEF
+    - SHY
+    - SGOV
+    - BIL
+    - DBC
+    - GLD
+    - SLV
+    - USO
+    - XLE
+    - XLB
+    - UUP
+    - VIXY
+    - VIXM
+    - VXX
+watchlists:
+  growth:
+    description: Growth-oriented ETFs
+    symbols:
+    - QQQ
+    - XLK
+    - VUG
+    - IWF
+    - SCHG
+    - SMH
+    - SOXX
+    - ARKK
+  value:
+    description: Value-oriented ETFs
+    symbols:
+    - VTV
+    - IWD
+    - SCHV
+    - VLUE
+    - FVAL
+    - SPYV
+  quality:
+    description: Quality and profitability-oriented ETFs
+    symbols:
+    - QUAL
+    - SPHQ
+    - FQAL
+    - DGRW
+    - DGRO
+  low_volatility:
+    description: Low-volatility and minimum-volatility ETFs
+    symbols:
+    - USMV
+    - SPLV
+    - FDLO
+    - EFAV
+    - EEMV
+  defensive:
+    description: Defensive equity and hedge-oriented ETFs
+    symbols:
+    - XLP
+    - XLU
+    - XLV
+    - TLT
+    - IEF
+    - GLD
+    - USMV
+    - SPLV
+  inflation:
+    description: Inflation-sensitive assets and sectors
+    symbols:
+    - GLD
+    - IAU
+    - SLV
+    - DBC
+    - PDBC
+    - USO
+    - DBA
+    - TIP
+    - STIP
+    - XLE
+    - XLB
+  recession:
+    description: Recession and slowdown-sensitive defensive basket
+    symbols:
+    - TLT
+    - IEF
+    - SHY
+    - SGOV
+    - BIL
+    - XLP
+    - XLU
+    - XLV
+    - GLD
+    - UUP
+  risk_on:
+    description: Risk-on equity, credit, and cyclical exposures
+    symbols:
+    - SPY
+    - QQQ
+    - IWM
+    - XLK
+    - XLY
+    - XLF
+    - XLI
+    - HYG
+    - EEM
+    - SMH
+  risk_off:
+    description: Risk-off treasury, dollar, gold, volatility, and defensive sector
+      exposures
+    symbols:
+    - TLT
+    - IEF
+    - SHY
+    - SGOV
+    - GLD
+    - UUP
+    - VIXY
+    - XLP
+    - XLU
+    - XLV
+  commodities_watch:
+    description: Commodity ETFs to monitor for inflation, supply shock, and macro
+      stress
+    symbols:
+    - DBC
+    - PDBC
+    - GLD
+    - IAU
+    - SLV
+    - CPER
+    - USO
+    - BNO
+    - UNG
+    - DBA
+    - CORN
+    - WEAT
+    - SOYB
+  currencies_watch:
+    description: Currency ETFs to monitor for dollar strength, carry, and global stress
+    symbols:
+    - UUP
+    - UDN
+    - FXE
+    - FXY
+    - FXB
+    - FXC
+    - FXA
+    - CEW
+benchmarks:
+  equity: SPY
+  tech: QQQ
+  small_cap: IWM
+  mid_cap: MDY
+  equal_weight_equity: RSP
+  total_us_market: VTI
+  global_equity: VT
+  international_developed: EFA
+  emerging_markets: EEM
+  bonds: AGG
+  treasuries_short: SHY
+  treasuries_intermediate: IEF
+  treasuries_long: TLT
+  cash_like: SGOV
+  credit: LQD
+  high_yield: HYG
+  inflation_linked: TIP
+  commodities: DBC
+  gold: GLD
+  silver: SLV
+  oil: USO
+  dollar: UUP
+  volatility: VIXY
+  real_estate: VNQ
+ingestion_universes:
+- etf_core
+- us_equity_size_style
+- sectors
+- industry_etfs
+- factor_etfs
+- dividend_income
+- bonds_rates
+- credit_income
+- inflation_real_assets
+- commodities_broad
+- commodities_metals
+- commodities_energy
+- commodities_agriculture
+- currencies
+- international_core
+- international_regions
+- international_countries
+- volatility
+- defensive_hedges
+- macro_regime
+audit_universes:
+- etf_core
+- sectors
+- bonds_rates
+- credit_income
+- inflation_real_assets
+- commodities_broad
+- commodities_metals
+- commodities_energy
+- commodities_agriculture
+- currencies
+- volatility
+- defensive_hedges
+- macro_regime

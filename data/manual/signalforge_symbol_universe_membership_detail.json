@@ -1,0 +1,1253 @@
+{
+  "AAXJ": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "ACWX": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "AGG": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "AMLP": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "BCI": {
+    "asset_type": "commodities_broad",
+    "universe_memberships": [
+      "commodities_broad"
+    ]
+  },
+  "BIL": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates",
+      "defensive_hedges",
+      "market_proxy_overlay"
+    ]
+  },
+  "BKLN": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "BND": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "BNO": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "CANE": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture"
+    ]
+  },
+  "CEW": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "COMT": {
+    "asset_type": "commodities_broad",
+    "universe_memberships": [
+      "commodities_broad"
+    ]
+  },
+  "COPX": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "CORN": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture"
+    ]
+  },
+  "CPER": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "DBA": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture",
+      "inflation_real_assets"
+    ]
+  },
+  "DBC": {
+    "asset_type": "macro_regime",
+    "universe_memberships": [
+      "macro_regime",
+      "inflation_real_assets",
+      "commodities_broad",
+      "market_proxy_overlay"
+    ]
+  },
+  "DGRO": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "DHS": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "DIA": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core"
+    ]
+  },
+  "DVY": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "DYNF": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "EEM": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core",
+      "macro_regime"
+    ]
+  },
+  "EFA": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core",
+      "macro_regime"
+    ]
+  },
+  "EMB": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "EPI": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EPP": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "EWA": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWC": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWG": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWJ": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWL": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWS": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWT": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWU": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWW": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWY": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EWZ": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EZA": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "EZU": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "FDLO": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "FDMO": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "FEZ": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "FQAL": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "FTGC": {
+    "asset_type": "commodities_broad",
+    "universe_memberships": [
+      "commodities_broad"
+    ]
+  },
+  "FVAL": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "FXA": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "FXB": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "FXC": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "FXE": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "FXI": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "FXY": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "GDX": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "GDXJ": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "GLD": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals",
+      "defensive_hedges",
+      "macro_regime",
+      "inflation_real_assets",
+      "market_proxy_overlay"
+    ]
+  },
+  "GLDM": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "GOVT": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "GSG": {
+    "asset_type": "commodities_broad",
+    "universe_memberships": [
+      "commodities_broad"
+    ]
+  },
+  "HDV": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "HYD": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "HYG": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "IAU": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals",
+      "defensive_hedges",
+      "inflation_real_assets"
+    ]
+  },
+  "IBB": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "ICLN": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "IEF": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "IEFA": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "IEI": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "IEMG": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "IHF": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "IHI": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "IJH": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "IJR": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "ILF": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "INDA": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "ITB": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "ITOT": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core"
+    ]
+  },
+  "IWD": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "us_equity_size_style"
+    ]
+  },
+  "IWF": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "us_equity_size_style"
+    ]
+  },
+  "IWM": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style",
+      "etf_core",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "IWN": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "IWO": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "IXUS": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "IYR": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "IYT": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "JNK": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income",
+      "market_proxy_overlay"
+    ]
+  },
+  "KBE": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "KIE": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "KRE": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "LQD": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "MCHI": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "MDY": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "MOO": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture"
+    ]
+  },
+  "MTUM": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "MUB": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "NOBL": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "OIH": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs",
+      "commodities_energy"
+    ]
+  },
+  "PALL": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "PDBC": {
+    "asset_type": "inflation_real_assets",
+    "universe_memberships": [
+      "inflation_real_assets",
+      "commodities_broad"
+    ]
+  },
+  "PICK": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "PPA": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "PPLT": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "QQQ": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style",
+      "etf_core",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "QUAL": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "RSP": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "SCHB": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core"
+    ]
+  },
+  "SCHD": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "SCHE": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "SCHF": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "SCHG": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "SCHP": {
+    "asset_type": "inflation_real_assets",
+    "universe_memberships": [
+      "inflation_real_assets"
+    ]
+  },
+  "SCHV": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "SCHZ": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "SDY": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "SGOV": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "SHY": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "SHYG": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "SIL": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "SILJ": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "SIVR": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals"
+    ]
+  },
+  "SIZE": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "SLV": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals",
+      "macro_regime",
+      "inflation_real_assets",
+      "market_proxy_overlay"
+    ]
+  },
+  "SMH": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "SOXX": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "SOYB": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture"
+    ]
+  },
+  "SPEM": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "SPHQ": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "SPLV": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "defensive_hedges"
+    ]
+  },
+  "SPY": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style",
+      "etf_core",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "SPYD": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "SRLN": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "STIP": {
+    "asset_type": "inflation_real_assets",
+    "universe_memberships": [
+      "inflation_real_assets"
+    ]
+  },
+  "SVXY": {
+    "asset_type": "volatility",
+    "universe_memberships": [
+      "volatility"
+    ]
+  },
+  "TAN": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "THD": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "TIP": {
+    "asset_type": "macro_regime",
+    "universe_memberships": [
+      "macro_regime",
+      "inflation_real_assets"
+    ]
+  },
+  "TLH": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "TLT": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "TUR": {
+    "asset_type": "international_countries",
+    "universe_memberships": [
+      "international_countries"
+    ]
+  },
+  "UDN": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies"
+    ]
+  },
+  "UGA": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "UNG": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "UNL": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "USCI": {
+    "asset_type": "commodities_broad",
+    "universe_memberships": [
+      "commodities_broad"
+    ]
+  },
+  "USL": {
+    "asset_type": "commodities_energy",
+    "universe_memberships": [
+      "commodities_energy"
+    ]
+  },
+  "USMV": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "defensive_hedges"
+    ]
+  },
+  "USO": {
+    "asset_type": "macro_regime",
+    "universe_memberships": [
+      "macro_regime",
+      "inflation_real_assets",
+      "commodities_energy",
+      "market_proxy_overlay"
+    ]
+  },
+  "UUP": {
+    "asset_type": "currencies",
+    "universe_memberships": [
+      "currencies",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "UVXY": {
+    "asset_type": "volatility",
+    "universe_memberships": [
+      "volatility"
+    ]
+  },
+  "VB": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "VBK": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "VBR": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "VCIT": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "VCSH": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "VEA": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "VGIT": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "VGK": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "VGLT": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "VGSH": {
+    "asset_type": "bonds_rates",
+    "universe_memberships": [
+      "bonds_rates"
+    ]
+  },
+  "VIG": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "VIXM": {
+    "asset_type": "volatility",
+    "universe_memberships": [
+      "volatility",
+      "market_proxy_overlay"
+    ]
+  },
+  "VIXY": {
+    "asset_type": "volatility",
+    "universe_memberships": [
+      "volatility",
+      "defensive_hedges",
+      "macro_regime",
+      "market_proxy_overlay"
+    ]
+  },
+  "VLUE": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs"
+    ]
+  },
+  "VNQ": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs",
+      "inflation_real_assets"
+    ]
+  },
+  "VO": {
+    "asset_type": "us_equity_size_style",
+    "universe_memberships": [
+      "us_equity_size_style"
+    ]
+  },
+  "VPL": {
+    "asset_type": "international_regions",
+    "universe_memberships": [
+      "international_regions"
+    ]
+  },
+  "VT": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core"
+    ]
+  },
+  "VTI": {
+    "asset_type": "etf_core",
+    "universe_memberships": [
+      "etf_core"
+    ]
+  },
+  "VTIP": {
+    "asset_type": "inflation_real_assets",
+    "universe_memberships": [
+      "inflation_real_assets"
+    ]
+  },
+  "VTV": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "us_equity_size_style"
+    ]
+  },
+  "VUG": {
+    "asset_type": "factor_etfs",
+    "universe_memberships": [
+      "factor_etfs",
+      "us_equity_size_style"
+    ]
+  },
+  "VWO": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "VWOB": {
+    "asset_type": "credit_income",
+    "universe_memberships": [
+      "credit_income"
+    ]
+  },
+  "VXUS": {
+    "asset_type": "international_core",
+    "universe_memberships": [
+      "international_core"
+    ]
+  },
+  "VXX": {
+    "asset_type": "volatility",
+    "universe_memberships": [
+      "volatility",
+      "market_proxy_overlay"
+    ]
+  },
+  "VYM": {
+    "asset_type": "dividend_income",
+    "universe_memberships": [
+      "dividend_income"
+    ]
+  },
+  "WEAT": {
+    "asset_type": "commodities_agriculture",
+    "universe_memberships": [
+      "commodities_agriculture"
+    ]
+  },
+  "XAR": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "XBI": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "XHB": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "XLB": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime",
+      "inflation_real_assets",
+      "market_proxy_overlay"
+    ]
+  },
+  "XLC": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XLE": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime",
+      "inflation_real_assets",
+      "commodities_energy",
+      "market_proxy_overlay"
+    ]
+  },
+  "XLF": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XLI": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XLK": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XLP": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "defensive_hedges",
+      "macro_regime"
+    ]
+  },
+  "XLRE": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XLU": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "defensive_hedges",
+      "macro_regime"
+    ]
+  },
+  "XLV": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "defensive_hedges",
+      "macro_regime"
+    ]
+  },
+  "XLY": {
+    "asset_type": "sectors",
+    "universe_memberships": [
+      "sectors",
+      "macro_regime"
+    ]
+  },
+  "XME": {
+    "asset_type": "commodities_metals",
+    "universe_memberships": [
+      "commodities_metals",
+      "industry_etfs"
+    ]
+  },
+  "XOP": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs",
+      "commodities_energy"
+    ]
+  },
+  "XRT": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  },
+  "XSD": {
+    "asset_type": "industry_etfs",
+    "universe_memberships": [
+      "industry_etfs"
+    ]
+  }
+}

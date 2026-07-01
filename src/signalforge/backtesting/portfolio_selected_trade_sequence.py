@@ -346,44 +346,176 @@ EXECUTION_REALISM_FIELDS = (
 
 
 def _extract_execution_realism_fields(row: dict[str, Any]) -> dict[str, Any]:
+    """Promote execution-realism and selected-candidate payloads into sequence rows.
+
+    Strategy-selection rows keep the full selected candidate under source_candidate.
+    Portfolio sequence rows keep the selection row under source_row.  Search both
+    shapes so selected legs and enriched context remain visible downstream.
+    """
+
+    def non_empty(value: Any) -> bool:
+        return value not in (None, "", [], {})
+
+    def as_dict(value: Any) -> dict[str, Any]:
+        return value if isinstance(value, dict) else {}
+
+    def get_path(source: dict[str, Any], dotted_path: str) -> Any:
+        current: Any = source
+        for part in dotted_path.split("."):
+            if not isinstance(current, dict):
+                return None
+            current = current.get(part)
+        return current
+
     output: dict[str, Any] = {}
-    source = row.get("source_row") if isinstance(row.get("source_row"), dict) else {}
+
+    source_row = as_dict(row.get("source_row"))
+    selection_row = source_row or row
+
+    source_candidate = as_dict(row.get("source_candidate"))
+    nested_source_candidate = as_dict(selection_row.get("source_candidate"))
+
+    sources: list[dict[str, Any]] = [row]
+    if source_row:
+        sources.append(source_row)
+    if source_candidate:
+        sources.append(source_candidate)
+    if nested_source_candidate and nested_source_candidate is not source_candidate:
+        sources.append(nested_source_candidate)
 
     for field in EXECUTION_REALISM_FIELDS:
-        value = row.get(field)
-        if value in (None, "", [], {}) and source:
-            value = source.get(field)
-        if value not in (None, "", [], {}):
-            output[field] = value
+        output_key = field.split(".")[-1]
+        for source in sources:
+            value = get_path(source, field)
+            if non_empty(value):
+                output[output_key] = value
+                break
 
-    if "contract_count" not in output:
-        output["contract_count"] = 1.0
-        output["contract_quantity"] = 1.0
-        output["fallback_contract_count"] = 1.0
-        output["contract_count_source"] = "fallback_contract_count"
+    promotion_fields = {
+        "selected_strategy_adjusted_return": (
+            "selected_strategy_adjusted_return",
+            "strategy_adjusted_return",
+        ),
+        "selected_outcome_availability_date": (
+            "selected_outcome_availability_date",
+            "outcome_availability_date",
+        ),
+        "selected_outcome_state": (
+            "selected_outcome_state",
+            "outcome_state",
+        ),
+        "selected_quote_outcome_id": (
+            "selected_quote_outcome_id",
+            "quote_outcome_id",
+        ),
+        "selected_leg_selection_id": (
+            "selected_leg_selection_id",
+            "leg_selection_id",
+        ),
+        "selected_data_state": (
+            "selected_data_state",
+            "data_state",
+        ),
+        "regime": ("regime",),
+        "asset_behavior": ("asset_behavior",),
+        "option_behavior": ("option_behavior",),
+        "research_context": ("research_context",),
+        "strategy_family_statuses": ("strategy_family_statuses",),
+        "strategy_family_eligibility": ("strategy_family_eligibility",),
+        "term_structure_state": ("term_structure_state",),
+        "term_structure_shape": ("term_structure_shape",),
+        "front_back_iv_spread": ("front_back_iv_spread",),
+        "front_back_iv_spread_pct": ("front_back_iv_spread_pct",),
+    }
+
+    for output_key, candidate_fields in promotion_fields.items():
+        if non_empty(output.get(output_key)):
+            continue
+        for source in sources:
+            for field in candidate_fields:
+                value = get_path(source, field)
+                if non_empty(value):
+                    output[output_key] = value
+                    break
+            if non_empty(output.get(output_key)):
+                break
+
+    selected_legs = output.get("selected_legs")
+    if isinstance(selected_legs, list) and selected_legs:
+        option_symbols = [
+            leg.get("option_symbol")
+            for leg in selected_legs
+            if isinstance(leg, dict) and leg.get("option_symbol") not in (None, "")
+        ]
+        if option_symbols and not non_empty(output.get("option_symbols")):
+            output["option_symbols"] = option_symbols
+        if not non_empty(output.get("selected_leg_count")):
+            output["selected_leg_count"] = len(selected_legs)
+
+    if non_empty(output.get("selected_outcome_availability_date")) and not non_empty(output.get("portfolio_realization_date")):
+        output["portfolio_realization_date"] = output["selected_outcome_availability_date"]
 
     return output
 
-
 def _execution_realism_coverage(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    usable = [row for row in rows if row.get("portfolio_usable") is True]
-    denominator = len(usable)
+    scoped_rows = [row for row in rows if row.get("portfolio_usable") is True]
 
-    def pct(predicate: Any) -> float | None:
-        if denominator == 0:
-            return None
-        return sum(1 for row in usable if predicate(row)) / denominator
+    def pct(predicate: Any) -> float:
+        if not scoped_rows:
+            return 0.0
+        return sum(1 for row in scoped_rows if predicate(row)) / len(scoped_rows)
+
+    def legs(row: dict[str, Any]) -> list[dict[str, Any]]:
+        for key in ("selected_legs", "entry_legs", "exit_legs", "option_legs"):
+            value = row.get(key)
+            if isinstance(value, list) and value:
+                return [leg for leg in value if isinstance(leg, dict)]
+        return []
+
+    def has_bid_ask(row: dict[str, Any]) -> bool:
+        if row.get("bid_price") not in (None, "") and row.get("ask_price") not in (None, ""):
+            return True
+        return any(
+            leg.get("bid") not in (None, "") and leg.get("ask") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_liquidity(row: dict[str, Any]) -> bool:
+        if row.get("open_interest") not in (None, "") or row.get("volume") not in (None, ""):
+            return True
+        return any(
+            leg.get("open_interest") not in (None, "") or leg.get("volume") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_spread(row: dict[str, Any]) -> bool:
+        if row.get("spread_pct") not in (None, "") or row.get("bid_ask_spread_pct") not in (None, ""):
+            return True
+        return any(
+            leg.get("spread_pct") not in (None, "")
+            or leg.get("bid_ask_spread_pct") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_option_symbol(row: dict[str, Any]) -> bool:
+        if row.get("option_symbol") not in (None, "", [], {}) or row.get("option_symbols") not in (None, "", [], {}):
+            return True
+        return any(leg.get("option_symbol") not in (None, "") for leg in legs(row))
+
+    def has_contract_count(row: dict[str, Any]) -> bool:
+        if row.get("contract_count") not in (None, "") or row.get("selected_leg_count") not in (None, ""):
+            return True
+        return bool(legs(row))
 
     return {
-        "scoped_portfolio_usable_row_count": denominator,
-        "bid_ask_coverage": pct(lambda row: row.get("bid_price") not in (None, "") and row.get("ask_price") not in (None, "")),
-        "spread_coverage": pct(lambda row: row.get("spread_pct") not in (None, "") or row.get("spread_dollars") not in (None, "")),
-        "leg_payload_coverage": pct(lambda row: any(row.get(key) not in (None, "", [], {}) for key in ("selected_legs", "entry_legs", "exit_legs", "option_legs"))),
-        "contract_count_coverage": pct(lambda row: row.get("contract_count") not in (None, "")),
-        "option_symbol_coverage": pct(lambda row: row.get("option_symbol") not in (None, "", [], {}) or row.get("option_symbols") not in (None, "", [], {})),
-        "liquidity_coverage": pct(lambda row: any(row.get(key) not in (None, "", [], {}) for key in ("liquidity_state", "option_liquidity_state", "open_interest", "volume", "quote_count"))),
+        "scoped_portfolio_usable_row_count": len(scoped_rows),
+        "bid_ask_coverage": pct(has_bid_ask),
+        "liquidity_coverage": pct(has_liquidity),
+        "spread_coverage": pct(has_spread),
+        "option_symbol_coverage": pct(has_option_symbol),
+        "contract_count_coverage": pct(has_contract_count),
+        "leg_payload_coverage": pct(lambda row: bool(legs(row))),
     }
-
 
 def _extract_trade(row: dict[str, Any], original_index: int) -> dict[str, Any]:
     raw_date, date_source_field = _first_present_with_path(row, DATE_FIELDS)

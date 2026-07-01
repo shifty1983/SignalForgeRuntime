@@ -197,44 +197,171 @@ EXECUTION_REALISM_FIELDS = (
 
 
 def _extract_execution_realism_fields(sequence_row: dict[str, Any]) -> dict[str, Any]:
+    """Promote sequence execution payload and enriched context into sizing rows."""
+
+    def non_empty(value: Any) -> bool:
+        return value not in (None, "", [], {})
+
+    def as_dict(value: Any) -> dict[str, Any]:
+        return value if isinstance(value, dict) else {}
+
+    def get_path(source: dict[str, Any], dotted_path: str) -> Any:
+        current: Any = source
+        for part in dotted_path.split("."):
+            if not isinstance(current, dict):
+                return None
+            current = current.get(part)
+        return current
+
     output: dict[str, Any] = {}
-    source = sequence_row.get("source_row") if isinstance(sequence_row.get("source_row"), dict) else {}
+
+    source_row = as_dict(sequence_row.get("source_row"))
+    source_candidate = as_dict(sequence_row.get("source_candidate"))
+    nested_source_candidate = as_dict(source_row.get("source_candidate"))
+
+    sources: list[dict[str, Any]] = [sequence_row]
+    if source_row:
+        sources.append(source_row)
+    if source_candidate:
+        sources.append(source_candidate)
+    if nested_source_candidate:
+        sources.append(nested_source_candidate)
 
     for field in EXECUTION_REALISM_FIELDS:
-        value = sequence_row.get(field)
-        if value in (None, "", [], {}) and source:
-            value = source.get(field)
-        if value not in (None, "", [], {}):
-            output[field] = value
+        output_key = field.split(".")[-1]
+        for source in sources:
+            value = get_path(source, field)
+            if non_empty(value):
+                output[output_key] = value
+                break
 
-    if "contract_count" not in output:
-        output["contract_count"] = 1.0
-        output["contract_quantity"] = 1.0
-        output["fallback_contract_count"] = 1.0
-        output["contract_count_source"] = "fallback_contract_count"
+    promotion_fields = {
+        "portfolio_realization_date": (
+                "selected_outcome_availability_date",
+            ),
+        "selected_outcome_availability_date": (
+            "selected_outcome_availability_date",
+            ),
+        "outcome_availability_date": (
+                "selected_outcome_availability_date",
+        ),
+        "selected_strategy_adjusted_return": (
+            "selected_strategy_adjusted_return",
+            "strategy_adjusted_return",
+        ),
+        "selected_quote_outcome_id": (
+            "selected_quote_outcome_id",
+            "quote_outcome_id",
+        ),
+        "selected_leg_selection_id": (
+            "selected_leg_selection_id",
+            "leg_selection_id",
+        ),
+        "selected_data_state": (
+            "selected_data_state",
+            "data_state",
+        ),
+        "regime": ("regime",),
+        "regime_state": ("regime_state",),
+        "asset_behavior": ("asset_behavior",),
+        "asset_behavior_state": ("asset_behavior_state",),
+        "option_behavior": ("option_behavior",),
+        "option_behavior_state": ("option_behavior_state",),
+        "research_context": ("research_context",),
+        "strategy_family_statuses": ("strategy_family_statuses",),
+        "strategy_family_eligibility": ("strategy_family_eligibility",),
+        "term_structure_state": ("term_structure_state",),
+        "term_structure_shape": ("term_structure_shape",),
+        "front_back_iv_spread": ("front_back_iv_spread",),
+        "front_back_iv_spread_pct": ("front_back_iv_spread_pct",),
+    }
+
+    for output_key, candidate_fields in promotion_fields.items():
+        if non_empty(output.get(output_key)):
+            continue
+        for source in sources:
+            for field in candidate_fields:
+                value = get_path(source, field)
+                if non_empty(value):
+                    output[output_key] = value
+                    break
+            if non_empty(output.get(output_key)):
+                break
+
+    selected_legs = output.get("selected_legs")
+    if isinstance(selected_legs, list) and selected_legs:
+        option_symbols = [
+            leg.get("option_symbol")
+            for leg in selected_legs
+            if isinstance(leg, dict) and leg.get("option_symbol") not in (None, "")
+        ]
+        if option_symbols and not non_empty(output.get("option_symbols")):
+            output["option_symbols"] = option_symbols
+        if not non_empty(output.get("selected_leg_count")):
+            output["selected_leg_count"] = len(selected_legs)
 
     return output
 
-
 def _execution_realism_coverage(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    sized = [row for row in rows if row.get("sizing_state") == "sized"]
-    denominator = len(sized)
+    scoped_rows = [row for row in rows if row.get("sizing_state") == "sized"]
+    denominator = len(scoped_rows)
 
-    def pct(predicate: Any) -> float | None:
+    def pct(predicate: Any) -> float:
         if denominator == 0:
-            return None
-        return sum(1 for row in sized if predicate(row)) / denominator
+            return 0.0
+        return sum(1 for row in scoped_rows if predicate(row)) / denominator
+
+    def legs(row: dict[str, Any]) -> list[dict[str, Any]]:
+        for key in ("selected_legs", "entry_legs", "exit_legs", "option_legs"):
+            value = row.get(key)
+            if isinstance(value, list) and value:
+                return [leg for leg in value if isinstance(leg, dict)]
+        return []
+
+    def has_bid_ask(row: dict[str, Any]) -> bool:
+        if row.get("bid_price") not in (None, "") and row.get("ask_price") not in (None, ""):
+            return True
+        return any(
+            leg.get("bid") not in (None, "") and leg.get("ask") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_spread(row: dict[str, Any]) -> bool:
+        if row.get("spread_pct") not in (None, "") or row.get("spread_dollars") not in (None, ""):
+            return True
+        return any(
+            leg.get("spread_pct") not in (None, "")
+            or leg.get("bid_ask_spread_pct") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_liquidity(row: dict[str, Any]) -> bool:
+        if any(row.get(key) not in (None, "", [], {}) for key in ("liquidity_state", "option_liquidity_state", "open_interest", "volume", "quote_count")):
+            return True
+        return any(
+            leg.get("open_interest") not in (None, "") or leg.get("volume") not in (None, "")
+            for leg in legs(row)
+        )
+
+    def has_option_symbol(row: dict[str, Any]) -> bool:
+        if row.get("option_symbol") not in (None, "", [], {}) or row.get("option_symbols") not in (None, "", [], {}):
+            return True
+        return any(leg.get("option_symbol") not in (None, "") for leg in legs(row))
+
+    def has_contract_count(row: dict[str, Any]) -> bool:
+        if row.get("contract_count") not in (None, "") or row.get("selected_leg_count") not in (None, ""):
+            return True
+        return bool(legs(row))
 
     return {
         "scoped_sized_row_count": denominator,
-        "bid_ask_coverage": pct(lambda row: row.get("bid_price") not in (None, "") and row.get("ask_price") not in (None, "")),
-        "spread_coverage": pct(lambda row: row.get("spread_pct") not in (None, "") or row.get("spread_dollars") not in (None, "")),
-        "leg_payload_coverage": pct(lambda row: any(row.get(key) not in (None, "", [], {}) for key in ("selected_legs", "entry_legs", "exit_legs", "option_legs"))),
-        "contract_count_coverage": pct(lambda row: row.get("contract_count") not in (None, "")),
-        "option_symbol_coverage": pct(lambda row: row.get("option_symbol") not in (None, "", [], {}) or row.get("option_symbols") not in (None, "", [], {})),
-        "liquidity_coverage": pct(lambda row: any(row.get(key) not in (None, "", [], {}) for key in ("liquidity_state", "option_liquidity_state", "open_interest", "volume", "quote_count"))),
+        "bid_ask_coverage": pct(has_bid_ask),
+        "spread_coverage": pct(has_spread),
+        "leg_payload_coverage": pct(lambda row: bool(legs(row))),
+        "option_symbol_coverage": pct(has_option_symbol),
+        "liquidity_coverage": pct(has_liquidity),
+        "contract_count_coverage": pct(has_contract_count),
     }
-
 
 def _sequence_sort_key(row: dict[str, Any]) -> tuple[int, str, str, str]:
     sequence_index = _coerce_int(row.get("sequence_index"))
@@ -360,15 +487,50 @@ def build_portfolio_position_sizing_replay(
             _get_by_path(sequence_row, "source_row.selection_uses_realized_outcome")
         )
 
-        selected_outcome_availability_date = _get_by_path(
-            sequence_row,
-            "source_row.selected_outcome_availability_date",
+        selected_outcome_availability_date = (
+            sequence_row.get("selected_outcome_availability_date")
+            or sequence_row.get("outcome_availability_date")
+            or execution_realism.get("selected_outcome_availability_date")
+            or execution_realism.get("outcome_availability_date")
+            or execution_realism.get("portfolio_realization_date")
+            or _get_by_path(sequence_row, "source_row.selected_outcome_availability_date")
+            or _get_by_path(sequence_row, "source_row.outcome_availability_date")
+            or _get_by_path(sequence_row, "source_row.source_candidate.outcome_availability_date")
+            or _get_by_path(sequence_row, "source_row.source_candidate.selected_outcome_availability_date")
         )
-        if selected_outcome_availability_date in (None, ""):
-            selected_outcome_availability_date = sequence_row.get("outcome_availability_date")
 
-        portfolio_realization_date = selected_outcome_availability_date
-        realization_date_source = "source_row.selected_outcome_availability_date"
+        portfolio_realization_date = (
+            sequence_row.get("portfolio_realization_date")
+            or execution_realism.get("portfolio_realization_date")
+            or selected_outcome_availability_date
+        )
+
+        if sequence_row.get("portfolio_realization_date") not in (None, ""):
+            realization_date_source = "sequence_row.portfolio_realization_date"
+        elif sequence_row.get("selected_outcome_availability_date") not in (None, ""):
+            realization_date_source = "sequence_row.selected_outcome_availability_date"
+        elif sequence_row.get("outcome_availability_date") not in (None, ""):
+            realization_date_source = "sequence_row.outcome_availability_date"
+        elif execution_realism.get("portfolio_realization_date") not in (None, ""):
+            realization_date_source = "execution_realism.portfolio_realization_date"
+        elif execution_realism.get("selected_outcome_availability_date") not in (None, ""):
+            realization_date_source = "execution_realism.selected_outcome_availability_date"
+        elif execution_realism.get("outcome_availability_date") not in (None, ""):
+            realization_date_source = "execution_realism.outcome_availability_date"
+        elif _get_by_path(sequence_row, "source_row.selected_outcome_availability_date") not in (None, ""):
+            realization_date_source = "source_row.selected_outcome_availability_date"
+        elif _get_by_path(sequence_row, "source_row.source_candidate.outcome_availability_date") not in (None, ""):
+            realization_date_source = "source_row.source_candidate.outcome_availability_date"
+        else:
+            realization_date_source = "missing"
+
+        if selected_outcome_availability_date not in (None, ""):
+            execution_realism.setdefault("selected_outcome_availability_date", selected_outcome_availability_date)
+            execution_realism.setdefault("outcome_availability_date", selected_outcome_availability_date)
+
+        if portfolio_realization_date not in (None, ""):
+            execution_realism.setdefault("portfolio_realization_date", portfolio_realization_date)
+
         if portfolio_realization_date in (None, ""):
             portfolio_realization_date = sequence_row.get("decision_date")
             realization_date_source = "decision_date_fallback"
@@ -544,6 +706,24 @@ def build_portfolio_position_sizing_replay(
                 }
             )
 
+    # final realization/date carry-forward normalization
+    for replay_row in replay_rows:
+        selected_availability = (
+            replay_row.get("selected_outcome_availability_date")
+            or replay_row.get("outcome_availability_date")
+            or replay_row.get("portfolio_realization_date")
+        )
+
+        if selected_availability not in (None, ""):
+            if replay_row.get("selected_outcome_availability_date") in (None, ""):
+                replay_row["selected_outcome_availability_date"] = selected_availability
+            if replay_row.get("outcome_availability_date") in (None, ""):
+                replay_row["outcome_availability_date"] = selected_availability
+            if replay_row.get("portfolio_realization_date") in (None, ""):
+                replay_row["portfolio_realization_date"] = selected_availability
+            if replay_row.get("realization_date_source") in (None, ""):
+                replay_row["realization_date_source"] = "selected_outcome_availability_date"
+
     sized_rows = [row for row in replay_rows if row["sizing_state"] == "sized"]
     skipped_rows = [row for row in replay_rows if row["sizing_state"] == "skipped"]
 
@@ -562,9 +742,6 @@ def build_portfolio_position_sizing_replay(
         "contract_count_source",
         "contract_quantity",
         "fallback_contract_count",
-        "outcome_availability_date",
-        "portfolio_realization_date",
-        "realization_date_source",
         "option_liquidity_state",
     }
 

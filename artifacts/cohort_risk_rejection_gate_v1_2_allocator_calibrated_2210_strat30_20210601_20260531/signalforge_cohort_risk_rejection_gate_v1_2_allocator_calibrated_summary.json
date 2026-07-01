@@ -1,0 +1,85 @@
+{
+  "action_counts": {
+    "normal": 1546,
+    "not_active": 3468,
+    "skip_weak_prior_final_negative_candidate": 22
+  },
+  "adapter_type": "cohort_risk_rejection_gate_v1_1_builder",
+  "artifact_type": "signalforge_cohort_risk_rejection_gate_v1_1",
+  "baseline_metrics": {
+    "ending_equity": 907232.6420103203,
+    "gross_loss_dollars": 452573.84433343034,
+    "gross_win_dollars": 1309806.486343751,
+    "max_drawdown_pct": -0.05646936205986477,
+    "starting_capital": 50000.0,
+    "total_pnl_dollars": 857232.6420103203,
+    "total_return_pct": 17.14465284020641,
+    "trade_count": 1568,
+    "trade_profit_factor": 2.894127671635308,
+    "trade_win_rate": 0.5471938775510204
+  },
+  "blocker_count": 0,
+  "blockers": [],
+  "cohort_count": 502,
+  "cohort_gate_state_counts": {
+    "insufficient_prior": 727,
+    "normal": 819,
+    "weak_prior_final_negative": 22
+  },
+  "contract": "cohort_risk_rejection_gate_v1_1",
+  "delta_metrics": {
+    "delta_max_drawdown_pct": 0.0,
+    "delta_pnl_dollars": 2822.642026252346,
+    "delta_profit_factor": 0.038416319080084804,
+    "delta_return_pct": 0.05645284052504351,
+    "delta_trade_count": -22
+  },
+  "gated_metrics": {
+    "ending_equity": 910055.2840365727,
+    "gross_loss_dollars": 445037.8817602988,
+    "gross_win_dollars": 1305093.1657968718,
+    "max_drawdown_pct": -0.05646936205986477,
+    "starting_capital": 50000.0,
+    "total_pnl_dollars": 860055.2840365727,
+    "total_return_pct": 17.20110568073145,
+    "trade_count": 1546,
+    "trade_profit_factor": 2.9325439907153927,
+    "trade_win_rate": 0.5504527813712807
+  },
+  "input_ledger": "artifacts\\portfolio_value_ranked_allocator_v2_1_2210_strat30_local_rebuild_mid_patch_20210601_20260531\\signalforge_portfolio_value_ranked_allocator_v2_1_position_sizing_replay.jsonl",
+  "input_row_count": 5036,
+  "is_ready": true,
+  "output_row_count": 5036,
+  "paths": {
+    "ledger": "artifacts\\cohort_risk_rejection_gate_v1_1_allocator_2210_threshold_sweep\\min8_avg-500_neg0p60\\signalforge_cohort_risk_rejection_gate_v1_1_ledger.jsonl",
+    "skipped_rows": "artifacts\\cohort_risk_rejection_gate_v1_1_allocator_2210_threshold_sweep\\min8_avg-500_neg0p60\\signalforge_cohort_risk_rejection_gate_v1_1_skipped_rows.jsonl",
+    "summary": "artifacts\\cohort_risk_rejection_gate_v1_1_allocator_2210_threshold_sweep\\min8_avg-500_neg0p60\\signalforge_cohort_risk_rejection_gate_v1_1_summary.json"
+  },
+  "policy": {
+    "does_not_change_entry": true,
+    "does_not_change_exit": true,
+    "does_not_change_expectancy": true,
+    "does_not_replace_skipped_trades": true,
+    "prior_mode": "realization_date_available_prior_live_safe",
+    "prior_window_only": true,
+    "same_decision_date_not_used_as_prior": true
+  },
+  "readiness_state": "ready",
+  "rule": {
+    "action": "skip entire same-day weak-prior cohort",
+    "classification": "faster_acting_return_enhancement_gate_not_drawdown_control",
+    "min_prior": 8,
+    "parent_rule_id": "cohort_risk_rejection_gate_v1",
+    "prior_avg_pnl_threshold": -500.0,
+    "prior_final_negative_rate_threshold": 0.6,
+    "prior_mode": "realization_date_available_prior_live_safe",
+    "rule_id": "cohort_risk_rejection_gate_v1_1",
+    "scope": "strategy + bucket + regime_state + asset_behavior_state + option_behavior_state",
+    "scope_name": "strategy_bucket_regime_asset_option"
+  },
+  "scope_count": 48,
+  "skipped_row_count": 22,
+  "skipped_strategy_counts": {
+    "long_call": 22
+  }
+}

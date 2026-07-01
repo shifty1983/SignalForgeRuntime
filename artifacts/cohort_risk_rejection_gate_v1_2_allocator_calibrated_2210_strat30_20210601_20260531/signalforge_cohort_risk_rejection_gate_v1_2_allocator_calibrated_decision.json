@@ -1,0 +1,68 @@
+﻿{
+    "adapter_type":  "cohort_risk_rejection_gate_v1_2_allocator_calibrated_decision_builder",
+    "artifact_type":  "signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_decision",
+    "contract":  "cohort_risk_rejection_gate_v1_2_allocator_calibrated_decision",
+    "is_ready":  true,
+    "readiness_state":  "candidate_pass_initial_screen",
+    "decision":  "promote_to_robustness_validation_candidate",
+    "parent_allocator_candidate":  "portfolio_value_ranked_allocator_v2_1_2210_strat30",
+    "parent_rule_id":  "cohort_risk_rejection_gate_v1_1",
+    "rule_id":  "cohort_risk_rejection_gate_v1_2_allocator_calibrated",
+    "rule":  {
+                 "scope":  "strategy + bucket + regime_state + asset_behavior_state + option_behavior_state",
+                 "scope_name":  "strategy_bucket_regime_asset_option",
+                 "prior_mode":  "realization_date_available_prior_live_safe",
+                 "min_prior":  8,
+                 "prior_avg_pnl_threshold":  -500,
+                 "prior_final_negative_rate_threshold":  0.6,
+                 "action":  "skip entire same-day weak-prior cohort",
+                 "classification":  "allocator_calibrated_return_and_profit_factor_enhancement_gate"
+             },
+    "promotion_screen":  {
+                             "baseline_total_return":  17.14465284020641,
+                             "candidate_total_return":  17.20110568073145,
+                             "delta_pnl_dollars":  2822.642026252346,
+                             "baseline_profit_factor":  2.894127671635308,
+                             "candidate_profit_factor":  2.9325439907153927,
+                             "delta_profit_factor":  0.038416319080084804,
+                             "baseline_max_drawdown_pct":  -0.05646936205986477,
+                             "candidate_max_drawdown_pct":  -0.05646936205986477,
+                             "delta_max_drawdown_pct":  0.0,
+                             "skipped_trade_count":  22,
+                             "skipped_strategy_counts":  {
+                                                             "long_call":  22
+                                                         }
+                         },
+    "acceptance_checks":  {
+                              "return_non_degradation":  true,
+                              "profit_factor_non_degradation":  true,
+                              "drawdown_non_degradation":  true,
+                              "skipped_count_small":  true,
+                              "skipped_scope_explainable":  true
+                          },
+    "policy":  {
+                   "does_not_change_entry":  true,
+                   "does_not_change_exit":  true,
+                   "does_not_change_expectancy":  true,
+                   "does_not_replace_skipped_trades":  true,
+                   "does_not_rerank_strategy_selection":  true,
+                   "prior_window_only":  true,
+                   "same_decision_date_not_used_as_prior":  true,
+                   "allocator_calibrated":  true
+               },
+    "paths":  {
+                  "candidate_dir":  "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531",
+                  "ledger":  "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_ledger.jsonl",
+                  "skipped_rows":  "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_skipped_rows.jsonl",
+                  "source_summary":  "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_summary.json",
+                  "decision":  "artifacts\\cohort_risk_rejection_gate_v1_2_allocator_calibrated_2210_strat30_20210601_20260531\\signalforge_cohort_risk_rejection_gate_v1_2_allocator_calibrated_decision.json"
+              },
+    "blockers":  [
+
+                 ],
+    "warnings":  [
+                     "requires_robustness_validation_before_baseline_promotion",
+                     "small_effect_size",
+                     "gate_is_allocator_calibrated_not_raw_universal"
+                 ]
+}

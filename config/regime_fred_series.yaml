@@ -1,0 +1,54 @@
+series:
+  growth:
+    required: true
+    description: Real activity / employment growth inputs.
+    ids:
+      - INDPRO      # Industrial Production Index
+      - PAYEMS      # All Employees, Total Nonfarm
+      - W875RX1     # Real personal income excluding transfer receipts
+      - GDPC1       # Real Gross Domestic Product, quarterly optional context
+
+  inflation:
+    required: true
+    description: Price-index inputs used to calculate inflation momentum.
+    ids:
+      - CPIAUCSL    # Consumer Price Index for All Urban Consumers
+      - PCEPI       # Personal Consumption Expenditures Price Index
+      - CPILFESL    # Core CPI
+      - PCEPILFE    # Core PCE Price Index
+
+  rates:
+    required: true
+    description: Policy rate, Treasury rate, and curve inputs.
+    ids:
+      - FEDFUNDS
+      - DGS10
+      - DGS2
+      - T10Y2Y
+
+  liquidity:
+    required: true
+    description: Money, balance-sheet, reserve, financial-conditions, and credit-spread inputs.
+    ids:
+      - M2SL
+      - WALCL
+      - RESBALNS
+      - NFCI
+      - ANFCI
+      - BAMLH0A0HYM2
+
+  risk:
+    required: true
+    description: Credit-spread, volatility, financial-conditions, and recession inputs.
+    ids:
+      - BAMLH0A0HYM2
+      - VIXCLS
+      - NFCI
+      - ANFCI
+      - USREC
+
+  volatility:
+    required: false
+    description: Volatility-policy modifier for options policy.
+    ids:
+      - VIXCLS

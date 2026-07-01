@@ -516,6 +516,107 @@ def _strategy_family_gate_block_reasons(
 
     return []
 
+
+def _as_dict(value: Any) -> Dict[str, Any]:
+    if isinstance(value, Mapping):
+        return dict(value)
+    return {}
+
+
+def _as_list(value: Any) -> List[Any]:
+    if isinstance(value, list):
+        return list(value)
+    if isinstance(value, tuple):
+        return list(value)
+    if isinstance(value, set):
+        return sorted(value)
+    return []
+
+
+def _research_context_from_decision_row(row: Mapping[str, Any]) -> Dict[str, Any]:
+    return {
+        "regime": _as_dict(row.get("regime")),
+        "asset_behavior": _as_dict(row.get("asset_behavior")),
+        "option_behavior": _as_dict(row.get("option_behavior")),
+        "regime_asset_options_alignment": _as_dict(row.get("regime_asset_options_alignment")),
+        "strategy_family_eligibility": _as_dict(row.get("strategy_family_eligibility")),
+        "strategy_family_statuses": _as_dict(row.get("strategy_family_statuses")),
+        "favored_strategy_families": _as_list(row.get("favored_strategy_families")),
+        "allowed_strategy_families": _as_list(row.get("allowed_strategy_families")),
+        "discouraged_strategy_families": _as_list(row.get("discouraged_strategy_families")),
+        "blocked_strategy_families": _as_list(row.get("blocked_strategy_families")),
+        "review_required_strategy_families": _as_list(row.get("review_required_strategy_families")),
+        "strategy_family_eligibility_handoff": row.get("strategy_family_eligibility_handoff"),
+    }
+
+
+def _option_behavior_research_fields(option_behavior: Any) -> Dict[str, Any]:
+    if not isinstance(option_behavior, Mapping):
+        return {}
+
+    keys = (
+        "source_state",
+        "source_date",
+        "as_of_date",
+        "term_structure_state",
+        "term_structure_shape",
+        "term_structure_source_date",
+        "term_structure_expiration_count",
+        "term_structure_front_contract_count",
+        "term_structure_back_contract_count",
+        "front_expiration",
+        "back_expiration",
+        "front_iv",
+        "back_iv",
+        "front_back_iv_spread",
+        "front_back_iv_spread_pct",
+        "front_dte",
+        "back_dte",
+        "theta_sensitivity_state",
+        "spread_state",
+        "skew_state",
+        "iv_expansion_state",
+        "gamma_concentration_state",
+        "volatility_risk_premium_state",
+        "premium_bias",
+    )
+
+    return {
+        key: option_behavior.get(key)
+        for key in keys
+        if option_behavior.get(key) not in (None, "")
+    }
+
+
+def _alignment_research_fields(alignment: Any) -> Dict[str, Any]:
+    if not isinstance(alignment, Mapping):
+        return {}
+
+    keys = (
+        "regime_options_alignment",
+        "asset_options_alignment",
+        "strategy_environment_bias",
+        "premium_bias",
+        "coverage_status",
+        "matrix_dimension_state",
+        "matrix_metadata_state",
+        "strategy_selection_handoff",
+        "term_structure_state",
+        "theta_sensitivity_state",
+        "spread_state",
+        "skew_state",
+        "iv_expansion_state",
+        "gamma_concentration_state",
+        "volatility_risk_premium_state",
+    )
+
+    return {
+        key: alignment.get(key)
+        for key in keys
+        if alignment.get(key) not in (None, "")
+    }
+
+
 def _parse_option_behavior(option_behavior_state: str) -> Dict[str, str]:
     lowered = option_behavior_state.lower()
 
@@ -763,6 +864,13 @@ def build_historical_strategy_candidate_rows(
         regime = row.get("regime")
         asset_behavior = row.get("asset_behavior")
         option_behavior = row.get("option_behavior")
+        regime_asset_options_alignment = row.get("regime_asset_options_alignment")
+        strategy_family_eligibility = row.get("strategy_family_eligibility")
+        strategy_family_statuses = row.get("strategy_family_statuses")
+
+        research_context = _research_context_from_decision_row(row)
+        option_research_fields = _option_behavior_research_fields(option_behavior)
+        alignment_research_fields = _alignment_research_fields(regime_asset_options_alignment)
 
         regime_state = _nested_state(regime)
         asset_behavior_state = _nested_state(asset_behavior)
@@ -883,6 +991,17 @@ def build_historical_strategy_candidate_rows(
                             "strategy_instance": strategy_instance,
                             "strategy_family": strategy_family,
                             "strategy_family_status": strategy_family_status,
+                            "strategy_family_statuses": _as_dict(strategy_family_statuses),
+
+                            "regime": _as_dict(regime),
+                            "asset_behavior": _as_dict(asset_behavior),
+                            "option_behavior": _as_dict(option_behavior),
+                            "regime_asset_options_alignment": _as_dict(regime_asset_options_alignment),
+                            "strategy_family_eligibility": _as_dict(strategy_family_eligibility),
+                            "research_context": research_context,
+
+                            **option_research_fields,
+                            **alignment_research_fields,
                             "strategy_structure": strategy_structure,
                             "strategy_direction": strategy_direction,
                             "premium_profile": premium_profile,
