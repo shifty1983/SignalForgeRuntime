@@ -1,46 +1,117 @@
-﻿# Python
+# ============================================================
+# SignalForge Git Ignore
+# Keep source, tests, config, docs, and small deterministic samples.
+# Ignore local envs, runtime outputs, imported/vendor data, caches, and secrets.
+# ============================================================
+
+# ----------------------------
+# Python caches / build output
+# ----------------------------
 __pycache__/
-*.pyc
-.venv/
+*.py[cod]
+*$py.class
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.tox/
+.nox/
+build/
+dist/
+*.egg-info/
+.eggs/
 
-# Generated outputs
-artifacts/*
-!artifacts/.gitkeep
+# ----------------------------
+# Virtual environments
+# ----------------------------
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+__pypackages__/
+
+# ----------------------------
+# Local secrets / env files
+# ----------------------------
+.env
+.env.*
+!.env.example
+.envrc
+.pypirc
+
+# ----------------------------
+# Runtime artifacts / generated outputs
+# ----------------------------
+artifacts/
+exports/
 reports/
-runs/
-
-# Runtime / market data
-data/runtime/*
-!data/runtime/.gitkeep
-data/raw/
-data/cache/
-
-# Large generated files
+logs/
+imports/
+downloads/
 *.jsonl
-*.jsonl.gz
-*.parquet
-*.feather
-*.csv
-*.sqlite
-*.db
 
-# Allow curated small fixtures only
-!data/samples/
-!data/samples/.gitkeep
-!data/samples/**/*.json
-!data/samples/**/*.jsonl
-!tests/fixtures/
-!tests/fixtures/**/*.json
-!tests/fixtures/**/*.jsonl
+artifacts/
+exports/
+reports/
+logs/
+imports/
+downloads/
 
-# OS / editor
+# ----------------------------
+# Local/imported data
+# Keep data/samples versioned.
+# ----------------------------
+data/raw/
+data/imports/
+data/downloads/
+data/manual/
+data/vendor/
+data/tmp/
+data/local/
+
+# ----------------------------
+# Notebooks / editor state
+# ----------------------------
+.ipynb_checkpoints/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+tempCodeRunnerFile.py
+
+# ----------------------------
+# OS files
+# ----------------------------
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
 
-.t/
-.pytest_runtime/
+# ----------------------------
+# Logs / databases
+# ----------------------------
+*.log
+*.sqlite
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# ----------------------------
+# Parquet and binary data outputs
+# ----------------------------
+*.parquet
+*.feather
+*.arrow
+
+# But allow explicit tiny fixtures later if we intentionally create them.
+!data/samples/**/*.json
+!data/samples/**/*.csv
+!data/samples/**/*.yaml
+!data/samples/**/*.yml
+!data/fixtures/**/*.parquet
+
+# Local parking for cleanup/recovery files.
+local_parking/
