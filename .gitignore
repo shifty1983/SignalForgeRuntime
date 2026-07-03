@@ -73,6 +73,9 @@ data/manual/
 data/vendor/
 data/tmp/
 data/local/
+data/runtime/
+data/canonical/
+data/qc_transfer/
 
 # ----------------------------
 # Notebooks / editor state
