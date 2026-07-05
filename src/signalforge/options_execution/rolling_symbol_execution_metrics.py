@@ -32,6 +32,120 @@ DATE_FIELDS = [
 ]
 
 
+BID_COUNT_FIELDS = [
+    "bid_count",
+    "quote_bid_count",
+    "bid_available_count",
+    "bid_non_null_count",
+    "bid_present_count",
+]
+
+ASK_COUNT_FIELDS = [
+    "ask_count",
+    "quote_ask_count",
+    "ask_available_count",
+    "ask_non_null_count",
+    "ask_present_count",
+]
+
+MID_COUNT_FIELDS = [
+    "mid_count",
+    "quote_mid_count",
+    "mid_available_count",
+    "mid_non_null_count",
+    "mid_present_count",
+]
+
+SPREAD_COUNT_FIELDS = [
+    "spread_count",
+    "spread_available_count",
+    "spread_non_null_count",
+    "bid_ask_spread_count",
+]
+
+RELATIVE_SPREAD_COUNT_FIELDS = [
+    "relative_spread_count",
+    "relative_spread_available_count",
+    "relative_spread_non_null_count",
+]
+
+OPEN_INTEREST_COUNT_FIELDS = [
+    "open_interest_count",
+    "oi_count",
+    "open_interest_available_count",
+    "open_interest_non_null_count",
+]
+
+VOLUME_COUNT_FIELDS = [
+    "volume_count",
+    "contract_volume_count",
+    "volume_available_count",
+    "volume_non_null_count",
+]
+
+DELTA_COUNT_FIELDS = [
+    "delta_count",
+    "greek_delta_count",
+    "delta_available_count",
+    "delta_non_null_count",
+]
+
+DTE_COUNT_FIELDS = [
+    "dte_count",
+    "days_to_expiration_count",
+    "dte_available_count",
+    "dte_non_null_count",
+]
+
+
+def metric_count(
+    row: dict[str, Any],
+    explicit_fields: list[str],
+    inferred_metric_fields: list[str],
+) -> int:
+    for field in explicit_fields:
+        if field in row and row.get(field) not in (None, ""):
+            explicit_count = to_int(row.get(field))
+            if explicit_count > 0:
+                return explicit_count
+
+    row_count = to_int(row.get("row_count"))
+
+    if row_count <= 0:
+        return 0
+
+    for field in inferred_metric_fields:
+        if field in row and row.get(field) not in (None, ""):
+            value = to_float(row.get(field))
+            if value is not None:
+                return row_count
+
+    return 0
+
+
+def metric_count_from_rate(row: dict[str, Any], rate_fields: list[str]) -> int:
+    row_count = to_int(row.get("row_count"))
+
+    if row_count <= 0:
+        return 0
+
+    for field in rate_fields:
+        if field in row and row.get(field) not in (None, ""):
+            rate = to_float(row.get(field))
+            if rate is not None:
+                return int(round(row_count * max(0.0, min(1.0, rate))))
+
+    return 0
+
+
+def metric_value(row: dict[str, Any], fields: list[str]) -> float | None:
+    for field in fields:
+        value = to_float(row.get(field))
+        if value is not None:
+            return value
+    return None
+
+
 
 
 def read_jsonl(path: Path):
@@ -207,19 +321,85 @@ def summarize_window(
         tier = str(r.get("liquidity_tier") or "unknown")
         tier_counts[tier] += 1
 
-        bid_count += to_int(r.get("bid_count"))
-        ask_count += to_int(r.get("ask_count"))
-        mid_count += to_int(r.get("mid_count"))
-        spread_count += to_int(r.get("spread_count"))
-        relative_spread_count += to_int(r.get("relative_spread_count"))
-        open_interest_count += to_int(r.get("open_interest_count"))
-        volume_count += to_int(r.get("volume_count"))
-        delta_count += to_int(r.get("delta_count"))
-        dte_count += to_int(r.get("dte_count"))
+        row_bid_count = metric_count(
+            r,
+            BID_COUNT_FIELDS,
+            ["avg_spread", "median_spread", "max_spread", "avg_relative_spread", "median_relative_spread"],
+        ) or metric_count_from_rate(r, ["bid_ask_complete_rate"])
 
-        avg_relative_spread = to_float(r.get("avg_relative_spread"))
-        median_relative_spread = to_float(r.get("median_relative_spread"))
-        max_relative_spread = to_float(r.get("max_relative_spread"))
+        row_ask_count = metric_count(
+            r,
+            ASK_COUNT_FIELDS,
+            ["avg_spread", "median_spread", "max_spread", "avg_relative_spread", "median_relative_spread"],
+        ) or metric_count_from_rate(r, ["bid_ask_complete_rate"])
+
+        row_mid_count = metric_count(
+            r,
+            MID_COUNT_FIELDS,
+            ["avg_spread", "median_spread", "max_spread", "avg_relative_spread", "median_relative_spread"],
+        ) or metric_count_from_rate(r, ["mid_available_rate"])
+
+        row_spread_count = metric_count(
+            r,
+            SPREAD_COUNT_FIELDS,
+            ["avg_spread", "median_spread", "max_spread"],
+        ) or metric_count_from_rate(r, ["spread_pct_available_rate"])
+
+        row_relative_spread_count = metric_count(
+            r,
+            RELATIVE_SPREAD_COUNT_FIELDS,
+            ["avg_relative_spread", "median_relative_spread", "max_relative_spread"],
+        ) or metric_count_from_rate(r, ["spread_pct_available_rate"])
+
+        row_open_interest_count = metric_count(
+            r,
+            OPEN_INTEREST_COUNT_FIELDS,
+            ["avg_open_interest", "median_open_interest", "max_open_interest"],
+        ) or metric_count_from_rate(r, ["open_interest_seen_rate"])
+
+        row_volume_count = metric_count(
+            r,
+            VOLUME_COUNT_FIELDS,
+            ["avg_volume", "median_volume", "max_volume"],
+        ) or metric_count_from_rate(r, ["volume_seen_rate"])
+
+        row_delta_count = metric_count(
+            r,
+            DELTA_COUNT_FIELDS,
+            ["avg_delta", "median_delta", "min_delta", "max_delta"],
+        ) or metric_count_from_rate(r, ["delta_seen_rate", "greeks_seen_rate"])
+
+        row_dte_count = metric_count(
+            r,
+            DTE_COUNT_FIELDS,
+            ["avg_dte", "median_dte", "min_dte", "max_dte"],
+        )
+
+        if row_dte_count <= 0 and to_int(r.get("expiration_count")) > 0:
+            row_dte_count = to_int(r.get("row_count"))
+
+        bid_count += row_bid_count
+        ask_count += row_ask_count
+        mid_count += row_mid_count
+        spread_count += row_spread_count
+        relative_spread_count += row_relative_spread_count
+        open_interest_count += row_open_interest_count
+        volume_count += row_volume_count
+        delta_count += row_delta_count
+        dte_count += row_dte_count
+
+        avg_relative_spread = metric_value(
+            r,
+            ["avg_relative_spread", "spread_pct_p50_bucket_upper"],
+        )
+        median_relative_spread = metric_value(
+            r,
+            ["median_relative_spread", "spread_pct_p50_bucket_upper"],
+        )
+        max_relative_spread = metric_value(
+            r,
+            ["max_relative_spread", "spread_pct_p90_bucket_upper", "spread_pct_p75_bucket_upper", "spread_pct_p50_bucket_upper"],
+        )
 
         avg_spread = to_float(r.get("avg_spread"))
         median_spread = to_float(r.get("median_spread"))
@@ -233,10 +413,10 @@ def summarize_window(
         min_dte = to_float(r.get("min_dte"))
         max_dte = to_float(r.get("max_dte"))
 
-        rel_weight = to_int(r.get("relative_spread_count"))
-        spread_weight = to_int(r.get("spread_count"))
-        oi_weight = to_int(r.get("open_interest_count"))
-        volume_weight = to_int(r.get("volume_count"))
+        rel_weight = row_relative_spread_count
+        spread_weight = row_spread_count
+        oi_weight = row_open_interest_count
+        volume_weight = row_volume_count
 
         if avg_relative_spread is not None and rel_weight > 0:
             relative_spread_weighted_pairs.append((avg_relative_spread, rel_weight))
