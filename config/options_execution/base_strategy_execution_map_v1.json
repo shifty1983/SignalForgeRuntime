@@ -1,0 +1,620 @@
+{
+  "adapter_type": "base_strategy_execution_map_config",
+  "artifact_type": "signalforge_base_strategy_execution_map",
+  "contract": "base_strategy_execution_map",
+  "version": "v1",
+  "description": "Base options strategy execution rules before metric-driven symbol/date adjustments.",
+  "strategies": [
+    {
+      "strategy": "long_call",
+      "enabled": true,
+      "directional_bias": "bullish",
+      "position_type": "long_premium",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 90,
+        "target_delta_min": 0.45,
+        "target_delta_max": 0.7
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_debit": 0.5,
+        "loss_stop_pct_of_debit": 0.5,
+        "dte_exit": 7
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "reduce_size"
+        ],
+        "notes": "Long premium defense is primarily exit or size reduction."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": []
+    },
+    {
+      "strategy": "long_put",
+      "enabled": true,
+      "directional_bias": "bearish",
+      "position_type": "long_premium",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 90,
+        "target_delta_min": 0.45,
+        "target_delta_max": 0.7
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_debit": 0.5,
+        "loss_stop_pct_of_debit": 0.5,
+        "dte_exit": 7
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "reduce_size"
+        ],
+        "notes": "Long premium defense is primarily exit or size reduction."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": []
+    },
+    {
+      "strategy": "bull_call_debit_spread",
+      "enabled": true,
+      "directional_bias": "bullish",
+      "position_type": "defined_risk_debit",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 75,
+        "long_leg_delta_min": 0.45,
+        "long_leg_delta_max": 0.7,
+        "short_leg_delta_min": 0.2,
+        "short_leg_delta_max": 0.45,
+        "spread_width_min": 1,
+        "spread_width_max": 10,
+        "max_debit_pct_of_width": 0.55
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_max_profit": 0.5,
+        "loss_stop_pct_of_debit": 0.5,
+        "dte_exit": 7
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "reduce_size"
+        ],
+        "notes": "Debit spread defense is primarily exit or size reduction."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "debit_too_large",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": [
+        "call_debit_spread",
+        "bull_call_spread"
+      ]
+    },
+    {
+      "strategy": "bear_put_debit_spread",
+      "enabled": true,
+      "directional_bias": "bearish",
+      "position_type": "defined_risk_debit",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 75,
+        "long_leg_delta_min": 0.45,
+        "long_leg_delta_max": 0.7,
+        "short_leg_delta_min": 0.2,
+        "short_leg_delta_max": 0.45,
+        "spread_width_min": 1,
+        "spread_width_max": 10,
+        "max_debit_pct_of_width": 0.55
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_max_profit": 0.5,
+        "loss_stop_pct_of_debit": 0.5,
+        "dte_exit": 7
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "reduce_size"
+        ],
+        "notes": "Debit spread defense is primarily exit or size reduction."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "debit_too_large",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": [
+        "put_debit_spread",
+        "bear_put_spread"
+      ]
+    },
+    {
+      "strategy": "put_credit_spread",
+      "enabled": true,
+      "directional_bias": "bullish_to_neutral",
+      "position_type": "defined_risk_credit",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 60,
+        "short_leg_delta_min": 0.15,
+        "short_leg_delta_max": 0.35,
+        "long_leg_delta_max": 0.15,
+        "spread_width_min": 1,
+        "spread_width_max": 10,
+        "minimum_credit_pct_of_width": 0.25
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "short_leg_delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_credit": 0.5,
+        "loss_stop_multiple_of_credit": 2.0,
+        "dte_exit": 7
+      },
+      "defense": {
+        "short_leg_delta_warning": 0.4,
+        "short_leg_delta_defense": 0.5,
+        "allowed_actions": [
+          "close",
+          "roll_out",
+          "reduce_size"
+        ]
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "credit_too_small",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": []
+    },
+    {
+      "strategy": "call_credit_spread",
+      "enabled": true,
+      "directional_bias": "bearish_to_neutral",
+      "position_type": "defined_risk_credit",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 60,
+        "short_leg_delta_min": 0.15,
+        "short_leg_delta_max": 0.35,
+        "long_leg_delta_max": 0.15,
+        "spread_width_min": 1,
+        "spread_width_max": 10,
+        "minimum_credit_pct_of_width": 0.25
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract_or_use_proxy_backtest_only",
+        "primary_greek": "short_leg_delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 1.0
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_credit": 0.5,
+        "loss_stop_multiple_of_credit": 2.0,
+        "dte_exit": 7
+      },
+      "defense": {
+        "short_leg_delta_warning": 0.4,
+        "short_leg_delta_defense": 0.5,
+        "allowed_actions": [
+          "close",
+          "roll_out",
+          "reduce_size"
+        ]
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "credit_too_small",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": []
+    },
+    {
+      "strategy": "iron_condor",
+      "enabled": true,
+      "directional_bias": "neutral",
+      "position_type": "defined_risk_credit",
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 60,
+        "short_put_delta_min": 0.1,
+        "short_put_delta_max": 0.25,
+        "short_call_delta_min": 0.1,
+        "short_call_delta_max": 0.25,
+        "wing_width_min": 1,
+        "wing_width_max": 10,
+        "minimum_credit_pct_of_width": 0.2
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.12,
+        "min_open_interest": 150,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract",
+        "primary_greek": "short_leg_delta"
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 0.75
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_credit": 0.5,
+        "loss_stop_multiple_of_credit": 2.0,
+        "dte_exit": 10
+      },
+      "defense": {
+        "short_leg_delta_warning": 0.3,
+        "short_leg_delta_defense": 0.4,
+        "allowed_actions": [
+          "close_tested_side",
+          "close_full_position",
+          "reduce_size"
+        ]
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "credit_too_small",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ],
+      "aliases": []
+    },
+    {
+      "strategy": "iron_butterfly",
+      "enabled": true,
+      "directional_bias": "neutral",
+      "position_type": "defined_risk_credit",
+      "aliases": [
+        "iron_fly",
+        "short_iron_butterfly"
+      ],
+      "entry": {
+        "dte_min": 21,
+        "dte_max": 60,
+        "short_body_delta_min": 0.4,
+        "short_body_delta_max": 0.6,
+        "wing_width_min": 1,
+        "wing_width_max": 10,
+        "equal_wing_width_preferred": true,
+        "minimum_credit_pct_of_width": 0.3
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.12,
+        "min_open_interest": 150,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract",
+        "primary_greek": "body_delta",
+        "preferred_profile": {
+          "net_delta": "near_flat_preferred",
+          "net_theta": "positive_preferred",
+          "net_gamma": "negative_gamma_limited",
+          "net_vega": "short_vega_limited"
+        }
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 0.75
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_credit": 0.4,
+        "loss_stop_multiple_of_credit": 2.0,
+        "dte_exit": 10
+      },
+      "defense": {
+        "body_delta_warning": 0.65,
+        "body_delta_defense": 0.75,
+        "allowed_actions": [
+          "close_full_position",
+          "reduce_size"
+        ],
+        "notes": "Iron butterfly defense focuses on closing or reducing size when price moves materially away from the short body."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "credit_too_small",
+        "missing_required_greeks",
+        "portfolio_risk_cap_exceeded"
+      ]
+    },
+    {
+      "strategy": "calendar_spread",
+      "enabled": true,
+      "directional_bias": "neutral_to_directional",
+      "position_type": "defined_risk_debit_time_spread",
+      "aliases": [
+        "calendar",
+        "call_calendar",
+        "put_calendar"
+      ],
+      "entry": {
+        "front_dte_min": 14,
+        "front_dte_max": 45,
+        "back_dte_min": 45,
+        "back_dte_max": 120,
+        "minimum_dte_separation": 21,
+        "target_delta_min": 0.35,
+        "target_delta_max": 0.6,
+        "same_strike_required": true,
+        "option_right_mode": "call_or_put",
+        "max_debit_pct_of_underlying": 0.03
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract",
+        "primary_greek": "delta",
+        "preferred_profile": {
+          "net_theta": "positive_preferred",
+          "net_vega": "positive_preferred",
+          "net_delta": "bounded_by_directional_bias"
+        }
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 0.75
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_debit": 0.3,
+        "loss_stop_pct_of_debit": 0.5,
+        "front_dte_exit": 3
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "roll_front_leg",
+          "reduce_size"
+        ],
+        "delta_drift_warning": 0.2,
+        "delta_drift_defense": 0.3,
+        "notes": "Calendar defense focuses on front-leg roll, delta drift, and volatility contraction risk."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "missing_required_greeks",
+        "front_back_expiration_not_available",
+        "debit_too_large",
+        "portfolio_risk_cap_exceeded"
+      ]
+    },
+    {
+      "strategy": "diagonal_spread",
+      "enabled": true,
+      "directional_bias": "directional_to_neutral",
+      "position_type": "defined_risk_debit_time_spread",
+      "aliases": [
+        "diagonal",
+        "call_diagonal",
+        "put_diagonal"
+      ],
+      "entry": {
+        "front_dte_min": 14,
+        "front_dte_max": 45,
+        "back_dte_min": 45,
+        "back_dte_max": 150,
+        "minimum_dte_separation": 21,
+        "long_leg_delta_min": 0.45,
+        "long_leg_delta_max": 0.75,
+        "short_leg_delta_min": 0.2,
+        "short_leg_delta_max": 0.45,
+        "same_option_right_required": true,
+        "different_strike_required": true,
+        "option_right_mode": "call_or_put",
+        "max_debit_pct_of_underlying": 0.04
+      },
+      "liquidity": {
+        "require_bid_ask": true,
+        "max_bid_ask_spread_pct": 0.15,
+        "min_open_interest": 100,
+        "min_volume": 10
+      },
+      "greeks": {
+        "required_for_entry": true,
+        "missing_greeks_policy": "reject_contract",
+        "primary_greek": "delta",
+        "preferred_profile": {
+          "net_theta": "positive_or_near_flat_preferred",
+          "net_vega": "positive_preferred",
+          "net_delta": "directional_bias_aligned"
+        }
+      },
+      "risk": {
+        "max_risk_per_trade_pct": 0.01,
+        "position_size_multiplier": 0.75
+      },
+      "entry_price": {
+        "rule": "limit_at_mid_or_better",
+        "slippage_buffer_pct": 0.02
+      },
+      "exit": {
+        "profit_take_pct_of_debit": 0.35,
+        "loss_stop_pct_of_debit": 0.5,
+        "front_dte_exit": 3
+      },
+      "defense": {
+        "allowed_actions": [
+          "close",
+          "roll_front_leg",
+          "reduce_size"
+        ],
+        "delta_drift_warning": 0.25,
+        "delta_drift_defense": 0.35,
+        "notes": "Diagonal defense focuses on front-leg roll, directional drift, and maintaining intended net delta."
+      },
+      "skip_conditions": [
+        "missing_quote",
+        "spread_too_wide",
+        "missing_required_greeks",
+        "front_back_expiration_not_available",
+        "debit_too_large",
+        "portfolio_risk_cap_exceeded"
+      ]
+    }
+  ],
+  "system_strategy_names": [
+    "long_call",
+    "long_put",
+    "bull_call_debit_spread",
+    "bear_put_debit_spread",
+    "put_credit_spread",
+    "call_credit_spread",
+    "iron_condor",
+    "iron_butterfly",
+    "calendar_spread",
+    "diagonal_spread"
+  ]
+}
