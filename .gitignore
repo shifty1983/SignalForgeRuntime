@@ -76,6 +76,7 @@ data/local/
 data/runtime/
 data/canonical/
 data/qc_transfer/
+data/manual/
 
 # ----------------------------
 # Notebooks / editor state
