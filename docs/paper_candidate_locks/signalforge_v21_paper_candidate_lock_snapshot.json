@@ -1,0 +1,51 @@
+﻿{
+    "artifact_type":  "signalforge_tracked_paper_candidate_lock_snapshot",
+    "is_ready":  true,
+    "blocker_count":  0,
+    "closure_state":  "closed_through_stage33_paper_candidate_lock",
+    "paper_candidate_id":  "signalforge_v21_core_plus_credit_term_hpd5_exit10_allocator_v2_1_max_return_10_paper_candidate",
+    "paper_candidate_state":  "locked_for_paper_trading_review",
+    "live_candidate_state":  "not_live_candidate",
+    "active_baseline_scenario":  "max_return_10_allocated",
+    "paper_trade_supported":  true,
+    "live_trade_supported":  false,
+    "strategy_count":  6,
+    "capital_policy":  {
+                           "minimum_operational_capital":  20000,
+                           "minimum_edge_capital":  20000,
+                           "preferred_lower_paper_baseline":  25000,
+                           "validated_comparison_baseline":  100000,
+                           "full_expression_comparison_baseline":  100000
+                       },
+    "spread_policy":  {
+                          "preferred_clean_entry_spread_threshold":  0.1,
+                          "balanced_paper_entry_spread_cap":  0.2,
+                          "manual_review_spread_tier":  "\u003e0.20 and \u003c=0.35",
+                          "skip_default_spread_threshold_above":  0.35,
+                          "spread_010_state":  "passes_both_capitals_operational_thresholds"
+                      },
+    "execution_stress_policy":  {
+                                    "stress_state":  "passes_baseline_and_fee_proxy_but_fails_severe_fill_and_combined_stress",
+                                    "baseline_and_fee_proxy":  "passed",
+                                    "spread_lineage_calibration":  "passed",
+                                    "severe_fill_and_combined_adverse_execution":  "failed",
+                                    "deployment_scope":  "paper_only"
+                                },
+    "rulebook_lock_state":  "locked_for_paper_candidate_review",
+    "canonical_artifact_hashes":  [
+                                      {
+                                          "path":  "data\\canonical\\signalforge_pipeline\\metadata\\signalforge_pipeline_stage34_paper_candidate_closure_audit.json",
+                                          "sha256":  "F2AA57C06BD2BA252EEA86365AA269722C575F39C0C04FFD02B159C5C32DDBC8"
+                                      },
+                                      {
+                                          "path":  "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json",
+                                          "sha256":  "B9D128D4ADBA194069395B0D5873A5E32AFFF5CFD60FA892C44DB184BD4E4B16"
+                                      },
+                                      {
+                                          "path":  "data\\canonical\\signalforge_pipeline\\29_strategy_management_rulebook_paper_lock\\signalforge_strategy_management_rulebook_amended_paper_lock.json",
+                                          "sha256":  "89E885A1C4D0727EF6DF295A7E49867E2EEFB2CB82084F72CE27C176939FC65E"
+                                      }
+                                  ],
+    "note":  "Canonical artifacts are intentionally gitignored. This tracked snapshot records the locked paper-candidate state and hashes of the ignored canonical lock artifacts.",
+    "created_at":  "2026-07-08T12:48:51.0178099-07:00"
+}
