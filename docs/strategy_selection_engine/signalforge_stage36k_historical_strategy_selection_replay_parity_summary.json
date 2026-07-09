@@ -1,0 +1,51 @@
+{
+  "adapter_type": "historical_strategy_selection_replay_parity_builder",
+  "artifact_type": "signalforge_historical_strategy_selection_replay_parity",
+  "contract": "historical_strategy_selection_replay_parity",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage36k_runs_historical_selection_replay_only",
+    "historical_wrapper_remains_in_backtesting_engine_owns_selection_decision_helpers"
+  ],
+  "function": "build_historical_strategy_selection_rows_artifact",
+  "backup_path": "docs\\strategy_selection_engine\\stage36j_backtesting_backups\\historical_strategy_selection_rows_builder.py.before_stage36j",
+  "current_module": "signalforge.backtesting.historical_strategy_selection_rows_builder",
+  "original_output_dir": "docs\\strategy_selection_engine\\stage36k_original_selection_replay_output",
+  "current_output_dir": "docs\\strategy_selection_engine\\stage36k_current_selection_replay_output",
+  "original_resolved_args": {
+    "expectancy_rows_path": "artifacts\\sf18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+    "output_dir": "docs\\strategy_selection_engine\\stage36k_original_selection_replay_output"
+  },
+  "current_resolved_args": {
+    "expectancy_rows_path": "artifacts\\sf18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+    "output_dir": "docs\\strategy_selection_engine\\stage36k_current_selection_replay_output"
+  },
+  "result_same": true,
+  "output_file_count": 2,
+  "matching_output_file_count": 2,
+  "output_rows": [
+    {
+      "file": "signalforge_historical_strategy_selection_rows.jsonl",
+      "exists_original": true,
+      "exists_current": true,
+      "same": true,
+      "original_count": 5218,
+      "current_count": 5218
+    },
+    {
+      "file": "signalforge_historical_strategy_selection_rows_summary.json",
+      "exists_original": true,
+      "exists_current": true,
+      "same": true,
+      "original_count": null,
+      "current_count": null
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36l_extract_selected_trade_sequence_decision_cluster_or_continue_candidate_filter_extraction"
+}
