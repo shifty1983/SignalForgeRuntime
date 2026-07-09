@@ -1,0 +1,324 @@
+{
+  "adapter_type": "selection_decision_cluster_extraction_repair_builder",
+  "artifact_type": "signalforge_selection_decision_cluster_extraction_repair",
+  "contract": "selection_decision_cluster_extraction",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 4,
+  "warnings": [
+    "stage36j_repaired_missing_engine_constants_after_initial_extraction",
+    "historical_backtesting_wrapper_remains_in_backtesting",
+    "selection_decision_logic_now_owned_by_engine",
+    "parity_uses_small_fixture_not_full_historical_replay"
+  ],
+  "source_path": "src\\signalforge\\backtesting\\historical_strategy_selection_rows_builder.py",
+  "engine_path": "src\\signalforge\\engines\\strategy_selection\\selection_decision.py",
+  "backup_path": "docs\\strategy_selection_engine\\stage36j_backtesting_backups\\historical_strategy_selection_rows_builder.py.before_stage36j",
+  "needed_external_names": [
+    "Counter",
+    "Dict",
+    "List",
+    "Mapping",
+    "Optional",
+    "SCOPE_CONFIDENCE_MULTIPLIER",
+    "Tuple",
+    "math"
+  ],
+  "missing_engine_bindings_before_repair": [
+    "Counter",
+    "Dict",
+    "List",
+    "Mapping",
+    "Optional",
+    "SCOPE_CONFIDENCE_MULTIPLIER",
+    "Tuple",
+    "math"
+  ],
+  "copied_binding_names": [
+    "Any",
+    "Counter",
+    "Dict",
+    "Iterable",
+    "List",
+    "Mapping",
+    "Optional",
+    "SCOPE_CONFIDENCE_MULTIPLIER",
+    "Tuple",
+    "math"
+  ],
+  "unresolved_bindings": [],
+  "extracted_function_count": 10,
+  "parity_function_count": 8,
+  "compile_rows": [
+    {
+      "path": "src\\signalforge\\engines\\strategy_selection\\selection_decision.py",
+      "compile_ok": true,
+      "error": null
+    },
+    {
+      "path": "src\\signalforge\\backtesting\\historical_strategy_selection_rows_builder.py",
+      "compile_ok": true,
+      "error": null
+    }
+  ],
+  "wrapper_rows": [
+    {
+      "function": "_as_float",
+      "is_wrapper": true
+    },
+    {
+      "function": "_as_int",
+      "is_wrapper": true
+    },
+    {
+      "function": "_candidate_id",
+      "is_wrapper": true
+    },
+    {
+      "function": "_is_selectable",
+      "is_wrapper": true
+    },
+    {
+      "function": "_selection_score",
+      "is_wrapper": true
+    },
+    {
+      "function": "_sample_confidence_multiplier",
+      "is_wrapper": true
+    },
+    {
+      "function": "_scope_confidence_multiplier",
+      "is_wrapper": true
+    },
+    {
+      "function": "_confidence_adjusted_selection_score",
+      "is_wrapper": true
+    },
+    {
+      "function": "_rank_tuple",
+      "is_wrapper": true
+    },
+    {
+      "function": "_selection_row",
+      "is_wrapper": true
+    }
+  ],
+  "parity_rows": [
+    {
+      "function": "_candidate_id",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "None_SPY_None",
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "None_SPY_None",
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "None_SPY_None",
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_is_selectable",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "'<' not supported between instances of 'int' and 'dict'"
+      },
+      "engine_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "'<' not supported between instances of 'int' and 'dict'"
+      },
+      "patched_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "'<' not supported between instances of 'int' and 'dict'"
+      }
+    },
+    {
+      "function": "_selection_score",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_sample_confidence_multiplier",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_scope_confidence_multiplier",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": 0.5,
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": 0.5,
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": 0.5,
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_confidence_adjusted_selection_score",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": 0.0,
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_rank_tuple",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          -999999,
+          -999999
+        ],
+        "error_type": null,
+        "error": null
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          -999999,
+          -999999
+        ],
+        "error_type": null,
+        "error": null
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          -999999,
+          -999999
+        ],
+        "error_type": null,
+        "error": null
+      }
+    },
+    {
+      "function": "_selection_row",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "ValueError",
+        "error": "too many values to unpack (expected 3)"
+      },
+      "engine_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "ValueError",
+        "error": "too many values to unpack (expected 3)"
+      },
+      "patched_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "ValueError",
+        "error": "too many values to unpack (expected 3)"
+      }
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36k_historical_strategy_selection_replay_parity"
+}
