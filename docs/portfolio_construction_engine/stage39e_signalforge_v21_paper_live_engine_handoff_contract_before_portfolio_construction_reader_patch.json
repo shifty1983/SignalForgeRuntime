@@ -212,27 +212,5 @@
     "paper_order_created": false,
     "live_order_created": false,
     "live_trade_supported": false
-  },
-  "portfolio_construction_reader": {
-    "schema_version": "signalforge_portfolio_construction_reader_handoff.v1",
-    "reader_state": "attached_for_paper_portfolio_review",
-    "module": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader",
-    "entrypoint": "build_canonical_portfolio_construction_reader",
-    "runtime_source_policy": "consume_canonical_stage_24_25_25a_outputs_only",
-    "optimizer_policy": "do_not_run_optimizer_in_paper_runtime",
-    "depends_on": [
-      "paper_review_bundle",
-      "expectancy_snapshot_adapter"
-    ],
-    "canonical_stage_inputs": {
-      "position_sizing": "data/canonical/signalforge_pipeline/24_position_sizing_return_bound_sensitivity/stage24_promotion_manifest.json",
-      "equity_reconstruction": "data/canonical/signalforge_pipeline/25_equity_reconstruction_return_bound_sensitivity/stage25_promotion_manifest.json",
-      "allocated_equity_reconstruction": "data/canonical/signalforge_pipeline/25A_equity_reconstruction_allocated_return_bound_sensitivity/stage25A_promotion_manifest.json"
-    },
-    "required_manual_approval": true,
-    "trade_authorization": "not_authorized_by_portfolio_construction_reader",
-    "paper_order_created": false,
-    "live_order_created": false,
-    "live_trade_supported": false
   }
 }

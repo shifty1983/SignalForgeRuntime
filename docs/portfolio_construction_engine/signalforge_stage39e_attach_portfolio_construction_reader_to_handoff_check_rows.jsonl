@@ -1,0 +1,10 @@
+{"check": "portfolio_construction_reader_present", "expected": true, "actual": true, "passed": true}
+{"check": "module", "expected": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader", "actual": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader", "passed": true}
+{"check": "entrypoint", "expected": "build_canonical_portfolio_construction_reader", "actual": "build_canonical_portfolio_construction_reader", "passed": true}
+{"check": "optimizer_policy", "expected": "do_not_run_optimizer_in_paper_runtime", "actual": "do_not_run_optimizer_in_paper_runtime", "passed": true}
+{"check": "reader_artifact_ready", "expected": true, "actual": true, "passed": true}
+{"check": "trade_authorization_guard", "expected": "not_authorized_by_portfolio_construction_reader", "actual": "not_authorized_by_portfolio_construction_reader", "passed": true}
+{"check": "manual_approval_required", "expected": true, "actual": true, "passed": true}
+{"check": "paper_order_created_false", "expected": false, "actual": false, "passed": true}
+{"check": "live_order_created_false", "expected": false, "actual": false, "passed": true}
+{"check": "live_trade_supported_false", "expected": false, "actual": false, "passed": true}

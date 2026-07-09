@@ -1,0 +1,87 @@
+{
+  "adapter_type": "portfolio_construction_reader_handoff_patch_builder",
+  "artifact_type": "signalforge_portfolio_construction_reader_handoff_patch",
+  "contract": "portfolio_construction_reader_handoff_patch",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage39e_patches_handoff_contract_only",
+    "portfolio_construction_reader_does_not_run_optimizer",
+    "portfolio_construction_reader_does_not_authorize_trades"
+  ],
+  "handoff_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "backup_path": "docs\\portfolio_construction_engine\\stage39e_signalforge_v21_paper_live_engine_handoff_contract_before_portfolio_construction_reader_patch.json",
+  "portfolio_construction_reader_present": true,
+  "reader_artifact_is_ready": true,
+  "reader_readiness_state": "ready_for_paper_portfolio_review",
+  "manifest_count": 3,
+  "stage_file_count": 3,
+  "optimizer_policy": "do_not_run_optimizer_in_paper_runtime",
+  "checks": [
+    {
+      "check": "portfolio_construction_reader_present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "module",
+      "expected": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader",
+      "actual": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader",
+      "passed": true
+    },
+    {
+      "check": "entrypoint",
+      "expected": "build_canonical_portfolio_construction_reader",
+      "actual": "build_canonical_portfolio_construction_reader",
+      "passed": true
+    },
+    {
+      "check": "optimizer_policy",
+      "expected": "do_not_run_optimizer_in_paper_runtime",
+      "actual": "do_not_run_optimizer_in_paper_runtime",
+      "passed": true
+    },
+    {
+      "check": "reader_artifact_ready",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "trade_authorization_guard",
+      "expected": "not_authorized_by_portfolio_construction_reader",
+      "actual": "not_authorized_by_portfolio_construction_reader",
+      "passed": true
+    },
+    {
+      "check": "manual_approval_required",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "paper_order_created_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "check": "live_order_created_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "check": "live_trade_supported_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
