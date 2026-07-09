@@ -1,0 +1,6 @@
+{"check": "expectancy_snapshot_adapter_present", "passed": true}
+{"check": "paper_review_bundle_present", "passed": true}
+{"check": "all_runtime_paths_exist", "passed": true}
+{"check": "all_runtime_paths_canonical", "passed": true}
+{"check": "paper_review_bundle_requires_manual_approval", "passed": true}
+{"check": "paper_review_bundle_does_not_authorize_trades", "passed": true}

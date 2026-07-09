@@ -1,0 +1,27 @@
+{
+  "adapter_type": "canonical_paper_review_bundle_reader_promotion_smoke",
+  "artifact_type": "signalforge_canonical_paper_review_bundle_reader_promotion_smoke",
+  "contract": "canonical_paper_review_bundle_reader_promotion_smoke",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage39a_promotes_reader_into_src",
+    "reader_does_not_create_orders"
+  ],
+  "module": "signalforge.engines.paper_trading.canonical_paper_review_bundle_reader",
+  "entrypoint": "build_canonical_paper_review_bundle_reader",
+  "reader_artifact_type": "signalforge_canonical_paper_review_bundle_reader",
+  "reader_contract": "canonical_paper_review_bundle_reader",
+  "reader_is_ready": true,
+  "reader_readiness_state": "ready_for_paper_review",
+  "runtime_path_count": 10,
+  "runtime_path_exists_count": 10,
+  "runtime_path_canonical_count": 10,
+  "trade_authorization": "not_authorized_by_paper_review_bundle",
+  "requires_manual_approval": true,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
