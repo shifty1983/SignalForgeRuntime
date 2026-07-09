@@ -1,0 +1,33 @@
+{
+  "adapter_type": "fast_paper_handoff_expectancy_reader_smoke",
+  "artifact_type": "signalforge_fast_paper_handoff_expectancy_reader_smoke",
+  "contract": "fast_paper_handoff_expectancy_reader_smoke",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage38b_fast_smoke_only",
+    "expectancy_adapter_does_not_authorize_trades",
+    "expected_value_scoring_remains_review_handoff"
+  ],
+  "handoff_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "patch_present": true,
+  "runtime": {
+    "source_summary_ready": true,
+    "source_row_count": 13412,
+    "adapter_contract": "canonical_expectancy_snapshot_adapter",
+    "adapter_ready": true,
+    "adapter_output_item_count": 13412,
+    "ev_contract": "expected_value_scoring",
+    "ev_status": "needs_review",
+    "ev_is_ready": false,
+    "ev_requires_manual_approval": true,
+    "ev_order_intent": null,
+    "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+    "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
