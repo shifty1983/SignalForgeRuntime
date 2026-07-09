@@ -1,0 +1,71 @@
+{
+  "adapter_type": "canonical_paper_review_bundle_handoff_patch_builder",
+  "artifact_type": "signalforge_canonical_paper_review_bundle_handoff_patch",
+  "contract": "canonical_paper_review_bundle_handoff_patch",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage38f_patches_handoff_contract_only",
+    "paper_review_bundle_does_not_authorize_trades",
+    "paper_review_bundle_uses_only_data_canonical_signalforge_pipeline_sources"
+  ],
+  "handoff_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "backup_path": "docs\\paper_candidate_handoff\\stage38f_signalforge_v21_paper_live_engine_handoff_contract_before_paper_review_bundle_patch.json",
+  "paper_review_bundle_present": true,
+  "artifact_path_count": 8,
+  "checks": [
+    {
+      "check": "paper_review_bundle_present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "runtime_source_policy",
+      "expected": "paper_trading_inputs_must_come_from_data_canonical_signalforge_pipeline",
+      "actual": "paper_trading_inputs_must_come_from_data_canonical_signalforge_pipeline",
+      "passed": true
+    },
+    {
+      "check": "trade_authorization_guard",
+      "expected": "not_authorized_by_paper_review_bundle",
+      "actual": "not_authorized_by_paper_review_bundle",
+      "passed": true
+    },
+    {
+      "check": "manual_approval_required",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "all_paths_canonical",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "paper_order_created_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "check": "live_order_created_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "check": "live_trade_supported_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}

@@ -188,29 +188,5 @@
     "consumer_requires_manual_approval": true,
     "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
     "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
-  },
-  "paper_review_bundle": {
-    "schema_version": "signalforge_paper_review_bundle.v1",
-    "bundle_state": "canonical_paper_review_bundle_attached",
-    "runtime_source_policy": "paper_trading_inputs_must_come_from_data_canonical_signalforge_pipeline",
-    "review_scope": "paper_candidate_review_handoff",
-    "required_manual_approval": true,
-    "trade_authorization": "not_authorized_by_paper_review_bundle",
-    "execution_translation_available": false,
-    "execution_translation_resolution": "not_promoted_to_data_canonical_signalforge_pipeline",
-    "canonical_root": "data\\canonical\\signalforge_pipeline",
-    "artifact_paths": {
-      "expectancy_summary": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
-      "expectancy_rows": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
-      "strategy_selection_summary": "data\\canonical\\signalforge_pipeline\\21_strategy_selection_pruned_core_plus_credit\\signalforge_historical_strategy_selection_rows_summary.json",
-      "selected_trade_sequence_summary": "data\\canonical\\signalforge_pipeline\\23_selected_trade_sequence_pruned\\signalforge_portfolio_selected_trade_sequence_summary.json",
-      "position_sizing_manifest": "data\\canonical\\signalforge_pipeline\\24_position_sizing_return_bound_sensitivity\\stage24_promotion_manifest.json",
-      "equity_reconstruction_manifest": "data\\canonical\\signalforge_pipeline\\25_equity_reconstruction_return_bound_sensitivity\\stage25_promotion_manifest.json",
-      "allocated_equity_reconstruction_manifest": "data\\canonical\\signalforge_pipeline\\25A_equity_reconstruction_allocated_return_bound_sensitivity\\stage25A_promotion_manifest.json",
-      "paper_candidate_lock": "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json"
-    },
-    "paper_order_created": false,
-    "live_order_created": false,
-    "live_trade_supported": false
   }
 }
