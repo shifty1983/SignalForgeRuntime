@@ -1,0 +1,131 @@
+{
+  "adapter_type": "canonical_expectancy_adapter_prototype_builder",
+  "artifact_type": "signalforge_canonical_expectancy_adapter_prototype",
+  "contract": "canonical_expectancy_adapter_prototype",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 5,
+  "warnings": [
+    "adapter_items_built_but_current_engine_did_not_return_ready_true_for_any_variant",
+    "next_stage_should_inspect_expected_value_scoring_readiness_contract_before_wiring",
+    "stage37i_is_docs_only_no_production_logic_moved",
+    "canonical_expectancy_snapshot_is_selected_source_of_truth",
+    "legacy_expected_value_domain_remains_research_only_until_ab_backtested"
+  ],
+  "canonical_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+  "canonical_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+  "canonical_summary_is_ready": true,
+  "canonical_summary_artifact_type": "signalforge_walk_forward_expectancy",
+  "canonical_total_row_count": 13412,
+  "sample_limit": 500,
+  "adapter_item_count": 500,
+  "adapter_item_distribution": {
+    "coverage_status_counts": {
+      "missing_expectancy": 132,
+      "sample_limited": 92,
+      "covered": 276
+    },
+    "expected_value_state_counts": {
+      "data_review": 132,
+      "sample_limited": 92,
+      "positive_expectancy_candidate": 80,
+      "non_positive_expectancy": 196
+    },
+    "handoff_status_counts": {
+      "data_review": 132,
+      "review": 92,
+      "candidate": 80,
+      "blocked": 196
+    },
+    "top_strategy_counts": {
+      "long_call": 113,
+      "long_put": 103,
+      "bear_put_debit_spread": 79,
+      "bull_call_debit_spread": 67,
+      "calendar_spread": 50,
+      "diagonal_spread": 38,
+      "iron_butterfly": 32,
+      "put_credit_spread": 12,
+      "iron_condor": 5,
+      "call_credit_spread": 1
+    }
+  },
+  "engine_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+  "engine_entrypoint": "build_signalforge_expected_value_scoring",
+  "module_constants": {
+    "ELIGIBILITY_ITEM_KEYS": [
+      "strategy_family_eligibility_items",
+      "eligibility_items",
+      "items",
+      "data",
+      "rows"
+    ],
+    "EXPECTED_VALUE_SCORING_SCHEMA_VERSION": "signalforge_expected_value_scoring.v1",
+    "FAMILY_ORDER": [
+      "defined_risk_short_premium",
+      "credit_spread",
+      "debit_spread",
+      "directional_long_premium",
+      "long_gamma",
+      "protective_put_spread",
+      "defined_risk_neutral",
+      "defined_risk_only",
+      "wait_for_clearer_options_edge",
+      "manual_review_only"
+    ],
+    "NON_EV_FAMILIES": "{'short_premium_without_hedge', 'manual_review_only', 'long_unhedged_premium', 'naked_short_premium'}",
+    "COVERED_CAPABILITIES": [
+      "expected_value_scoring",
+      "risk_adjusted_expected_value_scoring",
+      "strategy_family_candidate_scoring",
+      "ev_handoff_review_not_trade_selection"
+    ],
+    "DEPENDS_ON_CAPABILITIES": [
+      "strategy_family_eligibility"
+    ]
+  },
+  "smoke_row_count": 12,
+  "ready_smoke_count": 0,
+  "acceptable_smoke_count": 12,
+  "adapter_contract": {
+    "adapter_name": "canonical_walk_forward_expectancy_snapshot_adapter",
+    "source_owner": "data/canonical/signalforge_pipeline/18_walk_forward_expectancy",
+    "source_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+    "source_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+    "producer_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+    "consumer_candidate": "signalforge.engines.strategy_selection.expected_value_scoring.build_signalforge_expected_value_scoring",
+    "adapter_output_shape": "sequence_of_engine_expected_value_scoring_items",
+    "paper_rule": "paper consumes locked canonical expectancy snapshot and does not recompute walk-forward expectancy",
+    "required_source_fields": [
+      "symbol",
+      "strategy_name or strategy",
+      "decision_date or date",
+      "expectancy_state",
+      "expectancy_sample_count",
+      "expectancy_minimum_sample_count",
+      "expectancy_average_return",
+      "expectancy_win_rate",
+      "uses_current_row_outcome",
+      "uses_future_rows",
+      "training_window_end"
+    ],
+    "required_output_fields": [
+      "symbol",
+      "strategy_family",
+      "strategy_name",
+      "decision_date",
+      "coverage_status",
+      "expected_value_state",
+      "favored_families",
+      "allowed_families",
+      "blocked_families",
+      "constraint_flags",
+      "blocked_reasons"
+    ]
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37j_inspect_expected_value_scoring_readiness_contract"
+}
