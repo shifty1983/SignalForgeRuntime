@@ -1,0 +1,61 @@
+{
+  "adapter_type": "paper_review_bundle_inventory_builder",
+  "artifact_type": "signalforge_paper_review_bundle_inventory",
+  "contract": "paper_review_bundle_inventory",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage38c_fast_inventory_only",
+    "paper_review_bundle_inventory_does_not_create_orders"
+  ],
+  "handoff_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "path_row_count": 5,
+  "category_counts": {
+    "paper_candidate_lock": 2,
+    "uncategorized": 1,
+    "expectancy": 2
+  },
+  "category_existing_counts": {
+    "paper_candidate_lock": 2,
+    "uncategorized": 1,
+    "expectancy": 2
+  },
+  "category_missing_counts": {},
+  "checks": [
+    {
+      "check": "handoff_contract_exists",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "expectancy_snapshot_adapter_present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "expectancy_source_rows_exists",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "expectancy_source_summary_exists",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "trade_authorization_guard",
+      "expected": "not_authorized_by_expectancy_adapter_or_expected_value_scoring",
+      "actual": "not_authorized_by_expectancy_adapter_or_expected_value_scoring",
+      "passed": true
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
