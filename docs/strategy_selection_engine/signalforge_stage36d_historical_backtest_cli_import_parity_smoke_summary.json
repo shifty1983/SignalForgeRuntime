@@ -1,0 +1,14 @@
+{
+  "adapter_type": "historical_backtest_cli_import_parity_smoke_builder",
+  "artifact_type": "signalforge_historical_backtest_cli_import_parity_smoke",
+  "contract": "historical_backtest_cli_import_parity_smoke",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "module_count": 18,
+  "import_ok_count": 18,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36e_update_backtesting_imports_or_run_targeted_replay_parity"
+}
