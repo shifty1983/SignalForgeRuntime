@@ -1,0 +1,26 @@
+{
+  "adapter_type": "walk_forward_expectancy_ownership_classification_builder",
+  "artifact_type": "signalforge_walk_forward_expectancy_ownership_classification",
+  "contract": "walk_forward_expectancy_ownership_classification",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage37d_is_read_only_no_logic_moved",
+    "walk_forward_expectancy_generation_remains_backtesting_owned",
+    "paper_engine_should_consume_locked_expectancy_snapshot_not_recompute_walk_forward"
+  ],
+  "file_count": 3,
+  "symbol_count": 45,
+  "extraction_review_count": 10,
+  "backtesting_keep_count": 20,
+  "walk_forward_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+  "paper_expectancy_consumption_target": "src/signalforge/engines/strategy_selection/expectancy_decision.py",
+  "current_strategy_ev_scoring_path": "src/signalforge/engines/strategy_selection/expected_value_scoring.py",
+  "legacy_expected_value_status": "research_candidate_only_until_ab_backtested",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37e_source_slice_review_expectancy_consumption_policy"
+}
