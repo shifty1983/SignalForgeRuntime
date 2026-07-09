@@ -1,0 +1,20 @@
+{
+  "adapter_type": "stage09_10_entrypoint_parity_inventory_builder",
+  "artifact_type": "signalforge_stage09_10_entrypoint_parity_inventory",
+  "contract": "stage09_10_entrypoint_parity_inventory",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage36e_is_entrypoint_and_wrapper_identity_inventory_not_data_replay",
+    "next_stage_should_use_likely_entrypoints_for_small_fixture_output_parity"
+  ],
+  "module_pair_count": 4,
+  "export_row_count": 81,
+  "likely_entrypoint_count": 11,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36f_small_fixture_stage09_10_output_parity"
+}
