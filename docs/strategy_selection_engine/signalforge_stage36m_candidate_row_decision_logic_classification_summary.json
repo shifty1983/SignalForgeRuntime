@@ -1,0 +1,25 @@
+{
+  "adapter_type": "candidate_row_decision_logic_classification_builder",
+  "artifact_type": "signalforge_candidate_row_decision_logic_classification",
+  "contract": "candidate_row_decision_logic_classification",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36m_is_read_only_no_logic_moved",
+    "historical_candidate_row_builder_remains_in_backtesting",
+    "extract_only_reusable_candidate_filter_or_block_reason_logic"
+  ],
+  "source_path": "src\\signalforge\\backtesting\\historical_strategy_candidate_rows_builder.py",
+  "target_function_count": 10,
+  "classified_function_count": 10,
+  "extract_with_parity_test_count": 6,
+  "manual_review_before_extract_count": 1,
+  "keep_in_backtesting_count": 3,
+  "recommendation": "extract_candidate_filter_decision_cluster_with_parity_test",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36n_extract_candidate_filter_decision_cluster_with_parity_test"
+}
