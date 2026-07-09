@@ -1,0 +1,37 @@
+{
+  "adapter_type": "backtesting_to_engine_import_boundary_map_builder",
+  "artifact_type": "signalforge_backtesting_to_engine_import_boundary_map",
+  "contract": "backtesting_to_engine_import_boundary_map",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "old_owner_references_detected_expected_before_wrapper_migration",
+    "stage36b_is_read_only_no_imports_modified",
+    "next_stage_should_create_wrappers_or_update_backtesting_imports_one_group_at_a_time"
+  ],
+  "engine_module_count": 14,
+  "matched_file_count": 75,
+  "old_owner_reference_file_count": 6,
+  "backtesting_boundary_file_count": 37,
+  "bucket_counts": {
+    "backtesting_consumer_or_legacy_owner": 37,
+    "bootstrap_consumer": 2,
+    "engine_strategy_selection": 17,
+    "legacy_options_execution_owner_or_wrapper_candidate": 4,
+    "other_consumer": 10,
+    "paper_live_engine_consumer": 5
+  },
+  "action_counts": {
+    "already_points_to_engine_review_only": 1,
+    "inspect_for_embedded_strategy_selection_logic": 30,
+    "keep_engine_source": 17,
+    "replace_logic_or_imports_with_engine_module_after_boundary_review": 6,
+    "review_reference": 21
+  },
+  "live_trade_supported": false,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "next_step": "stage36c_create_options_execution_compatibility_wrappers_or_update_backtesting_imports"
+}
