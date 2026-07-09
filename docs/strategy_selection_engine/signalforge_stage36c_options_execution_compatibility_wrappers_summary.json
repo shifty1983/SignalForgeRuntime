@@ -1,0 +1,33 @@
+﻿{
+    "adapter_type":  "options_execution_compatibility_wrapper_builder",
+    "artifact_type":  "signalforge_options_execution_compatibility_wrappers",
+    "contract":  "options_execution_compatibility_wrappers",
+    "is_ready":  true,
+    "blocker_count":  0,
+    "wrapper_count":  4,
+    "source_of_truth":  "src\\signalforge\\engines\\strategy_selection",
+    "compatibility_namespace":  "src\\signalforge\\options_execution",
+    "paper_order_created":  false,
+    "live_order_created":  false,
+    "live_trade_supported":  false,
+    "backup_dir":  "docs\\strategy_selection_engine\\stage36c_options_execution_wrapper_backups",
+    "smoke_path":  "docs\\strategy_selection_engine\\run_stage36c_wrapper_import_export_smoke.py",
+    "wrappers":  [
+                     {
+                         "Old":  "src\\signalforge\\options_execution\\strategy_structure_availability_v21.py",
+                         "New":  "signalforge.engines.strategy_selection.strategy_structure_availability_v21"
+                     },
+                     {
+                         "Old":  "src\\signalforge\\options_execution\\resolved_strategy_execution_rules_v21.py",
+                         "New":  "signalforge.engines.strategy_selection.resolved_strategy_execution_rules_v21"
+                     },
+                     {
+                         "Old":  "src\\signalforge\\options_execution\\execution_qualified_historical_strategy_candidates_v21.py",
+                         "New":  "signalforge.engines.strategy_selection.execution_qualified_historical_strategy_candidates_v21"
+                     },
+                     {
+                         "Old":  "src\\signalforge\\options_execution\\repaired_historical_strategy_candidates_v13_v21.py",
+                         "New":  "signalforge.engines.strategy_selection.repaired_historical_strategy_candidates_v13_v21"
+                     }
+                 ]
+}
