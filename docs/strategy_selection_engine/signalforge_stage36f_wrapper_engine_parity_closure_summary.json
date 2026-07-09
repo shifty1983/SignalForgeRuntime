@@ -1,0 +1,158 @@
+{
+  "adapter_type": "wrapper_engine_parity_closure_builder",
+  "artifact_type": "signalforge_wrapper_engine_parity_closure",
+  "contract": "wrapper_engine_parity_closure",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage36f_does_not_run_full_historical_replay",
+    "same_object_wrapper_identity_guarantees_same_entrypoint_execution_path"
+  ],
+  "module_pair_count": 4,
+  "entrypoint_count": 11,
+  "same_object_count": 11,
+  "expected_same_object_count": 11,
+  "callable_smoke": {
+    "resolve_row": {
+      "rows": [
+        {
+          "fixture_index": 1,
+          "same_output": true,
+          "same_error": true,
+          "old_error": null,
+          "engine_error": null,
+          "old_result": {
+            "adapter_type": "resolved_strategy_execution_rules_v21_builder",
+            "artifact_type": "signalforge_resolved_strategy_execution_rules_v21",
+            "contract": "resolved_strategy_execution_rules_v21",
+            "asof_rule": "metric_overlay_and_strategy_structure_availability_are_asof_quote_date",
+            "underlying_symbol": "SPY",
+            "quote_date": "",
+            "strategy_name": "long_call",
+            "final_execution_state": "manual_review",
+            "can_backtest_new_entry": false,
+            "requires_manual_review": true,
+            "structure_available": true,
+            "candidate_contract_count": null,
+            "candidate_pair_count": null,
+            "candidate_structure_count": 0,
+            "expiration_count_with_structures": null,
+            "overlay_state": "unknown",
+            "rolling_liquidity_tier": null,
+            "fill_price_mode": null,
+            "max_allowed_relative_spread": null,
+            "blocker_count": 0,
+            "blockers": [],
+            "warning_count": 1,
+            "warnings": [
+              "unknown_overlay_state_manual_review"
+            ]
+          },
+          "engine_result": {
+            "adapter_type": "resolved_strategy_execution_rules_v21_builder",
+            "artifact_type": "signalforge_resolved_strategy_execution_rules_v21",
+            "contract": "resolved_strategy_execution_rules_v21",
+            "asof_rule": "metric_overlay_and_strategy_structure_availability_are_asof_quote_date",
+            "underlying_symbol": "SPY",
+            "quote_date": "",
+            "strategy_name": "long_call",
+            "final_execution_state": "manual_review",
+            "can_backtest_new_entry": false,
+            "requires_manual_review": true,
+            "structure_available": true,
+            "candidate_contract_count": null,
+            "candidate_pair_count": null,
+            "candidate_structure_count": 0,
+            "expiration_count_with_structures": null,
+            "overlay_state": "unknown",
+            "rolling_liquidity_tier": null,
+            "fill_price_mode": null,
+            "max_allowed_relative_spread": null,
+            "blocker_count": 0,
+            "blockers": [],
+            "warning_count": 1,
+            "warnings": [
+              "unknown_overlay_state_manual_review"
+            ]
+          }
+        },
+        {
+          "fixture_index": 2,
+          "same_output": true,
+          "same_error": true,
+          "old_error": null,
+          "engine_error": null,
+          "old_result": {
+            "adapter_type": "resolved_strategy_execution_rules_v21_builder",
+            "artifact_type": "signalforge_resolved_strategy_execution_rules_v21",
+            "contract": "resolved_strategy_execution_rules_v21",
+            "asof_rule": "metric_overlay_and_strategy_structure_availability_are_asof_quote_date",
+            "underlying_symbol": "QQQ",
+            "quote_date": "",
+            "strategy_name": "put_credit_spread",
+            "final_execution_state": "block",
+            "can_backtest_new_entry": false,
+            "requires_manual_review": false,
+            "structure_available": false,
+            "candidate_contract_count": null,
+            "candidate_pair_count": null,
+            "candidate_structure_count": 0,
+            "expiration_count_with_structures": null,
+            "overlay_state": "missing",
+            "rolling_liquidity_tier": null,
+            "fill_price_mode": null,
+            "max_allowed_relative_spread": null,
+            "blocker_count": 2,
+            "blockers": [
+              "missing_metric_driven_overlay",
+              "strategy_structure_unavailable"
+            ],
+            "warning_count": 0,
+            "warnings": []
+          },
+          "engine_result": {
+            "adapter_type": "resolved_strategy_execution_rules_v21_builder",
+            "artifact_type": "signalforge_resolved_strategy_execution_rules_v21",
+            "contract": "resolved_strategy_execution_rules_v21",
+            "asof_rule": "metric_overlay_and_strategy_structure_availability_are_asof_quote_date",
+            "underlying_symbol": "QQQ",
+            "quote_date": "",
+            "strategy_name": "put_credit_spread",
+            "final_execution_state": "block",
+            "can_backtest_new_entry": false,
+            "requires_manual_review": false,
+            "structure_available": false,
+            "candidate_contract_count": null,
+            "candidate_pair_count": null,
+            "candidate_structure_count": 0,
+            "expiration_count_with_structures": null,
+            "overlay_state": "missing",
+            "rolling_liquidity_tier": null,
+            "fill_price_mode": null,
+            "max_allowed_relative_spread": null,
+            "blocker_count": 2,
+            "blockers": [
+              "missing_metric_driven_overlay",
+              "strategy_structure_unavailable"
+            ],
+            "warning_count": 0,
+            "warnings": []
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [],
+      "executed_fixture_count": 2,
+      "parity_pass": true
+    }
+  },
+  "source_of_truth": "signalforge.engines.strategy_selection",
+  "compatibility_namespace": "signalforge.options_execution",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "parity_state": "wrapper_and_engine_entrypoints_identical",
+  "next_step": "stage36g_backtesting_import_cleanup_or_engine_replay_parity"
+}
