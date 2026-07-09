@@ -1,0 +1,29 @@
+{
+  "adapter_type": "expected_value_recursive_dependency_review_builder",
+  "artifact_type": "signalforge_expected_value_recursive_dependency_review",
+  "contract": "expected_value_recursive_dependency_review",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage37b2_is_read_only_no_logic_moved",
+    "walk_forward_expectancy_builder_remains_backtesting_owned",
+    "next_stage_should_extract_verified_dependency_clusters_with_parity_tests"
+  ],
+  "closure_group_count": 2,
+  "reviewed_symbol_count": 25,
+  "opportunity_score_closure_count": 24,
+  "risk_reward_closure_count": 1,
+  "strategy_selection_root_count": 2,
+  "walk_forward_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+  "expected_value_targets": [
+    "src/signalforge/engines/expected_value/opportunity_score.py",
+    "src/signalforge/engines/expected_value/risk_reward.py"
+  ],
+  "strategy_selection_target": "src/signalforge/engines/strategy_selection/expected_value_scoring.py",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37c_extract_expected_value_dependency_clusters_with_parity_tests"
+}
