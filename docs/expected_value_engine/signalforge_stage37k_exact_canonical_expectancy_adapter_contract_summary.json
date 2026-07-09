@@ -1,0 +1,86 @@
+{
+  "adapter_type": "exact_canonical_expectancy_adapter_contract_builder",
+  "artifact_type": "signalforge_exact_canonical_expectancy_adapter_contract",
+  "contract": "exact_canonical_expectancy_adapter_contract",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 4,
+  "warnings": [
+    "stage37k_is_contract_only_no_production_logic_moved",
+    "expected_value_scoring_is_review_handoff_not_trade_authorization",
+    "legacy_expected_value_domain_remains_research_only_until_ab_backtested",
+    "data_canonical_runtime_files_should_not_be_force_added_to_git"
+  ],
+  "canonical_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+  "canonical_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+  "canonical_summary_is_ready": true,
+  "canonical_summary_artifact_type": "signalforge_walk_forward_expectancy",
+  "canonical_summary_contract": "walk_forward_expectancy",
+  "canonical_row_count": 13412,
+  "adapter_target": "src/signalforge/engines/strategy_selection/canonical_expectancy_snapshot_adapter.py",
+  "engine_consumer": "signalforge.engines.strategy_selection.expected_value_scoring.build_signalforge_expected_value_scoring",
+  "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+  "validation": {
+    "required_source_fields": [
+      "symbol",
+      "decision_date",
+      "expectancy_state",
+      "expectancy_sample_count",
+      "expectancy_minimum_sample_count",
+      "uses_current_row_outcome",
+      "uses_future_rows",
+      "training_window_end"
+    ],
+    "missing_field_counts": {},
+    "no_lookahead_violation_count": 0,
+    "empty_strategy_count": 0,
+    "empty_symbol_count": 0,
+    "coverage_status_counts": {
+      "missing_expectancy": 132,
+      "sample_limited": 165,
+      "covered": 13115
+    },
+    "expected_value_state_counts": {
+      "data_review": 132,
+      "sample_limited": 165,
+      "positive_expectancy_candidate": 9405,
+      "non_positive_expectancy": 3710
+    },
+    "handoff_status_counts": {
+      "data_review": 132,
+      "review": 165,
+      "candidate": 9405,
+      "blocked": 3710
+    },
+    "reason_counts": {
+      "missing_or_no_prior_expectancy_sample": 132,
+      "sample_limited_expectancy": 165,
+      "positive_expectancy_evidence": 9405,
+      "non_positive_expectancy": 3710
+    },
+    "top_strategy_counts": {
+      "long_put": 2859,
+      "long_call": 2717,
+      "bear_put_debit_spread": 2127,
+      "bull_call_debit_spread": 1647,
+      "calendar_spread": 1377,
+      "iron_butterfly": 1117,
+      "diagonal_spread": 817,
+      "put_credit_spread": 339,
+      "iron_condor": 273,
+      "call_credit_spread": 139
+    },
+    "expectancy_scope_counts": {
+      "symbol_strategy_regime_asset_option": 2998,
+      "strategy_regime_asset_option": 6321,
+      "strategy_global": 3565,
+      "strategy_regime_asset": 289,
+      "symbol_strategy_regime_asset": 239
+    }
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37l_promote_canonical_expectancy_snapshot_adapter_with_parity_smoke"
+}
