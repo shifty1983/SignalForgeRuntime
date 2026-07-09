@@ -1,0 +1,827 @@
+{
+  "adapter_type": "candidate_filter_decision_cluster_extraction_builder",
+  "artifact_type": "signalforge_candidate_filter_decision_cluster_extraction",
+  "contract": "candidate_filter_decision_cluster_extraction",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36o_extracts_candidate_filter_decision_logic_only",
+    "historical_candidate_row_builder_remains_in_backtesting",
+    "stage36o_parity_uses_function_fixture_full_replay_parity_should_follow"
+  ],
+  "source_path": "src\\signalforge\\backtesting\\historical_strategy_candidate_rows_builder.py",
+  "engine_path": "src\\signalforge\\engines\\strategy_selection\\candidate_filter_decision.py",
+  "backup_path": "docs\\strategy_selection_engine\\stage36o_backtesting_backups\\historical_strategy_candidate_rows_builder.py.before_stage36o.py",
+  "extracted_function_count": 19,
+  "module_bindings_copied": [
+    "MISSING_VALUE"
+  ],
+  "compile_rows": [
+    {
+      "path": "src\\signalforge\\engines\\strategy_selection\\candidate_filter_decision.py",
+      "compile_ok": true,
+      "error": null
+    },
+    {
+      "path": "src\\signalforge\\backtesting\\historical_strategy_candidate_rows_builder.py",
+      "compile_ok": true,
+      "error": null
+    }
+  ],
+  "wrapper_rows": [
+    {
+      "function": "_normalise_text",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_family_status_aliases",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_family_statuses",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_family_status",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_family_gate_block_reasons",
+      "is_wrapper": true
+    },
+    {
+      "function": "_as_dict",
+      "is_wrapper": true
+    },
+    {
+      "function": "_as_list",
+      "is_wrapper": true
+    },
+    {
+      "function": "_research_context_from_decision_row",
+      "is_wrapper": true
+    },
+    {
+      "function": "_eligibility",
+      "is_wrapper": true
+    },
+    {
+      "function": "_flag_is_true",
+      "is_wrapper": true
+    },
+    {
+      "function": "_nested_state",
+      "is_wrapper": true
+    },
+    {
+      "function": "_normalise_symbol",
+      "is_wrapper": true
+    },
+    {
+      "function": "_parse_option_behavior",
+      "is_wrapper": true
+    },
+    {
+      "function": "_decision_row_block_reasons",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_definition_block_reasons",
+      "is_wrapper": true
+    },
+    {
+      "function": "_has_term_structure_behavior",
+      "is_wrapper": true
+    },
+    {
+      "function": "_has_underlying_position",
+      "is_wrapper": true
+    },
+    {
+      "function": "_strategy_context_block_reasons",
+      "is_wrapper": true
+    },
+    {
+      "function": "_candidate_state",
+      "is_wrapper": true
+    }
+  ],
+  "parity_rows": [
+    {
+      "function": "_normalise_text",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_strategy_family_status_aliases",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [
+          "long_call"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call'}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [
+          "long_call"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call'}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [
+          "long_call"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call'}"
+      }
+    },
+    {
+      "function": "_strategy_family_statuses",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": {
+          "long_call": "eligible"
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": {
+          "long_call": "eligible"
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": {
+          "long_call": "eligible"
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_strategy_family_status",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'long_call']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'long_call']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'long_call']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_strategy_family_gate_block_reasons",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [
+          "strategy_family_status_not_allowed:long_call:eligible"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call', 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [
+          "strategy_family_status_not_allowed:long_call:eligible"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call', 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [
+          "strategy_family_status_not_allowed:long_call:eligible"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy_family': 'long_call', 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      }
+    },
+    {
+      "function": "_as_dict",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": {},
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": {},
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": {},
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_as_list",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [],
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [],
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [],
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_research_context_from_decision_row",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": {
+          "regime": {},
+          "asset_behavior": {},
+          "option_behavior": {
+            "state": "complete",
+            "term_structure": {
+              "state": "available"
+            },
+            "underlying_position": null
+          },
+          "regime_asset_options_alignment": {},
+          "strategy_family_eligibility": {
+            "long_call": {
+              "is_eligible": true,
+              "eligible": true,
+              "state": "eligible",
+              "status": "eligible",
+              "block_reasons": []
+            }
+          },
+          "strategy_family_statuses": {
+            "long_call": "eligible"
+          },
+          "favored_strategy_families": [],
+          "allowed_strategy_families": [],
+          "discouraged_strategy_families": [],
+          "blocked_strategy_families": [],
+          "review_required_strategy_families": [],
+          "strategy_family_eligibility_handoff": null
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": {
+          "regime": {},
+          "asset_behavior": {},
+          "option_behavior": {
+            "state": "complete",
+            "term_structure": {
+              "state": "available"
+            },
+            "underlying_position": null
+          },
+          "regime_asset_options_alignment": {},
+          "strategy_family_eligibility": {
+            "long_call": {
+              "is_eligible": true,
+              "eligible": true,
+              "state": "eligible",
+              "status": "eligible",
+              "block_reasons": []
+            }
+          },
+          "strategy_family_statuses": {
+            "long_call": "eligible"
+          },
+          "favored_strategy_families": [],
+          "allowed_strategy_families": [],
+          "discouraged_strategy_families": [],
+          "blocked_strategy_families": [],
+          "review_required_strategy_families": [],
+          "strategy_family_eligibility_handoff": null
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": {
+          "regime": {},
+          "asset_behavior": {},
+          "option_behavior": {
+            "state": "complete",
+            "term_structure": {
+              "state": "available"
+            },
+            "underlying_position": null
+          },
+          "regime_asset_options_alignment": {},
+          "strategy_family_eligibility": {
+            "long_call": {
+              "is_eligible": true,
+              "eligible": true,
+              "state": "eligible",
+              "status": "eligible",
+              "block_reasons": []
+            }
+          },
+          "strategy_family_statuses": {
+            "long_call": "eligible"
+          },
+          "favored_strategy_families": [],
+          "allowed_strategy_families": [],
+          "discouraged_strategy_families": [],
+          "blocked_strategy_families": [],
+          "review_required_strategy_families": [],
+          "strategy_family_eligibility_handoff": null
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_eligibility",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": {
+          "has_option_behavior": true,
+          "has_contract_outcome": true,
+          "is_tradable": true,
+          "tradable": true,
+          "has_underlying_position": false,
+          "has_term_structure_behavior": true
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": {
+          "has_option_behavior": true,
+          "has_contract_outcome": true,
+          "is_tradable": true,
+          "tradable": true,
+          "has_underlying_position": false,
+          "has_term_structure_behavior": true
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": {
+          "has_option_behavior": true,
+          "has_contract_outcome": true,
+          "is_tradable": true,
+          "tradable": true,
+          "has_underlying_position": false,
+          "has_term_structure_behavior": true
+        },
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_flag_is_true",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a dict key (unhashable type: 'dict')",
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a dict key (unhashable type: 'dict')",
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a dict key (unhashable type: 'dict')",
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_nested_state",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "eligible",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_normalise_symbol",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "ELIGIBLE",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "ELIGIBLE",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "ELIGIBLE",
+        "error_type": null,
+        "error": null,
+        "args_repr": "['eligible']",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_parse_option_behavior",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "AttributeError",
+        "error": "'dict' object has no attribute 'lower'",
+        "args_repr": "[{'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "AttributeError",
+        "error": "'dict' object has no attribute 'lower'",
+        "args_repr": "[{'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "AttributeError",
+        "error": "'dict' object has no attribute 'lower'",
+        "args_repr": "[{'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_decision_row_block_reasons",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [
+          "missing_decision_date",
+          "missing_asset_behavior_state",
+          "missing_option_iv_level",
+          "missing_option_liquidity_state"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{'strategy_policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [
+          "missing_decision_date",
+          "missing_asset_behavior_state",
+          "missing_option_iv_level",
+          "missing_option_liquidity_state"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{'strategy_policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [
+          "missing_decision_date",
+          "missing_asset_behavior_state",
+          "missing_option_iv_level",
+          "missing_option_liquidity_state"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{'strategy_policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      }
+    },
+    {
+      "function": "_strategy_definition_block_reasons",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": [
+          "missing_strategy",
+          "missing_strategy_structure",
+          "missing_strategy_direction",
+          "missing_premium_profile",
+          "missing_candidate_rank"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": [
+          "missing_strategy",
+          "missing_strategy_structure",
+          "missing_strategy_direction",
+          "missing_premium_profile",
+          "missing_candidate_rank"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": [
+          "missing_strategy",
+          "missing_strategy_structure",
+          "missing_strategy_direction",
+          "missing_premium_profile",
+          "missing_candidate_rank"
+        ],
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_has_term_structure_behavior",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": true,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": true,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": true,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_has_underlying_position",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": false,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": false,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": false,
+        "error_type": null,
+        "error": null,
+        "args_repr": "[{'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}]",
+        "kwargs_repr": "{}"
+      }
+    },
+    {
+      "function": "_strategy_context_block_reasons",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a set element (unhashable type: 'dict')",
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'asset_behavior_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_iv_level': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_liquidity_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'holding_period_days': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "engine_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a set element (unhashable type: 'dict')",
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'asset_behavior_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_iv_level': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_liquidity_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'holding_period_days': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      },
+      "patched_result": {
+        "ok": false,
+        "value": null,
+        "error_type": "TypeError",
+        "error": "cannot use 'dict' as a set element (unhashable type: 'dict')",
+        "args_repr": "[]",
+        "kwargs_repr": "{'row': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'strategy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'asset_behavior_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_iv_level': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'option_liquidity_state': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'holding_period_days': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}, 'policy': {'as_of_date': '2024-01-02', 'symbol': 'SPY', 'underlying_symbol': 'SPY', 'strategy_family': 'long_call', 'strategy_name': 'long_call', 'data_state': 'complete', 'decision_state': 'candidate', 'regime': 'bullish', 'asset_behavior_state': 'trend_up', 'option_behavior_state': 'complete', 'strategy_family_eligibility': {'long_call': {'is_eligible': True, 'eligible': True, 'state': 'eligible', 'status': 'eligible', 'block_reasons': []}}, 'strategy_family_statuses': {'long_call': 'eligible'}, 'strategy_family_status': 'eligible', 'eligibility': {'has_option_behavior': True, 'has_contract_outcome': True, 'is_tradable': True, 'tradable': True, 'has_underlying_position': False, 'has_term_structure_behavior': True}, 'option_behavior': {'state': 'complete', 'term_structure': {'state': 'available'}, 'underlying_position': None}, 'research': {'regime': 'bullish', 'asset_behavior': 'trend_up', 'option_behavior': 'complete'}}}"
+      }
+    },
+    {
+      "function": "_candidate_state",
+      "original_vs_engine": true,
+      "engine_vs_patched_backtesting_wrapper": true,
+      "original_result": {
+        "ok": true,
+        "value": "available",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[[]]",
+        "kwargs_repr": "{}"
+      },
+      "engine_result": {
+        "ok": true,
+        "value": "available",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[[]]",
+        "kwargs_repr": "{}"
+      },
+      "patched_result": {
+        "ok": true,
+        "value": "available",
+        "error_type": null,
+        "error": null,
+        "args_repr": "[[]]",
+        "kwargs_repr": "{}"
+      }
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36p_historical_candidate_rows_replay_parity"
+}

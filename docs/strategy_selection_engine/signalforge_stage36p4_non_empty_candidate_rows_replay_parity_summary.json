@@ -1,0 +1,46 @@
+{
+  "adapter_type": "non_empty_historical_candidate_rows_replay_parity_builder",
+  "artifact_type": "signalforge_non_empty_historical_candidate_rows_replay_parity",
+  "contract": "non_empty_historical_candidate_rows_replay_parity",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage36p4_runs_non_empty_historical_candidate_rows_replay",
+    "historical_candidate_row_builder_remains_in_backtesting_engine_owns_candidate_filter_helpers"
+  ],
+  "function": "build_historical_strategy_candidate_rows_artifact",
+  "backup_path": "docs\\strategy_selection_engine\\stage36o_backtesting_backups\\historical_strategy_candidate_rows_builder.py.before_stage36o.py",
+  "current_module": "signalforge.backtesting.historical_strategy_candidate_rows_builder",
+  "decision_rows_path": "artifacts\\historical_strategy_family_eligibility_enrichment_local_rebuild_20210601_20260531\\signalforge_historical_strategy_family_eligibility_enriched_decision_rows.jsonl",
+  "strategy_policy_path": null,
+  "expected_candidate_row_count": 54456,
+  "original_output_dir": "docs\\strategy_selection_engine\\stage36p4_original_candidate_rows_output",
+  "current_output_dir": "docs\\strategy_selection_engine\\stage36p4_current_candidate_rows_output",
+  "result_same": true,
+  "output_file_count": 2,
+  "matching_output_file_count": 2,
+  "output_rows": [
+    {
+      "file": "signalforge_historical_strategy_candidate_rows.jsonl",
+      "same": true,
+      "exists_original": true,
+      "exists_current": true,
+      "original_count": 54456,
+      "current_count": 54456
+    },
+    {
+      "file": "signalforge_historical_strategy_candidate_rows_summary.json",
+      "same": true,
+      "exists_original": true,
+      "exists_current": true,
+      "original_count": null,
+      "current_count": null
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "commit_stage36o_p4_or_classify_walk_forward_expectancy_logic"
+}
