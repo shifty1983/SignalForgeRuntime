@@ -1,0 +1,63 @@
+{
+  "adapter_type": "candidate_filter_recursive_dependency_review_builder",
+  "artifact_type": "signalforge_candidate_filter_recursive_dependency_review",
+  "contract": "candidate_filter_recursive_dependency_review",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36n2_is_read_only_no_logic_moved",
+    "historical_candidate_row_builder_remains_in_backtesting",
+    "candidate_filter_extraction_must_include_full_dependency_closure"
+  ],
+  "source_path": "src\\signalforge\\backtesting\\historical_strategy_candidate_rows_builder.py",
+  "proposed_engine_target": "src/signalforge/engines/strategy_selection/candidate_filter_decision.py",
+  "root_target_count": 6,
+  "dependency_closure_count": 19,
+  "reviewed_function_count": 20,
+  "required_function_count": 19,
+  "optional_function_count": 1,
+  "required_function_names": [
+    "_normalise_text",
+    "_strategy_family_status_aliases",
+    "_strategy_family_statuses",
+    "_strategy_family_status",
+    "_strategy_family_gate_block_reasons",
+    "_as_dict",
+    "_as_list",
+    "_research_context_from_decision_row",
+    "_eligibility",
+    "_flag_is_true",
+    "_nested_state",
+    "_normalise_symbol",
+    "_parse_option_behavior",
+    "_decision_row_block_reasons",
+    "_strategy_definition_block_reasons",
+    "_has_term_structure_behavior",
+    "_has_underlying_position",
+    "_strategy_context_block_reasons",
+    "_candidate_state"
+  ],
+  "optional_function_names": [
+    "_alignment_research_fields"
+  ],
+  "required_import_names": [
+    "Any",
+    "Dict",
+    "List",
+    "Mapping",
+    "Sequence",
+    "json"
+  ],
+  "module_binding_dependencies": [
+    "MISSING_VALUE"
+  ],
+  "module_binding_sources": {
+    "MISSING_VALUE": "MISSING_VALUE = \"__missing__\""
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36o_extract_candidate_filter_decision_cluster_with_parity_test"
+}
