@@ -1,0 +1,42 @@
+{
+  "adapter_type": "src_optimizer_portfolio_construction_inventory_builder",
+  "artifact_type": "signalforge_src_optimizer_portfolio_construction_inventory",
+  "contract": "src_optimizer_portfolio_construction_inventory",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage39b_src_inventory_only_no_runtime_changes",
+    "paper_trading_should_consume_canonical_outputs_not_run_optimization",
+    "optimizer_logic_requires_ab_test_before_paper_promotion"
+  ],
+  "src_root": "src",
+  "matched_module_count": 167,
+  "entrypoint_count": 159,
+  "engine_candidate_module_count": 53,
+  "backtesting_or_cli_module_count": 71,
+  "category_counts": {
+    "optimizer": 80,
+    "strategy_selection": 101,
+    "position_sizing": 71,
+    "equity_reconstruction": 49,
+    "portfolio_construction": 61
+  },
+  "ownership_counts": {
+    "unclassified_src": 20,
+    "legacy_or_research": 23,
+    "portfolio_domain_candidate": 11,
+    "backtesting_or_cli": 71,
+    "engine_candidate": 42
+  },
+  "recommendation": {
+    "paper_runtime_policy": "consume_canonical_outputs_only",
+    "optimization_policy": "research_backtesting_only_until_ab_promoted",
+    "portfolio_construction_policy": "wrap_or_read_promoted_canonical_stage_24_25_25A_outputs_before_importing_optimizers",
+    "next_step": "inspect_engine_candidate_modules_and_choose_reader_or_adapter_boundary"
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
