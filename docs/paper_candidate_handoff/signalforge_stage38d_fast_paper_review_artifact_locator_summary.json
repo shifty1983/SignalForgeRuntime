@@ -1,0 +1,40 @@
+{
+  "adapter_type": "fast_paper_review_artifact_locator",
+  "artifact_type": "signalforge_fast_paper_review_artifact_locator",
+  "contract": "fast_paper_review_artifact_locator",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 4,
+  "warnings": [
+    "stage38d_fast_top_level_locator_only",
+    "does_not_read_large_row_files",
+    "paper_review_artifact_locator_does_not_create_orders",
+    "execution_translation_summary_not_found_in_fast_locator"
+  ],
+  "artifact_root": "artifacts",
+  "canonical_root": "data\\canonical\\signalforge_pipeline",
+  "located_summary_count": 44,
+  "category_counts": {
+    "strategy_selection": 16,
+    "capital_sufficiency": 1,
+    "portfolio_reconstruction": 6,
+    "position_sizing": 11,
+    "selected_trade_sequence": 9,
+    "paper_candidate_lock": 1
+  },
+  "ready_counts": {
+    "strategy_selection": 16,
+    "capital_sufficiency": 1,
+    "portfolio_reconstruction": 6,
+    "position_sizing": 11,
+    "selected_trade_sequence": 9,
+    "paper_candidate_lock": 1
+  },
+  "missing_categories": [
+    "execution_translation"
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
