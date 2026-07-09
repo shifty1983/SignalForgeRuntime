@@ -1,0 +1,29 @@
+{
+  "adapter_type": "targeted_engine_boundary_review_builder",
+  "artifact_type": "signalforge_targeted_engine_boundary_review",
+  "contract": "targeted_engine_boundary_review",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage39c_targeted_boundary_review_only",
+    "paper_runtime_must_read_canonical_outputs_not_run_optimizer",
+    "backtesting_allocator_is_research_only_until_ab_promoted"
+  ],
+  "target_module_count": 11,
+  "function_count": 164,
+  "runtime_allowed_count": 6,
+  "needs_wrapper_count": 0,
+  "research_only_count": 5,
+  "recommendation": {
+    "paper_runtime_reader": "use canonical_paper_review_bundle_reader as the paper-runtime entrypoint",
+    "portfolio_construction_runtime": "build a canonical portfolio construction reader/wrapper that consumes Stage 24/25/25A canonical outputs",
+    "optimizer_runtime": "do_not_run_optimizer_in_paper_runtime",
+    "optimizer_research": "A/B test portfolio_value_ranked_allocator_v2 or successors upstream before canonical promotion",
+    "next_step": "stage39d_promote_canonical_portfolio_construction_reader"
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
