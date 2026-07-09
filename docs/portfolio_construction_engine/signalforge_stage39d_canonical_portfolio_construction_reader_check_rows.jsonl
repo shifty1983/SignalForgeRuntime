@@ -1,0 +1,7 @@
+{"check": "paper_review_bundle_ready", "passed": true}
+{"check": "position_sizing_manifest_present", "passed": true}
+{"check": "equity_reconstruction_manifest_present", "passed": true}
+{"check": "allocated_equity_reconstruction_manifest_present", "passed": true}
+{"check": "all_manifest_paths_canonical", "passed": true}
+{"check": "all_discovered_stage_files_canonical", "passed": true}
+{"check": "does_not_authorize_trades", "passed": true}

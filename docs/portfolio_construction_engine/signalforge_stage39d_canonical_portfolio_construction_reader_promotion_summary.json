@@ -1,0 +1,29 @@
+{
+  "adapter_type": "canonical_portfolio_construction_reader_promotion_smoke",
+  "artifact_type": "signalforge_canonical_portfolio_construction_reader_promotion_smoke",
+  "contract": "canonical_portfolio_construction_reader_promotion_smoke",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage39d_promotes_reader_into_src",
+    "reader_does_not_run_optimizer",
+    "reader_does_not_create_orders"
+  ],
+  "module": "signalforge.engines.paper_trading.canonical_portfolio_construction_reader",
+  "entrypoint": "build_canonical_portfolio_construction_reader",
+  "reader_artifact_type": "signalforge_canonical_portfolio_construction_reader",
+  "reader_contract": "canonical_portfolio_construction_reader",
+  "reader_is_ready": true,
+  "reader_readiness_state": "ready_for_paper_portfolio_review",
+  "manifest_count": 3,
+  "stage_file_count": 3,
+  "portfolio_construction_policy": "consume_canonical_stage_24_25_25a_outputs_only",
+  "optimizer_policy": "do_not_run_optimizer_in_paper_runtime",
+  "trade_authorization": "not_authorized_by_canonical_portfolio_construction_reader",
+  "requires_manual_approval": true,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false
+}
