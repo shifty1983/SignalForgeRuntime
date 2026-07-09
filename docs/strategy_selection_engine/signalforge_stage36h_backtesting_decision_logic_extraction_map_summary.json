@@ -1,0 +1,41 @@
+{
+  "adapter_type": "backtesting_decision_logic_extraction_map_builder",
+  "artifact_type": "signalforge_backtesting_decision_logic_extraction_map",
+  "contract": "backtesting_decision_logic_extraction_map",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36h_is_read_only_no_logic_moved",
+    "historical_wrappers_should_stay_in_backtesting",
+    "extract_only_reusable_decision_logic_into_engines"
+  ],
+  "backtesting_file_count": 6,
+  "function_count": 85,
+  "extraction_candidate_count": 32,
+  "high_confidence_extract_count": 4,
+  "mixed_extract_core_keep_wrapper_count": 5,
+  "classification_counts": {
+    "extract_decision_logic_to_engine": 4,
+    "keep_in_backtesting_cli_or_entrypoint": 2,
+    "keep_in_backtesting_helper_or_io": 36,
+    "keep_in_backtesting_orchestration": 15,
+    "mixed_extract_core_keep_wrapper": 5,
+    "review_possible_embedded_decision_logic": 23
+  },
+  "target_counts": {
+    "none": 17,
+    "signalforge.engines.strategy_selection.allocation": 2,
+    "signalforge.engines.strategy_selection.candidates": 38,
+    "signalforge.engines.strategy_selection.contract_candidate_scoring": 3,
+    "signalforge.engines.strategy_selection.expected_value_scoring": 8,
+    "signalforge.engines.strategy_selection.filters": 8,
+    "signalforge.engines.strategy_selection.ranking": 6,
+    "signalforge.engines.strategy_selection.selector": 3
+  },
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36i_extract_one_high_confidence_decision_function_to_engine_with_parity_test"
+}

@@ -1,0 +1,30 @@
+{
+  "adapter_type": "post_expectancy_selector_ownership_map_builder",
+  "artifact_type": "signalforge_post_expectancy_selector_ownership_map",
+  "contract": "post_expectancy_selector_ownership_map",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 2,
+  "warnings": [
+    "stage36g_is_read_only_no_backtesting_logic_modified",
+    "next_stage_should_migrate_one_backtesting_builder_to_engine_call_or_create_wrapper_parity_test"
+  ],
+  "backtesting_file_count": 6,
+  "engine_module_count": 9,
+  "engine_export_count": 114,
+  "overlap_row_count": 85,
+  "high_priority_backtesting_file_count": 6,
+  "high_priority_backtesting_files": [
+    "src/signalforge/backtesting/historical_strategy_candidate_rows_builder.py",
+    "src/signalforge/backtesting/historical_strategy_selection_rows_builder.py",
+    "src/signalforge/backtesting/historical_strategy_selection_rows_cli.py",
+    "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+    "src/signalforge/backtesting/walk_forward_expectancy_cli.py",
+    "src/signalforge/backtesting/portfolio_selected_trade_sequence.py"
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36h_migrate_historical_strategy_selection_builder_boundary"
+}

@@ -1,0 +1,20 @@
+{
+  "adapter_type": "decision_logic_source_slice_review_builder",
+  "artifact_type": "signalforge_decision_logic_source_slice_review",
+  "contract": "decision_logic_source_slice_review",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36i_is_read_only_source_slice_review",
+    "do_not_move_historical_wrappers_out_of_backtesting",
+    "next_stage_should_extract_first_selection_decision_cluster_with_parity_test"
+  ],
+  "source_file_count": 2,
+  "function_slice_count": 8,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36j_extract_selection_decision_cluster_with_parity_test"
+}
