@@ -1,0 +1,28 @@
+{
+  "adapter_type": "legacy_expected_value_domain_inspection_builder",
+  "artifact_type": "signalforge_legacy_expected_value_domain_inspection",
+  "contract": "legacy_expected_value_domain_inspection",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage37a_is_read_only_no_logic_moved",
+    "walk_forward_expectancy_builder_should_remain_backtesting_orchestration",
+    "promote_only_pure_expected_value_or_strategy_scoring_helpers_after_source_slice_parity_review"
+  ],
+  "legacy_dir_count": 2,
+  "file_count": 40,
+  "symbol_count": 583,
+  "legacy_promote_candidate_count": 10,
+  "legacy_keep_orchestration_count": 89,
+  "already_present_candidate_name_count": 0,
+  "missing_engine_candidate_name_count": 10,
+  "walk_forward_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+  "expected_value_engine_target": "src/signalforge/engines/expected_value",
+  "strategy_selection_ev_scoring_target": "src/signalforge/engines/strategy_selection/expected_value_scoring.py",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37b_source_slice_promote_candidate_expected_value_helpers"
+}
