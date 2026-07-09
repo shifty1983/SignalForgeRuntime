@@ -1,0 +1,38 @@
+{
+  "adapter_type": "paper_live_engine_namespace_resolution_inventory_builder",
+  "artifact_type": "signalforge_paper_live_engine_namespace_resolution_inventory",
+  "contract": "paper_live_engine_namespace_resolution_inventory",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 6,
+  "warnings": [
+    "role_file_not_found_candidate_ingestion_adapter_candidate_ingestion_adapter.py",
+    "role_file_not_found_legacy_domain_facade_legacy_domain_facade.py",
+    "role_file_not_found_legacy_domain_snapshot_adapter_legacy_domain_snapshot_adapter.py",
+    "stage38a_is_read_only_no_code_moved",
+    "optional_bridge_namespace_inventory_only",
+    "expectancy_handoff_is_closed_and_not_blocked_by_optional_bridge_namespace"
+  ],
+  "package_root_count": 5,
+  "role_count": 3,
+  "found_file_role_count": 0,
+  "resolved_import_role_count": 0,
+  "unresolved_import_roles": [
+    "candidate_ingestion_adapter",
+    "legacy_domain_facade",
+    "legacy_domain_snapshot_adapter"
+  ],
+  "missing_file_roles": [
+    "candidate_ingestion_adapter",
+    "legacy_domain_facade",
+    "legacy_domain_snapshot_adapter"
+  ],
+  "compile_row_count": 0,
+  "compile_ok_count": 0,
+  "recommendation": "locate_or_rebuild_missing_bridge_modules",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage38b_create_namespace_wrappers_or_restore_missing_bridge_modules"
+}
