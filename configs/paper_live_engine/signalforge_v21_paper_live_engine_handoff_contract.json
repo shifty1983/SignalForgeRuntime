@@ -1,170 +1,192 @@
-﻿{
-    "artifact_type":  "signalforge_paper_live_engine_handoff_contract",
-    "contract_version":  "v1",
-    "is_ready":  true,
-    "blocker_count":  0,
-    "source_state":  "locked_paper_candidate",
-    "source_artifact_hashes":  [
-                                   {
-                                       "path":  "data\\canonical\\signalforge_pipeline\\metadata\\signalforge_pipeline_stage34_paper_candidate_closure_audit.json",
-                                       "sha256":  "F2AA57C06BD2BA252EEA86365AA269722C575F39C0C04FFD02B159C5C32DDBC8"
-                                   },
-                                   {
-                                       "path":  "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json",
-                                       "sha256":  "B9D128D4ADBA194069395B0D5873A5E32AFFF5CFD60FA892C44DB184BD4E4B16"
-                                   },
-                                   {
-                                       "path":  "data\\canonical\\signalforge_pipeline\\29_strategy_management_rulebook_paper_lock\\signalforge_strategy_management_rulebook_amended_paper_lock.json",
-                                       "sha256":  "89E885A1C4D0727EF6DF295A7E49867E2EEFB2CB82084F72CE27C176939FC65E"
-                                   }
-                               ],
-    "candidate":  {
-                      "paper_candidate_id":  "signalforge_v21_core_plus_credit_term_hpd5_exit10_allocator_v2_1_max_return_10_paper_candidate",
-                      "paper_candidate_state":  "locked_for_paper_trading_review",
-                      "live_candidate_state":  "not_live_candidate",
-                      "active_baseline_scenario":  "max_return_10_allocated",
-                      "paper_trade_supported":  true,
-                      "live_trade_supported":  false,
-                      "live_engine_enabled":  false,
-                      "paper_engine_enabled":  true
-                  },
-    "allowed_strategies":  [
-                               "bear_put_debit_spread",
-                               "bull_call_debit_spread",
-                               "iron_butterfly",
-                               "iron_condor",
-                               "long_call",
-                               "put_credit_spread"
-                           ],
-    "capital_policy":  {
-                           "minimum_operational_capital":  20000,
-                           "minimum_edge_capital":  20000,
-                           "preferred_lower_paper_baseline":  25000,
-                           "validated_comparison_baseline":  100000,
-                           "full_expression_comparison_baseline":  100000
-                       },
-    "spread_policy":  {
-                          "preferred_clean_entry_spread_threshold":  0.1,
-                          "balanced_paper_entry_spread_cap":  0.2,
-                          "manual_review_spread_tier":  "\u003e0.20 and \u003c=0.35",
-                          "skip_default_spread_threshold_above":  0.35,
-                          "unknown_or_unmeasured_spread_policy":  "skip_or_manual_review_only"
-                      },
-    "allocator_policy":  {
-                             "active_allocator":  "portfolio_value_ranked_allocator_v2_1",
-                             "active_return_bound_scenario":  "max_return_10",
-                             "bucket_units":  {
-                                                  "bucket_5":  3,
-                                                  "bucket_4":  2,
-                                                  "bucket_3":  1,
-                                                  "bucket_2":  0,
-                                                  "bucket_1":  0
-                                              },
-                             "lower_bucket_policy":  "bucket_1_and_bucket_2_not_traded",
-                             "position_sizing_source":  "locked_backtest_allocator_policy"
-                         },
-    "execution_policy":  {
-                             "order_type_policy":  "limit_orders_only_no_market_orders",
-                             "no_chase_policy":  "do_not_chase_beyond_mapped_fill_guard_or_paper_spread_cap",
-                             "default_entry_mode":  "paper_only",
-                             "live_entry_mode":  "disabled",
-                             "manual_review_required_for_spread_tier":  "\u003e0.20_and_\u003c=0.35",
-                             "skip_default_for_spread_above":  0.35
-                         },
-    "maintenance_policy":  {
-                               "planned_exit_policy":  "strategy_specific_rules_plus_10_day_holding_period_approximation",
-                               "defense_policy":  "close_or_reduce_only",
-                               "roll_policy":  "manual_review_only_no_automatic_rolls",
-                               "add_risk_policy":  "no_added_risk_no_martingale_no_unbalanced_adjustments",
-                               "structure_conversion_policy":  "no_strategy_conversion_without_new_tested_rule",
-                               "assignment_policy":  "manual_review_required_for_short_leg_assignment_risk"
-                           },
-    "engine_layer_contracts":  {
-                                   "expectancy_layer":  {
-                                                            "role":  "score_candidates_using_prior_only_expectancy_and_locked_allowed_strategy_set",
-                                                            "may_update_locked_candidate":  false,
-                                                            "must_preserve_no_lookahead":  true,
-                                                            "output_required_fields":  [
-                                                                                           "candidate_id",
-                                                                                           "symbol",
-                                                                                           "decision_date",
-                                                                                           "strategy",
-                                                                                           "expectancy_score",
-                                                                                           "bucket",
-                                                                                           "sample_quality",
-                                                                                           "eligibility_state",
-                                                                                           "skip_reason"
-                                                                                       ]
-                                                        },
-                                   "optimization_layer":  {
-                                                              "role":  "serve_locked_thresholds_and_review_limits_to_paper_engine",
-                                                              "may_update_locked_candidate":  false,
-                                                              "live_optimization_enabled":  false,
-                                                              "output_required_fields":  [
-                                                                                             "active_strategy_set",
-                                                                                             "capital_policy",
-                                                                                             "spread_policy",
-                                                                                             "allocator_policy",
-                                                                                             "execution_stress_state",
-                                                                                             "live_trade_supported"
-                                                                                         ]
-                                                          },
-                                   "portfolio_construction_layer":  {
-                                                                        "role":  "convert_expectancy_ranked_candidates_into_paper_orders_using_locked_allocator_policy",
-                                                                        "may_update_locked_candidate":  false,
-                                                                        "output_required_fields":  [
-                                                                                                       "candidate_id",
-                                                                                                       "trade_key",
-                                                                                                       "symbol",
-                                                                                                       "strategy",
-                                                                                                       "bucket",
-                                                                                                       "units",
-                                                                                                       "risk_dollars",
-                                                                                                       "spread_tier",
-                                                                                                       "allocation_state",
-                                                                                                       "skip_reason",
-                                                                                                       "order_intent"
-                                                                                                   ]
-                                                                    }
-                               },
-    "required_paper_ledger_fields":  [
-                                         "paper_order_id",
-                                         "candidate_id",
-                                         "trade_key",
-                                         "symbol",
-                                         "strategy",
-                                         "entry_timestamp",
-                                         "expiration",
-                                         "strikes",
-                                         "right_call_or_put",
-                                         "bid",
-                                         "ask",
-                                         "mid",
-                                         "observed_relative_spread",
-                                         "lineage_spread_tier",
-                                         "limit_price",
-                                         "fill_price",
-                                         "fill_slippage_vs_mid",
-                                         "order_status",
-                                         "partial_fill_state",
-                                         "exit_timestamp",
-                                         "exit_bid",
-                                         "exit_ask",
-                                         "exit_mid",
-                                         "exit_fill_price",
-                                         "realized_pnl",
-                                         "assignment_state",
-                                         "manual_review_state"
-                                     ],
-    "kill_switches":  {
-                          "pause_new_entries_if":  [
-                                                       "observed_spread_cannot_be_measured",
-                                                       "observed_execution_quality_resembles_25pct_worse_fill_stress_for_review",
-                                                       "observed_execution_quality_resembles_50pct_worse_fill_stress",
-                                                       "observed_fills_resemble_combined_adverse_execution_stress",
-                                                       "broker_execution_or_assignment_behavior_cannot_be_reconciled_to_paper_ledger"
-                                                   ],
-                          "live_trading_kill_switch":  "always_disabled_until_separate_live_candidate_review"
-                      },
-    "created_at":  "2026-07-08T13:05:07.2432231-07:00"
+{
+  "artifact_type": "signalforge_paper_live_engine_handoff_contract",
+  "contract_version": "v1",
+  "is_ready": true,
+  "blocker_count": 0,
+  "source_state": "locked_paper_candidate",
+  "source_artifact_hashes": [
+    {
+      "path": "data\\canonical\\signalforge_pipeline\\metadata\\signalforge_pipeline_stage34_paper_candidate_closure_audit.json",
+      "sha256": "F2AA57C06BD2BA252EEA86365AA269722C575F39C0C04FFD02B159C5C32DDBC8"
+    },
+    {
+      "path": "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json",
+      "sha256": "B9D128D4ADBA194069395B0D5873A5E32AFFF5CFD60FA892C44DB184BD4E4B16"
+    },
+    {
+      "path": "data\\canonical\\signalforge_pipeline\\29_strategy_management_rulebook_paper_lock\\signalforge_strategy_management_rulebook_amended_paper_lock.json",
+      "sha256": "89E885A1C4D0727EF6DF295A7E49867E2EEFB2CB82084F72CE27C176939FC65E"
+    }
+  ],
+  "candidate": {
+    "paper_candidate_id": "signalforge_v21_core_plus_credit_term_hpd5_exit10_allocator_v2_1_max_return_10_paper_candidate",
+    "paper_candidate_state": "locked_for_paper_trading_review",
+    "live_candidate_state": "not_live_candidate",
+    "active_baseline_scenario": "max_return_10_allocated",
+    "paper_trade_supported": true,
+    "live_trade_supported": false,
+    "live_engine_enabled": false,
+    "paper_engine_enabled": true
+  },
+  "allowed_strategies": [
+    "bear_put_debit_spread",
+    "bull_call_debit_spread",
+    "iron_butterfly",
+    "iron_condor",
+    "long_call",
+    "put_credit_spread"
+  ],
+  "capital_policy": {
+    "minimum_operational_capital": 20000,
+    "minimum_edge_capital": 20000,
+    "preferred_lower_paper_baseline": 25000,
+    "validated_comparison_baseline": 100000,
+    "full_expression_comparison_baseline": 100000
+  },
+  "spread_policy": {
+    "preferred_clean_entry_spread_threshold": 0.1,
+    "balanced_paper_entry_spread_cap": 0.2,
+    "manual_review_spread_tier": ">0.20 and <=0.35",
+    "skip_default_spread_threshold_above": 0.35,
+    "unknown_or_unmeasured_spread_policy": "skip_or_manual_review_only"
+  },
+  "allocator_policy": {
+    "active_allocator": "portfolio_value_ranked_allocator_v2_1",
+    "active_return_bound_scenario": "max_return_10",
+    "bucket_units": {
+      "bucket_5": 3,
+      "bucket_4": 2,
+      "bucket_3": 1,
+      "bucket_2": 0,
+      "bucket_1": 0
+    },
+    "lower_bucket_policy": "bucket_1_and_bucket_2_not_traded",
+    "position_sizing_source": "locked_backtest_allocator_policy"
+  },
+  "execution_policy": {
+    "order_type_policy": "limit_orders_only_no_market_orders",
+    "no_chase_policy": "do_not_chase_beyond_mapped_fill_guard_or_paper_spread_cap",
+    "default_entry_mode": "paper_only",
+    "live_entry_mode": "disabled",
+    "manual_review_required_for_spread_tier": ">0.20_and_<=0.35",
+    "skip_default_for_spread_above": 0.35
+  },
+  "maintenance_policy": {
+    "planned_exit_policy": "strategy_specific_rules_plus_10_day_holding_period_approximation",
+    "defense_policy": "close_or_reduce_only",
+    "roll_policy": "manual_review_only_no_automatic_rolls",
+    "add_risk_policy": "no_added_risk_no_martingale_no_unbalanced_adjustments",
+    "structure_conversion_policy": "no_strategy_conversion_without_new_tested_rule",
+    "assignment_policy": "manual_review_required_for_short_leg_assignment_risk"
+  },
+  "engine_layer_contracts": {
+    "expectancy_layer": {
+      "role": "score_candidates_using_prior_only_expectancy_and_locked_allowed_strategy_set",
+      "may_update_locked_candidate": false,
+      "must_preserve_no_lookahead": true,
+      "output_required_fields": [
+        "candidate_id",
+        "symbol",
+        "decision_date",
+        "strategy",
+        "expectancy_score",
+        "bucket",
+        "sample_quality",
+        "eligibility_state",
+        "skip_reason"
+      ]
+    },
+    "optimization_layer": {
+      "role": "serve_locked_thresholds_and_review_limits_to_paper_engine",
+      "may_update_locked_candidate": false,
+      "live_optimization_enabled": false,
+      "output_required_fields": [
+        "active_strategy_set",
+        "capital_policy",
+        "spread_policy",
+        "allocator_policy",
+        "execution_stress_state",
+        "live_trade_supported"
+      ]
+    },
+    "portfolio_construction_layer": {
+      "role": "convert_expectancy_ranked_candidates_into_paper_orders_using_locked_allocator_policy",
+      "may_update_locked_candidate": false,
+      "output_required_fields": [
+        "candidate_id",
+        "trade_key",
+        "symbol",
+        "strategy",
+        "bucket",
+        "units",
+        "risk_dollars",
+        "spread_tier",
+        "allocation_state",
+        "skip_reason",
+        "order_intent"
+      ]
+    }
+  },
+  "required_paper_ledger_fields": [
+    "paper_order_id",
+    "candidate_id",
+    "trade_key",
+    "symbol",
+    "strategy",
+    "entry_timestamp",
+    "expiration",
+    "strikes",
+    "right_call_or_put",
+    "bid",
+    "ask",
+    "mid",
+    "observed_relative_spread",
+    "lineage_spread_tier",
+    "limit_price",
+    "fill_price",
+    "fill_slippage_vs_mid",
+    "order_status",
+    "partial_fill_state",
+    "exit_timestamp",
+    "exit_bid",
+    "exit_ask",
+    "exit_mid",
+    "exit_fill_price",
+    "realized_pnl",
+    "assignment_state",
+    "manual_review_state"
+  ],
+  "kill_switches": {
+    "pause_new_entries_if": [
+      "observed_spread_cannot_be_measured",
+      "observed_execution_quality_resembles_25pct_worse_fill_stress_for_review",
+      "observed_execution_quality_resembles_50pct_worse_fill_stress",
+      "observed_fills_resemble_combined_adverse_execution_stress",
+      "broker_execution_or_assignment_behavior_cannot_be_reconciled_to_paper_ledger"
+    ],
+    "live_trading_kill_switch": "always_disabled_until_separate_live_candidate_review"
+  },
+  "created_at": "2026-07-08T13:05:07.2432231-07:00",
+  "expectancy_snapshot_adapter": {
+    "adapter_module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+    "adapter_entrypoint": "build_canonical_expectancy_snapshot_adapter",
+    "source_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+    "source_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+    "source_contract": "walk_forward_expectancy",
+    "source_artifact_type": "signalforge_walk_forward_expectancy",
+    "source_is_ready": true,
+    "adapter_contract": "canonical_expectancy_snapshot_adapter",
+    "adapter_schema_version": "signalforge_canonical_expectancy_snapshot_adapter.v1",
+    "adapter_status": "ready_for_expected_value_review",
+    "adapter_is_ready": true,
+    "adapter_output_item_count": 13412,
+    "consumer_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+    "consumer_entrypoint": "build_signalforge_expected_value_scoring",
+    "consumer_contract": "expected_value_scoring",
+    "consumer_status": "needs_review",
+    "consumer_is_ready": false,
+    "consumer_requires_manual_approval": true,
+    "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+    "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
+  }
 }

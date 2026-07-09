@@ -1,0 +1,182 @@
+{
+  "adapter_type": "paper_handoff_expectancy_adapter_patch_builder",
+  "artifact_type": "signalforge_paper_handoff_expectancy_adapter_patch",
+  "contract": "paper_handoff_expectancy_adapter_patch",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 4,
+  "warnings": [
+    "stage37n_updates_handoff_contract_only",
+    "expectancy_adapter_and_expected_value_scoring_do_not_authorize_trades",
+    "expected_value_scoring_intentionally_remains_needs_review",
+    "data_canonical_runtime_files_should_not_be_force_added_to_git"
+  ],
+  "handoff_contract_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "backup_path": "docs\\expected_value_engine\\stage37n_signalforge_v21_paper_live_engine_handoff_contract_before_expectancy_patch.json",
+  "paper_candidate_id": "signalforge_v21_core_plus_credit_term_hpd5_exit10_allocator_v2_1_max_return_10_paper_candidate",
+  "patch_present": true,
+  "canonical_row_count": 13412,
+  "canonical_summary_is_ready": true,
+  "adapter_is_ready": true,
+  "adapter_output_item_count": 13412,
+  "ev_scoring_status": "needs_review",
+  "ev_scoring_is_ready": false,
+  "ev_scoring_requires_manual_approval": true,
+  "ev_scoring_order_intent": null,
+  "readiness_rows": [
+    {
+      "check": "handoff_contract_reloaded",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "expectancy_snapshot_adapter_patch_present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "patch_matches_stage37m_proposal",
+      "expected": {
+        "adapter_module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+        "adapter_entrypoint": "build_canonical_expectancy_snapshot_adapter",
+        "source_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+        "source_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+        "source_contract": "walk_forward_expectancy",
+        "source_artifact_type": "signalforge_walk_forward_expectancy",
+        "source_is_ready": true,
+        "adapter_contract": "canonical_expectancy_snapshot_adapter",
+        "adapter_schema_version": "signalforge_canonical_expectancy_snapshot_adapter.v1",
+        "adapter_status": "ready_for_expected_value_review",
+        "adapter_is_ready": true,
+        "adapter_output_item_count": 13412,
+        "consumer_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+        "consumer_entrypoint": "build_signalforge_expected_value_scoring",
+        "consumer_contract": "expected_value_scoring",
+        "consumer_status": "needs_review",
+        "consumer_is_ready": false,
+        "consumer_requires_manual_approval": true,
+        "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+        "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
+      },
+      "actual": {
+        "adapter_module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+        "adapter_entrypoint": "build_canonical_expectancy_snapshot_adapter",
+        "source_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+        "source_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+        "source_contract": "walk_forward_expectancy",
+        "source_artifact_type": "signalforge_walk_forward_expectancy",
+        "source_is_ready": true,
+        "adapter_contract": "canonical_expectancy_snapshot_adapter",
+        "adapter_schema_version": "signalforge_canonical_expectancy_snapshot_adapter.v1",
+        "adapter_status": "ready_for_expected_value_review",
+        "adapter_is_ready": true,
+        "adapter_output_item_count": 13412,
+        "consumer_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+        "consumer_entrypoint": "build_signalforge_expected_value_scoring",
+        "consumer_contract": "expected_value_scoring",
+        "consumer_status": "needs_review",
+        "consumer_is_ready": false,
+        "consumer_requires_manual_approval": true,
+        "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+        "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
+      },
+      "passed": true
+    },
+    {
+      "check": "canonical_summary_ready",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "adapter_ready",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "adapter_item_count_matches_canonical",
+      "expected": 13412,
+      "actual": 13412,
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_remains_review",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_requires_manual_approval",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_no_order_intent",
+      "expected": null,
+      "actual": null,
+      "passed": true
+    },
+    {
+      "check": "contract_trade_authorization_guard",
+      "expected": "not_authorized_by_expectancy_adapter_or_expected_value_scoring",
+      "actual": "not_authorized_by_expectancy_adapter_or_expected_value_scoring",
+      "passed": true
+    }
+  ],
+  "handoff_path_rows": [
+    {
+      "field": "artifact_type",
+      "value": "signalforge_paper_live_engine_handoff_contract"
+    },
+    {
+      "field": "source_artifact_hashes",
+      "value": [
+        {
+          "path": "data\\canonical\\signalforge_pipeline\\metadata\\signalforge_pipeline_stage34_paper_candidate_closure_audit.json",
+          "sha256": "F2AA57C06BD2BA252EEA86365AA269722C575F39C0C04FFD02B159C5C32DDBC8"
+        },
+        {
+          "path": "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json",
+          "sha256": "B9D128D4ADBA194069395B0D5873A5E32AFFF5CFD60FA892C44DB184BD4E4B16"
+        },
+        {
+          "path": "data\\canonical\\signalforge_pipeline\\29_strategy_management_rulebook_paper_lock\\signalforge_strategy_management_rulebook_amended_paper_lock.json",
+          "sha256": "89E885A1C4D0727EF6DF295A7E49867E2EEFB2CB82084F72CE27C176939FC65E"
+        }
+      ]
+    },
+    {
+      "field": "source_artifact_hashes[0].path",
+      "value": "data\\canonical\\signalforge_pipeline\\metadata\\signalforge_pipeline_stage34_paper_candidate_closure_audit.json"
+    },
+    {
+      "field": "source_artifact_hashes[1].path",
+      "value": "data\\canonical\\signalforge_pipeline\\33_paper_candidate_lock\\signalforge_paper_candidate_lock.json"
+    },
+    {
+      "field": "source_artifact_hashes[2].path",
+      "value": "data\\canonical\\signalforge_pipeline\\29_strategy_management_rulebook_paper_lock\\signalforge_strategy_management_rulebook_amended_paper_lock.json"
+    },
+    {
+      "field": "expectancy_snapshot_adapter.source_rows_path",
+      "value": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl"
+    },
+    {
+      "field": "expectancy_snapshot_adapter.source_summary_path",
+      "value": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json"
+    },
+    {
+      "field": "expectancy_snapshot_adapter.source_artifact_type",
+      "value": "signalforge_walk_forward_expectancy"
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37o_paper_handoff_contract_import_smoke"
+}
