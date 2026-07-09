@@ -1,0 +1,24 @@
+{
+  "adapter_type": "selected_trade_sequence_ownership_classification_builder",
+  "artifact_type": "signalforge_selected_trade_sequence_ownership_classification",
+  "contract": "selected_trade_sequence_ownership_classification",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage36l_is_read_only_no_logic_moved",
+    "portfolio_selected_trade_sequence_remains_backtesting_owned_unless_manual_review_finds_core_decision_logic",
+    "do_not_extract_row_shaping_or_artifact_contract_logic_to_core_engines"
+  ],
+  "source_path": "src\\signalforge\\backtesting\\portfolio_selected_trade_sequence.py",
+  "target_function_count": 6,
+  "classified_function_count": 6,
+  "keep_in_backtesting_count": 6,
+  "manual_review_before_extract_count": 0,
+  "recommendation": "keep_portfolio_selected_trade_sequence_in_backtesting",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage36m_classify_candidate_rows_builder_decision_logic"
+}
