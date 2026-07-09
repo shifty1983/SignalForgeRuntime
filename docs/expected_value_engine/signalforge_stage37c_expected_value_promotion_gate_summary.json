@@ -1,0 +1,28 @@
+{
+  "adapter_type": "expected_value_promotion_gate_builder",
+  "artifact_type": "signalforge_expected_value_promotion_gate",
+  "contract": "expected_value_promotion_gate",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage37c_is_read_only_no_logic_moved",
+    "legacy_expected_value_cluster_is_research_candidate_until_backtested",
+    "walk_forward_expectancy_builder_remains_backtesting_owned"
+  ],
+  "legacy_ev_cluster_symbol_count": 25,
+  "reference_row_count": 181,
+  "non_legacy_reference_row_count": 156,
+  "walk_forward_reference_row_count": 0,
+  "current_strategy_ev_reference_row_count": 0,
+  "active_backtest_uses_legacy_ev_cluster": false,
+  "current_engine_already_contains_legacy_names": [],
+  "promotion_gate_decision": "do_not_promote_legacy_expected_value_cluster_without_ab_backtest",
+  "walk_forward_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+  "expected_value_candidate_status": "research_candidate_only_until_ab_backtested",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37d_design_expected_value_ab_backtest_before_promotion"
+}
