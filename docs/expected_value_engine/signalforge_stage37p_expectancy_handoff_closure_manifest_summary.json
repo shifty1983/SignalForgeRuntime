@@ -1,0 +1,118 @@
+{
+  "adapter_type": "expectancy_handoff_closure_manifest_builder",
+  "artifact_type": "signalforge_expectancy_handoff_closure_manifest",
+  "contract": "expectancy_handoff_closure_manifest",
+  "is_ready": true,
+  "closure_state": "closed_expectancy_handoff_to_paper_contract",
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 6,
+  "warnings": [
+    "stage37p_closure_manifest_only",
+    "expectancy_adapter_is_handoff_input_not_trade_authorization",
+    "expected_value_scoring_intentionally_remains_needs_review",
+    "legacy_expected_value_domain_remains_research_only_until_ab_backtested",
+    "optional_paper_live_bridge_namespace_cleanup_remains_separate_followup",
+    "data_canonical_runtime_files_should_not_be_force_added_to_git"
+  ],
+  "canonical_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+  "canonical_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+  "canonical_summary_is_ready": true,
+  "canonical_row_count": 13412,
+  "handoff_contract_path": "configs\\paper_live_engine\\signalforge_v21_paper_live_engine_handoff_contract.json",
+  "handoff_patch_present": true,
+  "adapter_module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+  "adapter_entrypoint": "build_canonical_expectancy_snapshot_adapter",
+  "adapter_is_ready": true,
+  "adapter_output_item_count": 13412,
+  "ev_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+  "ev_entrypoint": "build_signalforge_expected_value_scoring",
+  "ev_scoring_status": "needs_review",
+  "ev_scoring_is_ready": false,
+  "ev_scoring_requires_manual_approval": true,
+  "ev_scoring_order_intent": null,
+  "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+  "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring",
+  "required_file_count": 11,
+  "required_file_present_count": 11,
+  "import_rows": [
+    {
+      "module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+      "ok": true,
+      "error": null,
+      "module_file": "C:\\Users\\02011715\\Documents\\SignalForgeRuntime\\src\\signalforge\\engines\\strategy_selection\\canonical_expectancy_snapshot_adapter.py"
+    },
+    {
+      "module": "signalforge.engines.strategy_selection.expected_value_scoring",
+      "ok": true,
+      "error": null,
+      "module_file": "C:\\Users\\02011715\\Documents\\SignalForgeRuntime\\src\\signalforge\\engines\\strategy_selection\\expected_value_scoring.py"
+    }
+  ],
+  "closure_checks": [
+    {
+      "check": "canonical_summary_ready",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "canonical_row_count",
+      "expected": 13412,
+      "actual": 13412,
+      "passed": true
+    },
+    {
+      "check": "handoff_patch_present",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "handoff_patch_source_is_canonical_stage18",
+      "expected": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+      "actual": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+      "passed": true
+    },
+    {
+      "check": "adapter_ready",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "adapter_output_count",
+      "expected": 13412,
+      "actual": 13412,
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_review_status",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_manual_approval_required",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "ev_scoring_no_order_intent",
+      "expected": null,
+      "actual": null,
+      "passed": true
+    },
+    {
+      "check": "live_trade_supported_false",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "return_to_paper_engine_namespace_cleanup_or_portfolio_construction_handoff"
+}
