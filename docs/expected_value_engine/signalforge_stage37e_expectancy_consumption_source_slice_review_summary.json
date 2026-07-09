@@ -1,0 +1,24 @@
+{
+  "adapter_type": "expectancy_consumption_source_slice_review_builder",
+  "artifact_type": "signalforge_expectancy_consumption_source_slice_review",
+  "contract": "expectancy_consumption_source_slice_review",
+  "is_ready": true,
+  "blocker_count": 0,
+  "blockers": [],
+  "warning_count": 3,
+  "warnings": [
+    "stage37e_is_read_only_no_logic_moved",
+    "do_not_recompute_walk_forward_expectancy_inside_paper_engine",
+    "next_stage_should_define_locked_expectancy_snapshot_contract_for_paper_consumption"
+  ],
+  "closure_group_count": 2,
+  "reviewed_symbol_count": 23,
+  "engine_expectancy_consumption_symbol_count": 21,
+  "backtesting_expectancy_generation_symbol_count": 2,
+  "paper_expectancy_consumption_entrypoint": "signalforge.engines.strategy_selection.expected_value_scoring.build_signalforge_expected_value_scoring",
+  "walk_forward_generation_owner": "src/signalforge/backtesting/walk_forward_expectancy_builder.py",
+  "paper_order_created": false,
+  "live_order_created": false,
+  "live_trade_supported": false,
+  "next_step": "stage37f_define_locked_expectancy_snapshot_contract"
+}
