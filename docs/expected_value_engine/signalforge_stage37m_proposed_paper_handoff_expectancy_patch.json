@@ -1,0 +1,24 @@
+{
+  "expectancy_snapshot_adapter": {
+    "adapter_module": "signalforge.engines.strategy_selection.canonical_expectancy_snapshot_adapter",
+    "adapter_entrypoint": "build_canonical_expectancy_snapshot_adapter",
+    "source_rows_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_rows.jsonl",
+    "source_summary_path": "data\\canonical\\signalforge_pipeline\\18_walk_forward_expectancy\\signalforge_walk_forward_expectancy_summary.json",
+    "source_contract": "walk_forward_expectancy",
+    "source_artifact_type": "signalforge_walk_forward_expectancy",
+    "source_is_ready": true,
+    "adapter_contract": "canonical_expectancy_snapshot_adapter",
+    "adapter_schema_version": "signalforge_canonical_expectancy_snapshot_adapter.v1",
+    "adapter_status": "ready_for_expected_value_review",
+    "adapter_is_ready": true,
+    "adapter_output_item_count": 13412,
+    "consumer_module": "signalforge.engines.strategy_selection.expected_value_scoring",
+    "consumer_entrypoint": "build_signalforge_expected_value_scoring",
+    "consumer_contract": "expected_value_scoring",
+    "consumer_status": "needs_review",
+    "consumer_is_ready": false,
+    "consumer_requires_manual_approval": true,
+    "paper_rule": "paper consumes canonical locked walk-forward expectancy snapshot; paper does not recompute walk-forward expectancy",
+    "trade_authorization": "not_authorized_by_expectancy_adapter_or_expected_value_scoring"
+  }
+}
